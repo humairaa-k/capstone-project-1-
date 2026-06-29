@@ -3,7 +3,8 @@ import CategoryGrid from "./CategoryGrid";
 
 export default function CategorySection() {
   return (
-    <section className="py-16 sm:py-20 bg-surface">
+    <section className="relative py-16 sm:py-20 bg-surface">
+    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
           <div className="max-w-2xl">
