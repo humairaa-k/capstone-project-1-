@@ -2,12 +2,16 @@ import { opportunities } from "@/data/opportunities";
 import FeaturedCard from "./FeaturedCard";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function FeaturedSection() {
   const featuredJobs = opportunities.filter((opp) => opp.featured).slice(0, 3);
-
+  const sectionRef = useScrollReveal();
+  
   return (
-    <section className="relative overflow-hidden bg-background py-16 sm:py-20 lg:py-24">
+    <section 
+     ref={sectionRef}
+    className="relative overflow-hidden bg-background py-16 sm:py-20 lg:py-24">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

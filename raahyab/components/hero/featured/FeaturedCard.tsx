@@ -1,11 +1,12 @@
 import { Opportunity } from "@/types";
+import Link from "next/link";
 import {
   ArrowUpRight,
   BriefcaseBusiness,
   CalendarClock,
   MapPin,
 } from "lucide-react";
-import Link from "next/link";
+
 
 interface FeaturedCardProps {
   opportunity: Opportunity;
