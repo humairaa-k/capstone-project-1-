@@ -1,9 +1,9 @@
-import React from 'react'
+import OpportunityGrid from "@/components/opportunity/OpportunityGrid"
 
-function page() {
+export default function page() {
   return (
-    <div>page</div>
+
+    <OpportunityGrid/>
   )
 }
 
-export default page
