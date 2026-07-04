@@ -1,0 +1,66 @@
+import { LucideIcon } from "lucide-react";
+
+interface PageHeadingProps {
+  title: string;
+  highlight: string;
+  subtitle?: string;
+  icon: LucideIcon;
+}
+
+export default function PageHeading({
+  title,
+  highlight,
+  subtitle,
+  icon: Icon,
+}: PageHeadingProps) {
+  return (
+    <div className="relative w-full pt-30 pb-10">
+
+  {/* borders top & bottom  */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px"
+        style={{
+          background: "linear-gradient(to right, rgba(15,118,110,0.3) 0%, rgba(217,119,6,0.2) 50%, transparent 100%)"
+        }}
+      />
+
+      <div
+        className="absolute bottom-0 left-0 right-0 h-px"
+        style={{
+          background: "linear-gradient(to right, rgba(15,118,110,0.3) 0%, rgba(217,119,6,0.2) 50%, transparent 100%)"
+        }}
+      />
+
+      {/* Gradient bg */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "linear-gradient(135deg, rgba(15,118,110,0.03) 0%, rgba(217,119,6,0.03) 50%, rgba(204,251,241,0.05) 100%)"
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10 flex items-center gap-6 px-4 sm:px-6 lg:px-8">
+        <Icon
+          className="h-14 w-14 sm:h-16 sm:w-16 text-primary shrink-0"
+          strokeWidth={1.2}
+        />
+        <div>
+          <h1 className="text-4xl sm:text-5xl italic font-bold text-foreground leading-tight">
+            {title}{" "}
+            <span
+              style={{ fontFamily: "var(--font-dm-serif)" }}
+              className="italic text-primary"
+            >
+              {highlight}
+            </span>
+          </h1>
+          {subtitle && (
+            <p className="mt-2 text-sm text-muted-foreground">{subtitle}</p>
+          )}
+        </div>
+      </div>
+
+    </div>
+  );
+}
