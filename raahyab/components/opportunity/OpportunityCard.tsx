@@ -12,6 +12,9 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+import { getDeadlineStatus } from "@/utils/getDeadlineStatus";
+import { useSaved } from "@/context/SavedContext";
+
  interface FeaturedCardProps {
   opportunity: Opportunity;
 }
@@ -27,6 +30,10 @@ function formatDeadline(deadline: string) {
 export default function FeaturedCard({
   opportunity,
 }: FeaturedCardProps) {
+
+  const { savedOpt, toggleSave } = useSaved();
+  const isSaved = savedOpt.includes(opportunity.id);
+
   const visibleTags = opportunity.tags.slice(0, 3);
 
   const theme =
@@ -34,6 +41,8 @@ export default function FeaturedCard({
       opportunity.category as keyof typeof categoryThemes
     ] ?? categoryThemes.Job;
 
+  const status = getDeadlineStatus(opportunity.deadline)
+  console.log(savedOpt);
   return (
     <Link
       href={`/opportunities/${opportunity.id}`}
@@ -82,7 +91,9 @@ export default function FeaturedCard({
 
           <button
             aria-label="Save opportunity"
-            onClick={(e) => e.preventDefault()}
+            onClick={(e) => { e.preventDefault()
+            toggleSave(opportunity.id)
+             }}
             className="
               flex
               h-11
@@ -99,7 +110,10 @@ export default function FeaturedCard({
               hover:bg-white
             "
           >
-            <Bookmark className={`h-5 w-5 ${theme.accent}`} />
+            <Bookmark 
+            className={`h-5 w-5 transition-all duration-200 
+              ${isSaved ? `fill-current opacity-70 ${theme.accent}`: theme.accent}`}
+            />
           </button>
         </div>
 
@@ -129,6 +143,7 @@ export default function FeaturedCard({
           />
 
           <div className="relative z-10">
+            <div className="flex justify-between items-start gap-4">
             <h3
               className="
                 text-2xl
@@ -139,10 +154,32 @@ export default function FeaturedCard({
                 duration-300
                 group-hover:text-primary
                 dark:group-hover:text-foreground
+                flex-1 
               "
             >
               {opportunity.title}
             </h3>
+
+                      
+          {status === "closingSoon" && (
+             <span className="shrink-0 rounded-full bg-red-100 px-2 py-1 text-xs font-semibold text-red-700">
+              Closing Soon
+            </span>
+          )}
+
+          {status === "endingThisWeek" && (
+          <span className="shrink-0 rounded-full bg-orange-100 px-2 py-1 text-xs font-semibold text-orange-700">
+            Ends This Week
+          </span>
+           )}
+
+           {status === "closed" && (
+            <span className="shrink-0 rounded-full bg-gray-200 px-2 py-1 text-xs font-semibold text-gray-700">
+              Closed
+            </span>
+          )}
+
+          </div>
 
             <div className="mt-3 flex items-center gap-2 text-sm font-medium text-muted-foreground">
               <Building2 className="h-4 w-4" />

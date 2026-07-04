@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Opportunity } from "@/types";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 
 export default function RemoteCard({ id, title, organization, category, location }: Opportunity) {
   return (
@@ -19,7 +19,9 @@ export default function RemoteCard({ id, title, organization, category, location
       </h3>
       <p className="text-xs text-muted-foreground mb-3">{organization}</p>
       <div className="flex items-center justify-between">
-        <span className="text-xs text-muted-foreground">📍 {location}</span>
+        <span className="text-xs text-muted-foreground flex gap-1">
+          <MapPin size={18} color="#fca5a5"/>
+           {location}</span>
         <span className="text-xs text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
           View <ArrowUpRight className="inline-block ml-1 h-4 w-4" />
         </span>

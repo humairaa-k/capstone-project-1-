@@ -10,7 +10,7 @@ export const opportunities: Opportunity[] = [
     category: "Job",
     location: "Kabul",
     type: "On-site",
-    deadline: "2026-08-15",
+    deadline: "2026-07-04",
     description: "We are looking for a skilled Frontend Developer to join our growing team in Kabul. You will build modern web interfaces for Afghan businesses and NGOs.",
     requirements: ["React, Next.js", "HTML & CSS", "2+ years experience", "GitHub"],
     applyLink: "https://example.com/apply",

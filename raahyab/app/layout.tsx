@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/context/ThemeContext";
 //import Footer from "@/components/footer";
+import { SavedProvider } from "@/context/SavedContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,11 +19,15 @@ export default function RootLayout({
     <html
       lang="en">
       <body className="min-h-full flex flex-col">
+
        <ThemeProvider>
+        <SavedProvider>
         <Navbar/>
         <main>{children}</main>
+        </SavedProvider>
         </ThemeProvider>
         {/* <Footer/> */}
+
       </body>
     </html>
   );
