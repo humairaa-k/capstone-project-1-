@@ -8,15 +8,23 @@ interface EmptyStateProps {
 
  buttonText?: string;
  buttonHref?: string;
+ onButtonClick?: () => void;
 
  showButton?: boolean;
 }
 
-export default function EmptyState({title, description, icon: Icon, buttonText="Go Back", buttonHref="/" ,showButton= true}: EmptyStateProps) {
+export default function EmptyState({
+  title,
+  description,
+  icon: Icon,
+  buttonText = "Go Back",
+  buttonHref = "/",
+  onButtonClick,
+  showButton = true,
+}: EmptyStateProps) {
   return (
-  <section className="flex items-center justify-center min-h-screen bg-background">
-    <div className="relative w-full max-w-md rounded-2xl border border-foreground/8 bg-card px-8 py-14 text-center overflow-hidden shadow-sm">
-      
+  <section className="flex items-center justify-center bg-background px-4 py-16">
+    <div className="relative w-full max-w-xl rounded-2xl border border-foreground/8 bg-card px-8 py-14 text-center overflow-hidden shadow-sm">      
       {/* Decorative glow — much softer */}
       <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/4 blur-3xl" />
       <div className="absolute -bottom-16 -left-16 h-40 w-40 rounded-full bg-accent/4 blur-3xl" />
@@ -32,21 +40,29 @@ export default function EmptyState({title, description, icon: Icon, buttonText="
       </h2>
 
       {/* Description */}
-      <p className="mx-auto mt-3 max-w-sm text-sm text-muted-foreground leading-relaxed">
+      <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground leading-relaxed">
         {description}
       </p>
 
       {/* CTA */}
       {showButton && (
-        <Link
-          href={buttonHref}
-          className="mt-8 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-primary/20"
-        >
-          {buttonText}
-        </Link>
+        onButtonClick ? (
+          <button
+            onClick={onButtonClick}
+            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-primary/20"
+          >
+            {buttonText}
+          </button>
+        ) : (
+          <Link
+            href={buttonHref}
+            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-primary/20"
+          >
+            {buttonText}
+          </Link>
+        )
       )}
     </div>
   </section>
 );
 }
-

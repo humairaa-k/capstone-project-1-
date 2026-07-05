@@ -1,8 +1,8 @@
 "use client";
 
-import HeroBackground from "./HeroBackground";
-import HeroStats from "./HeroStats";
-import HeroButtons from "./HeroButtons";
+import HeroBackground from "@/components/home/hero/HeroBackground";
+import HeroStats from "@/components/home/hero/HeroStats";
+import HeroButtons from "@/components/home/hero/HeroBackground";
 import { useTypewriter } from "@/hooks/useTypewriter";
 import { useRef } from "react";
 import gsap from "gsap";

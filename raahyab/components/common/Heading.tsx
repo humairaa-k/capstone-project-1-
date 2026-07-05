@@ -14,7 +14,7 @@ export default function PageHeading({
   icon: Icon,
 }: PageHeadingProps) {
   return (
-    <div className="relative w-full pt-30 pb-10">
+    <div className="relative w-full pt-23 pb-8">
 
   {/* borders top & bottom  */}
       <div
@@ -40,11 +40,8 @@ export default function PageHeading({
       />
 
       {/* Content */}
-      <div className="relative z-10 flex items-center gap-6 px-4 sm:px-6 lg:px-8">
-        <Icon
-          className="h-14 w-14 sm:h-16 sm:w-16 text-primary shrink-0"
-          strokeWidth={1.2}
-        />
+      <div className="relative z-10 flex items-center gap-6 pl-12 pr-4 ">
+        
         <div>
           <h1 className="text-4xl sm:text-5xl italic font-bold text-foreground leading-tight">
             {title}{" "}

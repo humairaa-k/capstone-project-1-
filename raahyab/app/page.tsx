@@ -1,11 +1,11 @@
 "use client";
 
-import Hero from "@/components/hero/Hero";
-import CategorySection from "@/components/hero/categories/CategorySection";
-import CTABanner from "@/components/hero/cta-banner/CTABanner";
-import FeaturedSection from "@/components/hero/featured/FeaturedSection";
-import HowItWorksSection from "@/components/hero/how-it-works/HowItWorksSection";
-import RemoteSpotlightSection from "@/components/hero/remote-spotlight/RemoteSpotlight";
+import Hero from "@/components/home/hero/Hero";
+import CategorySection from "@/components/home/categories/CategorySection";
+import CTABanner from "@/components/home/cta-banner/CTABanner";
+import FeaturedSection from "@/components/home/featured/FeaturedSection";
+import HowItWorksSection from "@/components/home/how-it-works/HowItWorksSection";
+import RemoteSpotlightSection from "@/components/home/remote-spotlight/RemoteSpotlight";
 
 export default function Home() {
  return (
