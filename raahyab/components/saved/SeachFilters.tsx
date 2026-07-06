@@ -28,7 +28,7 @@ export default function SearchFilters({search, onSearch, filter, onFilter, onSor
   return (
   <div className="px-4 sm:px-6 lg:px-8 mt-6 space-y-3 pt-4">
     <div
-     className="mt-6 rounded-3xl border border-border/70 p-5"
+     className="mt-6 rounded-3xl bg-card/60 border border-border/70 p-5"
      style={{ borderColor: "rgba(15,118,110,0.2)" }}
    >
 
@@ -39,9 +39,9 @@ export default function SearchFilters({search, onSearch, filter, onFilter, onSor
     </div>
 
       {/* search bar + filter row */}
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
         <div
-          className="flex flex-1 items-center gap-3 rounded-2xl border px-4 py-3"
+          className="flex flex-1 min-w-0 items-center gap-3 rounded-2xl border px-4 py-3"
           style={{ borderColor: "rgba(15,118,110,0.2)" }}
         >
           <Search className="h-4 w-4 text-muted-foreground shrink-0"/>
@@ -50,7 +50,7 @@ export default function SearchFilters({search, onSearch, filter, onFilter, onSor
              placeholder="Search here..."
              value={search}
              onChange={(e) => onSearch(e.target.value)}
-             className="flex-1 bg-transparent text-sm placeholder:text-muted-foreground focus:outline-none"
+             className="flex-1 min-w-0 bg-transparent text-sm placeholder:text-muted-foreground focus:outline-none"
            />
 
             {checkActiveFilters  && (
@@ -61,7 +61,7 @@ export default function SearchFilters({search, onSearch, filter, onFilter, onSor
                 color:"#fca5a5",
                 borderColor: "rgba(252,165,165,0.35)",
                 backgroundColor: "rgba(252,165,165,0.08)",}}
-               className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-xl border border-foreground/10 text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-all duration-200"
+               className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-xl shrink-0 border border-foreground/10 text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-all duration-200"
              >
                <X className="h-3.5 w-3.5 " />
                Clear
@@ -71,7 +71,7 @@ export default function SearchFilters({search, onSearch, filter, onFilter, onSor
            <button
            onClick={() => {setShowFilters(!showFilters)}}
            aria-label="Toggle filters"
-            className={`flex items-center gap-2 text-xs font-medium px-3 py-1.5 rounded-xl border transition-all duration-200
+            className={`flex items-center gap-2 text-xs font-medium shrink-0 px-3 py-1.5 rounded-xl border transition-all duration-200
               ${showFilters
                 ? "border-primary/30 bg-teal-100 dark:bg-teal-500/10 text-primary"
                 : "border-foreground/10 text-muted-foreground hover:text-foreground hover:border-foreground/20"
@@ -87,7 +87,7 @@ export default function SearchFilters({search, onSearch, filter, onFilter, onSor
           <button
             onClick={() => setShowSort(!showSort)}
             aria-label="Toggle sort"
-            className={`flex items-center gap-2 text-sm font-medium px-4 py-3 rounded-2xl border transition-all duration-200
+            className={`flex items-center gap-2 whitespace-nowrap text-sm font-medium px-4 py-3 rounded-2xl border transition-all duration-200
               ${showSort
                 ? "border-primary/30 bg-teal-100 dark:bg-teal-500/10 text-primary"
                 : "border-foreground/10 text-muted-foreground hover:text-foreground hover:border-foreground/20"
@@ -97,26 +97,26 @@ export default function SearchFilters({search, onSearch, filter, onFilter, onSor
             <span className="hidden sm:inline">Sort</span>
           </button>
 
-          {showSort && (
-            <div className="absolute right-0 mt-2 w-44 rounded-xl border border-border/50 bg-background shadow-lg overflow-hidden z-50">
-              {[
-                { label: "Newest", value: "newest" },
-                { label: "A - Z", value: "a-z" },
-                { label: "Deadline", value: "deadline" },
-               ].map((opt) => (
-                <button
-                  key={opt.value}
-                  onClick={() => {
-                    onSort(opt.value);
-                    setShowSort(false);
-                  }}
-                  className="w-full text-left px-4 py-2 text-sm hover:bg-muted"
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
-          )}
+         {showSort && (
+          <div className="absolute right-0 mt-2 w-36 max-w-[90vw] rounded-xl border border-border/50 bg-background shadow-lg overflow-hidden z-50">
+            {[
+              { label: "Newest", value: "newest" },
+              { label: "A - Z", value: "a-z" },
+              { label: "Deadline", value: "deadline" },
+            ].map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => {
+                  onSort(opt.value);
+                  setShowSort(false);
+                }}
+                className="w-full text-left px-4 py-2 text-sm hover:bg-muted"
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+        )}
         </div>
       </div>
 
@@ -131,7 +131,7 @@ export default function SearchFilters({search, onSearch, filter, onFilter, onSor
             onClick={() => handleFilter(option)}
             aria-label={`Filter by ${option}`}
                 className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-all duration-200
-                  ${activeFilter === option
+                  ${filter === option
                     ? "bg-primary border-primary text-white"
                     : "border-foreground/10 text-muted-foreground hover:border-primary/30 hover:text-primary"
                   }`}

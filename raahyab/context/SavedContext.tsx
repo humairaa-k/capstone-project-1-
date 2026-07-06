@@ -9,6 +9,7 @@ interface Props {
 interface SavedContextType {
  savedOpt: string[];
  toggleSave: (id: string ) => void;
+ clearSaved: () => void;
 }
 
 const SavedContext = createContext<SavedContextType | null>(null);
@@ -36,9 +37,12 @@ export const SavedProvider = ({children}: Props ) => {
    localStorage.setItem("savedOpt", JSON.stringify(savedOpt));
   },[savedOpt])
 
+  const clearSaved = () => {
+    setSavedOpt([]);
+  }
 
   return(
-    <SavedContext.Provider value={{ savedOpt, toggleSave }}>
+    <SavedContext.Provider value={{ savedOpt, toggleSave, clearSaved }}>
       { children}
     </SavedContext.Provider>
   )
