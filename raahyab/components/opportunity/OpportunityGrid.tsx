@@ -9,7 +9,7 @@ export default function OpportunityGrid() {
     <Heading
       title=" Explore"
       highlight=" Opportunities"
-      subtitle="25 opportunities found ( mock data )"
+      subtitle="25 opportunities found ( Demo Data )"
       icon={Compass}
     />
 

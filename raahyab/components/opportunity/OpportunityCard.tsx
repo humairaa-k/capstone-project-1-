@@ -52,13 +52,12 @@ export default function FeaturedCard({
      className="
        relative
        flex
-       min-h-[22rem]
        flex-col
        rounded-2xl
        border
        border-foreground/8
        bg-card
-       p-5
+       p-4
        shadow-sm
        transition-all
        duration-300
@@ -71,16 +70,16 @@ export default function FeaturedCard({
       "
     >
 
-        <div className="mb-5 flex items-center justify-between">
+        <div className="mb-3 flex items-center justify-between">
           <span
             className={`
               inline-flex
               items-center
               rounded-full
               border
-              px-3
-              py-1
-              text-xs
+              px-2.5
+              py-0.5
+              text-[11px]
               font-semibold
               tracking-wide
               ${theme.badge}
@@ -96,8 +95,8 @@ export default function FeaturedCard({
              }}
             className="
               flex
-              h-11
-              w-11
+              h-9
+              w-9
               items-center
               justify-center
               rounded-full
@@ -122,8 +121,8 @@ export default function FeaturedCard({
           className={`
             relative
             overflow-hidden
-            rounded-2xl
-            p-6
+            rounded-xl
+            p-4
             ${theme.wrapper}
           `}
         >
@@ -132,12 +131,12 @@ export default function FeaturedCard({
           <div
             className={`
               absolute
-              -right-10
-              -top-10
-              h-36
-              w-36
+              -right-8
+              -top-8
+              h-24
+              w-24
               rounded-full
-              blur-3xl
+              blur-2xl
               ${theme.blob}
             `}
           />
@@ -146,8 +145,9 @@ export default function FeaturedCard({
             <div className="flex justify-between items-start gap-4">
             <h3
               className="
-                text-2xl
+                text-lg
                 font-bold
+                line-clamp-2
                 leading-tight
                 text-foreground
                 transition-colors
@@ -162,44 +162,44 @@ export default function FeaturedCard({
 
                       
           {status === "closingSoon" && (
-             <span className="shrink-0 rounded-full bg-red-100 px-2 py-1 text-xs font-semibold text-red-700">
+             <span className="shrink-0 rounded-full bg-red-100 px-2 py-0.5 text-[11px] font-semibold text-red-700">
               Closing Soon
             </span>
           )}
 
           {status === "endingThisWeek" && (
-          <span className="shrink-0 rounded-full bg-orange-100 px-2 py-1 text-xs font-semibold text-orange-700">
+          <span className="shrink-0 rounded-full bg-orange-100 px-2 py-0.5 text-[11px] font-semibold text-orange-700">
             Ends This Week
           </span>
            )}
 
            {status === "closed" && (
-            <span className="shrink-0 rounded-full bg-gray-200 px-2 py-1 text-xs font-semibold text-gray-700">
+            <span className="shrink-0 rounded-full bg-gray-200 px-2 py-0.5 text-[11px] font-semibold text-gray-700">
               Closed
             </span>
           )}
 
           </div>
 
-            <div className="mt-3 flex items-center gap-2 text-sm font-medium text-muted-foreground">
-              <Building2 className="h-4 w-4" />
+            <div className="mt-1.5 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+              <Building2 className="h-3.5 w-3.5" />
               {opportunity.organization}
             </div>
 
-            <p className="mt-5 line-clamp-2 text-sm leading-7 text-muted-foreground">
+            <p className="mt-2.5 line-clamp-2 text-xs leading-6 text-muted-foreground">
               {opportunity.description}
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-3 flex flex-wrap gap-1.5">
               {visibleTags.map((tag) => (
                 <span
                   key={tag}
                   className="
                     rounded-full
                     bg-white/70
-                    px-3
-                    py-1
-                    text-xs
+                    px-2.5
+                    py-0.5
+                    text-[11px]
                     font-medium
                     text-foreground
                     backdrop-blur
@@ -214,23 +214,23 @@ export default function FeaturedCard({
         </div>
 
         {/* metadata */}
-        <div className="mt-6 grid gap-4 text-sm sm:grid-cols-3">
-          <span className="flex items-center gap-2">
-            <MapPin className={`h-4 w-4 ${theme.accent}`} />
+        <div className="mt-4 grid grid-cols-3 gap-2 text-xs">
+          <span className="flex items-center min-w-0 gap-2">
+            <MapPin className={`h-3.5 w-3.5 shrink-0 ${theme.accent}`} />
             <span className="truncate">
               {opportunity.location}
             </span>
           </span>
 
-          <span className="flex items-center gap-2">
-            <BriefcaseBusiness className={`h-4 w-4 ${theme.accent}`} />
+          <span className="flex items-center min-w-0 gap-2">
+            <BriefcaseBusiness className={`h-3.5 w-3.5 shrink-0 ${theme.accent}`} />
             <span className="truncate">
               {opportunity.type}
             </span>
           </span>
 
-          <span className="flex items-center gap-2">
-            <CalendarClock className={`h-4 w-4 ${theme.accent}`} />
+          <span className="flex items-center min-w-0 gap-2">
+            <CalendarClock className={`h-3.5 w-3.5 shrink-0 ${theme.accent}`} />
             <span className="truncate">
               {formatDeadline(opportunity.deadline)}
             </span>
@@ -238,12 +238,12 @@ export default function FeaturedCard({
         </div>
 
         <div className="flex-1" />
-        <div className="my-5 h-px bg-border/70" />
+        <div className="my-3 h-px bg-border/70" />
 
         {/* Footer */}
 
         <div className="flex items-center justify-between">
-          <span className="text-sm text-muted-foreground">
+          <span className="text-xs text-muted-foreground">
             Explore this opportunity
           </span>
 
@@ -251,8 +251,8 @@ export default function FeaturedCard({
             className={`
               inline-flex
               items-center
-              gap-2
-              text-sm
+              gap-1.5
+              text-xs
               font-semibold
               transition-all
               duration-300
@@ -263,8 +263,8 @@ export default function FeaturedCard({
 
             <ArrowRight
               className="
-                h-4
-                w-4
+                h-3.5
+                w-3.5
                 transition-transform
                 duration-300
                 group-hover:translate-x-1
@@ -279,13 +279,13 @@ export default function FeaturedCard({
             pointer-events-none
             absolute
             inset-0
-            rounded-3xl
+            rounded-2xl
             opacity-0
             transition-opacity
             duration-300
             group-hover:opacity-100
           " >
-          <div className="absolute inset-0 rounded-3xl ring-1 ring-primary/10" />
+          <div className="absolute inset-0 rounded-2xl ring-1 ring-primary/10" />
         </div>
       </article>
     </Link>
