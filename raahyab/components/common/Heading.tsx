@@ -1,17 +1,14 @@
-import { LucideIcon } from "lucide-react";
 
 interface PageHeadingProps {
   title: string;
   highlight: string;
   subtitle?: string;
-  icon: LucideIcon;
 }
 
 export default function PageHeading({
   title,
   highlight,
-  subtitle,
-  icon: Icon,
+  subtitle
 }: PageHeadingProps) {
   return (
     <div className="relative w-full pt-23 pb-8">

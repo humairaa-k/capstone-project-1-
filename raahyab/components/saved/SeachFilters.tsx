@@ -16,21 +16,17 @@ const filterOptions = ["All", "Job", "Internship", "Scholarship", "Remote Work",
 
 export default function SearchFilters({search, onSearch, filter, onFilter, onSort, onClear }: SavedFiltersProps) {
   const [showFilters, setShowFilters] = useState(false);
-  const [activeFilter, setActiveFilter] = useState("All");
   const [showSort, setShowSort] = useState(false);
 
-    function handleFilter(option: string) {
-     onFilter(option);
-    }
+  function handleFilter(option: string) {
+    onFilter(option);
+  }
 
-   const checkActiveFilters = search.trim() !== "" || filter !== "All";
+  const checkActiveFilters = search.trim() !== "" || filter !== "All";
 
   return (
   <div className="px-4 sm:px-6 lg:px-8 mt-6 space-y-3 pt-4">
-    <div
-     className="mt-6 rounded-3xl bg-card/60 border border-border/70 p-5"
-     style={{ borderColor: "rgba(15,118,110,0.2)" }}
-   >
+    <div className="mt-6 rounded-3xl bg-card border border-foreground/8 shadow-sm p-5">
 
     <div className="mb-5">
       <h3 className="text-lg font-semibold text-foreground">
@@ -40,10 +36,7 @@ export default function SearchFilters({search, onSearch, filter, onFilter, onSor
 
       {/* search bar + filter row */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-        <div
-          className="flex flex-1 min-w-0 items-center gap-3 rounded-2xl border px-4 py-3"
-          style={{ borderColor: "rgba(15,118,110,0.2)" }}
-        >
+        <div className="flex flex-1 min-w-0 items-center gap-3 rounded-2xl border border-foreground/10 bg-surface px-4 py-3">
           <Search className="h-4 w-4 text-muted-foreground shrink-0"/>
            <input
              type="text"
@@ -57,11 +50,7 @@ export default function SearchFilters({search, onSearch, filter, onFilter, onSor
              <button
                onClick={onClear}
                aria-label="Clear filters"
-               style={{
-                color:"#fca5a5",
-                borderColor: "rgba(252,165,165,0.35)",
-                backgroundColor: "rgba(252,165,165,0.08)",}}
-               className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-xl shrink-0 border border-foreground/10 text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-all duration-200"
+               className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-xl shrink-0 border border-red-400/30 text-red-400 hover:bg-red-400/10 transition-all duration-200"
              >
                <X className="h-3.5 w-3.5 " />
                Clear
@@ -98,7 +87,7 @@ export default function SearchFilters({search, onSearch, filter, onFilter, onSor
           </button>
 
          {showSort && (
-          <div className="absolute right-0 mt-2 w-36 max-w-[90vw] rounded-xl border border-border/50 bg-background shadow-lg overflow-hidden z-50">
+          <div className="absolute right-0 mt-2 w-36 max-w-[90vw] rounded-xl border border-foreground/10 bg-card shadow-lg overflow-hidden z-50">
             {[
               { label: "Newest", value: "newest" },
               { label: "A - Z", value: "a-z" },
@@ -121,10 +110,8 @@ export default function SearchFilters({search, onSearch, filter, onFilter, onSor
       </div>
 
         {showFilters && (
-          <div
-          className="rounded-2xl px-3 py-3 mt-3"
-          >
-        <div className="flex flex-wrap gap-2">
+          <div className="rounded-2xl px-3 py-3 mt-3 border-t border-foreground/8">
+        <div className="flex flex-wrap gap-2 pt-3">
         {filterOptions.map((option) => (
            <button
             key={option}

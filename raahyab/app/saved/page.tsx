@@ -19,7 +19,7 @@ export default function SavedPage() {
  const [filter, setFilter] = useState("All");
  const [sortType, setSortType ] = useState("newest");
  const [showConfirm, setShowConfirm] = useState(false);
-const [visibleCount, setVisibleCount] = useState(6);
+ const [visibleCount, setVisibleCount] = useState(6);
 
  useEffect(() => {
   setVisibleCount(6);
@@ -69,7 +69,6 @@ const [visibleCount, setVisibleCount] = useState(6);
      title="Saved"
      highlight="Opportunities"
      subtitle={`${savedOpportunities.length} opportunities saved`}
-     icon={Bookmark}
    />
 
    <SearchFilter
@@ -112,7 +111,7 @@ const [visibleCount, setVisibleCount] = useState(6);
        </div>
      )}
 
-    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 py-20 px-10">
+    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 py-8 px-10">
       {visibleItems.map((opportunity) => (
         <OpportunityCard key={opportunity.id} opportunity={opportunity} />
       ))}
