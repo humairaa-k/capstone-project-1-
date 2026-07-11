@@ -62,7 +62,7 @@ export default function SearchFilters({search, onSearch, filter, onFilter, onSor
            aria-label="Toggle filters"
             className={`flex items-center gap-2 text-xs font-medium shrink-0 px-3 py-1.5 rounded-xl border transition-all duration-200
               ${showFilters
-                ? "border-primary/30 bg-teal-100 dark:bg-teal-500/10 text-primary"
+                ? "border-primary/30 primary/10 dark:bg-primary/10 text-primary"
                 : "border-foreground/10 text-muted-foreground hover:text-foreground hover:border-foreground/20"
               }`}
            >

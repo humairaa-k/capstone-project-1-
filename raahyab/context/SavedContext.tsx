@@ -10,6 +10,7 @@ interface SavedContextType {
  savedOpt: string[];
  toggleSave: (id: string ) => void;
  clearSaved: () => void;
+ isSaved: (id: string) => boolean;
 }
 
 const SavedContext = createContext<SavedContextType | null>(null);
@@ -41,8 +42,10 @@ export const SavedProvider = ({children}: Props ) => {
     setSavedOpt([]);
   }
 
+  const isSaved = (id: string) => savedOpt.includes(id);
+
   return(
-    <SavedContext.Provider value={{ savedOpt, toggleSave, clearSaved }}>
+    <SavedContext.Provider value={{ savedOpt, toggleSave, clearSaved, isSaved  }}>
       { children}
     </SavedContext.Provider>
   )

@@ -1,9 +1,243 @@
-import React from 'react'
+"use client";
 
-function page() {
-  return (
-    <div>page</div>
-  )
+import { opportunities } from "@/data/opportunities";
+import { useSaved } from "@/context/SavedContext";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { categoryThemes } from "@/constants/opportunityThemes";
+import { ArrowLeft, Bookmark, MapPin, BriefcaseBusiness, CalendarClock,
+         Building2, Zap, ExternalLink, Tag, CheckCircle2, Pencil, Trash2, AlertTriangle  } from "lucide-react";
+import { use } from "react";
+import { getDaysLeft } from "@/utils/getDeadlineStatus";
+
+//date format
+function formatFullDate(date: string) {
+  return new Intl.DateTimeFormat("en", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date(date));
 }
 
-export default page
+export default function OpportunityDetailPage({ params,}: { params: Promise<{ id: string }>;}) {
+  const { id } = use(params);
+  const opportunity = opportunities.find((o) => o.id === id);
+  if (!opportunity) notFound();
+
+  const { toggleSave, isSaved } = useSaved();
+  const saved = isSaved(opportunity.id);
+
+  const daysLeft = getDaysLeft(opportunity.deadline);
+  const isExpiring = daysLeft <= 7;
+
+  const theme =
+    categoryThemes[opportunity.category as keyof typeof categoryThemes] ??
+    categoryThemes.Job;
+
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 mt-12">
+
+        {/* Back link*/}
+        <Link
+          href="/opportunities"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 mb-8 group"
+        >
+          <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform duration-200" />
+          Back to opportunities
+        </Link>
+
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-8">
+
+          {/* LEFT COLUMN */}
+          <div className="space-y-6">
+
+            {/* Hero card */}
+            <div className={`relative rounded-2xl overflow-hidden border border-foreground/8 ${theme.wrapper} p-7`}>
+            
+              <div className={`absolute -right-16 -top-16 h-48 w-48 rounded-full blur-3xl ${theme.blob}`} />
+
+              <div className="relative z-10">
+
+                <div className="flex items-center gap-3 mb-5">
+                  <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold tracking-wide ${theme.badge}`}>
+                    {opportunity.category}
+                  </span>
+
+                  {isExpiring && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-red-50 border border-red-200 px-3 py-1.5 text-xs font-semibold text-red-600">
+                      <Zap className="h-3 w-3" /> 
+                      Expiring soon
+                    </span>
+                  )}
+                </div>
+
+                <h1 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight mb-3">
+                  {opportunity.title}
+                </h1>
+
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Building2 className="h-4 w-4" />
+                  <span className="text-base font-medium">{opportunity.organization}</span>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-4">
+                  <div className="flex items-center gap-2 text-sm text-foreground/70">
+                    <MapPin className={`h-4 w-4 ${theme.accent}`} />
+                    {opportunity.location}
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-foreground/70">
+                    <BriefcaseBusiness className={`h-4 w-4 ${theme.accent}`} />
+                    {opportunity.type}
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-foreground/70">
+                    <CalendarClock className={`h-4 w-4 ${theme.accent}`} />
+                    {formatFullDate(opportunity.deadline)}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+           {/* Deatils card */}
+        <div className="rounded-2xl border border-foreground/8 bg-card overflow-hidden">
+
+          <div className="p-6 sm:p-8">
+            <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
+              About this opportunity
+            </h2>
+            <p className="text-[15px] leading-8 text-foreground/80 max-w-2xl">
+              {opportunity.description}
+            </p>
+          </div>
+        
+          <div className="h-px bg-foreground/8 mx-6 sm:mx-8" />
+
+          {/* Requirements */}
+          <div className="p-6 sm:p-8">
+            <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
+              Requirements
+            </h2>
+            <ul className="space-y-3">
+              {opportunity.requirements.map((req, i) => (
+                <li key={i} className="flex items-start gap-3 pl-4 border-l-2 border-primary/20">
+                  <CheckCircle2 className={`h-4 w-4 mt-0.5 shrink-0 ${theme.accent}`} />
+                  <span className="text-sm text-foreground/80">{req}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        <div className="h-px bg-foreground/8 mx-6 sm:mx-8" />
+        
+          <div className="p-6 sm:p-8">
+            <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
+              Tags
+         </h2>
+         <div className="flex flex-wrap gap-2">
+           {opportunity.tags.map((tag) => (
+             <span
+               key={tag}
+               className="text-xs font-medium px-3 py-1.5 rounded-full border border-foreground/10 text-muted-foreground hover:border-primary/30 hover:text-primary transition-colors duration-200"
+             >
+               {tag}
+             </span>
+            ))}
+       </div>
+      </div>
+
+     </div>
+
+    </div>
+
+    {/* RIGHT COLUMN  */}
+    <div className="space-y-4">
+      <div className="sticky top-24 space-y-4">
+
+        {/* Deadline card */}
+        <div className="rounded-2xl border border-foreground/8 bg-card p-6">
+          <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">
+            Application deadline
+          </p>
+          <p className="text-lg font-semibold text-foreground mt-1">
+            {formatFullDate(opportunity.deadline)}
+          </p>
+          <div className={`mt-3 text-sm font-medium ${isExpiring ? "text-red-500" : "text-primary"}`}>
+            {daysLeft > 0
+            ? `${daysLeft} day${daysLeft === 1 ? "" : "s"} remaining`
+            : "Deadline passed"}
+        </div>
+
+        {/* Countdown bar */}
+        <div className="mt-3 h-1.5 bg-foreground/6 rounded-full overflow-hidden">
+          <div
+            className={`h-full rounded-full transition-all ${isExpiring ? "bg-red-400" : "bg-primary"}`}
+            style={{ width: `${Math.min(100, Math.max(5, (daysLeft / 90) * 100))}%` }}
+          />
+        </div>
+      </div>
+
+       {/* apply button */}
+       <a
+         href={opportunity.applyLink}
+         target="_blank"
+         rel="noopener noreferrer"
+         className="flex items-center justify-center gap-2 w-full rounded-2xl bg-primary hover:bg-primary-hover text-white font-medium py-4 text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/20"
+       >
+         Apply Now
+         <ExternalLink className="h-4 w-4" />
+       </a>
+
+       {/* Save button */}
+       <button
+         onClick={() => toggleSave(opportunity.id)}
+         aria-label={saved ? "Remove from saved" : "Save opportunity"}
+         className={`flex items-center justify-center gap-2 w-full rounded-2xl border py-4 text-sm font-medium transition-all duration-200 hover:-translate-y-0.5
+           ${saved
+             ? "border-primary/30 bg-teal-100 dark:bg-teal-500/10 text-primary"
+             : "border-foreground/10 text-muted-foreground hover:border-primary/30 hover:text-primary"
+           }`}
+       >
+         <Bookmark className={`h-4 w-4 ${saved ? "fill-current" : ""}`} />
+         {saved ? "Saved" : "Save opportunity"}
+       </button>
+
+      {/* Admin actions */}
+      <div className="rounded-2xl border border-foreground/8 bg-card p-4">
+        <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3">
+          Actions
+        </p>
+        <div className="flex gap-3">
+          <Link
+            href={`/opportunities/${opportunity.id}/edit`}
+            className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-foreground/10 py-2.5 text-xs font-medium text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-all duration-200"
+          >
+            <Pencil className="h-3.5 w-3.5" />
+            Edit
+          </Link>
+          <button
+            aria-label="Delete opportunity"
+            className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-red-200 py-2.5 text-xs font-medium text-red-400 hover:bg-red-50 hover:border-red-300 transition-all duration-200"
+          >
+            <Trash2 className="h-3.5 w-3.5" />
+            Delete
+          </button>
+        </div>
+      </div>
+
+       {/* Demo reminder */}
+      <p className="flex items-center justify-center gap-1.5 text-center text-xs text-muted-foreground">
+
+         <AlertTriangle className="h-4 w-4 text-amber-500 fill-amber-100" />
+        Demo Data — for educational purposes only
+       </p>
+
+     </div>
+    </div>
+
+    </div>
+   </div>
+  </div>
+  );
+}
