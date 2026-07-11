@@ -203,7 +203,7 @@ export default function OpportunityDetailPage({ params,}: { params: Promise<{ id
          {saved ? "Saved" : "Save opportunity"}
        </button>
 
-      {/* Admin actions */}
+      {/* actions */}
       <div className="rounded-2xl border border-foreground/8 bg-card p-4">
         <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3">
           Actions
