@@ -23,6 +23,7 @@ export default function OpportunityDetailPage({ params,}: { params: Promise<{ id
   const { id } = use(params);
   const opportunity = opportunities.find((o) => o.id === id);
   if (!opportunity) notFound();
+  
 
   const { toggleSave, isSaved } = useSaved();
   const saved = isSaved(opportunity.id);
