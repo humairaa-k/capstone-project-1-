@@ -83,7 +83,7 @@ export default function OpportunityGrid() {
       subtitle = {`${filteredOpportunities.length} opportunities found ( Demo Data )`}
     />
 
-    <div className=" sm:px-6 lg:px-10 ">
+    <div className=" p-5 sm:px-6 lg:px-10 ">
 
         <div className="flex flex-col lg:flex-row gap-6">
           {/* filter sidebar */}

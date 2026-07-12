@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/context/ThemeContext";
-//import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import { SavedProvider } from "@/context/SavedContext";
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function RootLayout({
         <main>{children}</main>
         </SavedProvider>
         </ThemeProvider>
-        {/* <Footer/> */}
+        <Footer/>
 
       </body>
     </html>
