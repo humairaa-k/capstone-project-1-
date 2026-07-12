@@ -69,6 +69,7 @@ export default function SavedPage() {
      title="Saved"
      highlight="Opportunities"
      subtitle={`${savedOpportunities.length} opportunities saved`}
+      className="animate-fade-in-up"
    />
 
    <SearchFilter
@@ -78,6 +79,7 @@ export default function SavedPage() {
    onFilter={setFilter}
    onSort={setSortType}
    onClear={clearPhilter}
+   className="animate-fade-in-up-delay-1"
    />
   
    {savedOpt.length === 0 ? (
@@ -111,7 +113,7 @@ export default function SavedPage() {
        </div>
      )}
 
-    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 py-8 px-10">
+    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 py-8 px-10 animate-fade-in-up-delay-2">
       {visibleItems.map((opportunity) => (
         <OpportunityCard key={opportunity.id} opportunity={opportunity} />
       ))}

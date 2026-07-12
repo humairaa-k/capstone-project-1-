@@ -104,12 +104,13 @@ export default function AboutExtraSections() {
          title="About "
          highlight="Us"
          subtitle={`One platform. Every opportunity.`}
+          className="animate-fade-in-up"
        />
 
     {/* section 1 */}
     <div ref={containerRef}>
 
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 animate-fade-in-up-delay-1">
         <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-4">
           The Problem
         </p>

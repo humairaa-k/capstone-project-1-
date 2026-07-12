@@ -81,13 +81,14 @@ export default function OpportunityGrid() {
       title=" Explore"
       highlight=" Opportunities"
       subtitle = {`${filteredOpportunities.length} opportunities found ( Demo Data )`}
+      className="animate-fade-in-up"
     />
 
-    <div className=" p-5 sm:px-6 lg:px-10 ">
+    <div className=" p-5 sm:px-6 lg:px-10">
 
         <div className="flex flex-col lg:flex-row gap-6">
           {/* filter sidebar */}
-          <aside className="hidden lg:block w-64 shrink-0">
+          <aside className="hidden lg:block w-64 shrink-0 animate-fade-in-up-delay-1">
             <FiltersSidebar
             category={category}
             onCategoryChange={setCategory}
@@ -105,7 +106,7 @@ export default function OpportunityGrid() {
           </aside>
 
           {/* Right column */}
-          <div className="flex-1 min-w-0 space-y-6">
+          <div className="flex-1 min-w-0 space-y-6 animate-fade-in-up-delay-2">
             <SearchBar search={search} onSearch={setSearch} />
 
              <div className="flex justify-end">

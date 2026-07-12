@@ -3,15 +3,17 @@ interface PageHeadingProps {
   title: string;
   highlight: string;
   subtitle?: string;
+  className?: string;
 }
 
 export default function PageHeading({
   title,
   highlight,
-  subtitle
+  subtitle,
+  className=""
 }: PageHeadingProps) {
   return (
-    <div className="relative w-full pt-23 pb-8">
+    <div className={`relative w-full pt-23 pb-8  ${className}`}>
 
   {/* borders top & bottom  */}
       <div

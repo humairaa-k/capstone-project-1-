@@ -6,7 +6,7 @@ export default function Loader() {
       <div 
       className="absolute inset-0
        bg-background/55
-       dark:bg-background/55 
+       dark:bg-background/55
        backdrop-blur-md" />
 
       

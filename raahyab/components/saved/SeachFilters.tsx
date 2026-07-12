@@ -10,11 +10,12 @@ interface SavedFiltersProps {
   onFilter: (type: string) => void;
   onSort: (type: string) => void;
   onClear : () => void;
+  className?: string;
 }
 
 const filterOptions = ["All", "Job", "Internship", "Scholarship", "Remote Work", "Online Course", "Training", "Volunteer"];
 
-export default function SearchFilters({search, onSearch, filter, onFilter, onSort, onClear }: SavedFiltersProps) {
+export default function SearchFilters({search, onSearch, filter, onFilter, onSort, onClear, className="" }: SavedFiltersProps) {
   const [showFilters, setShowFilters] = useState(false);
   const [showSort, setShowSort] = useState(false);
 
@@ -25,7 +26,7 @@ export default function SearchFilters({search, onSearch, filter, onFilter, onSor
   const checkActiveFilters = search.trim() !== "" || filter !== "All";
 
   return (
-  <div className="px-4 sm:px-6 lg:px-8 mt-6 space-y-3 pt-4">
+  <div className={`px-4 sm:px-6 lg:px-8 mt-6 space-y-3 pt-4 ${className}`}>
     <div className="mt-6 rounded-3xl bg-card border border-foreground/8 shadow-sm p-5">
 
     <div className="mb-5">
