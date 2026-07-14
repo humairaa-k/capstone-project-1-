@@ -59,14 +59,9 @@ export default function Hero() {
     >
       <HeroBackground />
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full 
-  pt-20 pb-12 sm:pt-24 sm:pb-16 xl:pt-32 xl:pb-24">
-        <div className="hero-badge inline-flex items-center gap-2 bg-teal-100 border border-primary/30 rounded-full px-4 py-1.5 mb-8 max-w-full">
-          <span className="text-xs font-medium text-primary">
-            Built for Afghan Youth
-          </span>
-        </div>
+         pt-24 pb-12 sm:pt-24 sm:pb-16 xl:pt-32 xl:pb-24">
 
-        <div className="hero-title mb-6">
+        <div className="hero-title my-8 sm:my-12">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
             Find Your Next
           </h1>

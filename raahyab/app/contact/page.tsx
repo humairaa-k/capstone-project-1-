@@ -5,8 +5,8 @@ export default function ContactPage() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 items-start">
 
-        {/* Left column  heading */}
-        <div className="lg:sticky lg:top-32">
+        {/* Left column heading */}
+        <div className="lg:sticky lg:top-32 animate-fade-in-up pt-8 lg:pt-0">
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-4">
             Get in Touch
           </p>
@@ -22,7 +22,7 @@ export default function ContactPage() {
         </div>
 
         {/* Right column form */}
-        <div className="pt-12">
+        <div className="animate-fade-in-up-delay-1 pt-8">
           <ContactForm />
         </div>
 
