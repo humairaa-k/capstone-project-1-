@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Footer from "@/components/Footer";
 import { SavedProvider } from "@/context/SavedContext";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +24,10 @@ export default function RootLayout({
        <ThemeProvider>
         <SavedProvider>
         <Navbar/>
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen">
+          {children}
+          <Toaster position="top-right" richColors offset={80}/>
+          </main>
         </SavedProvider>
         </ThemeProvider>
         <Footer/>
