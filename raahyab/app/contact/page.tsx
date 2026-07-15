@@ -1,4 +1,10 @@
 import ContactForm from "@/components/contact/ContactForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Get in touch with the RaahYab team — questions, feedback, or suggestions.",
+};
 
 export default function ContactPage() {
   return (

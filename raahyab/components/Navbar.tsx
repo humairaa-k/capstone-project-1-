@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "@/context/ThemeContext";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-
+import Image from "next/image";
 
 const links = [
   { href: "/", label: "Home"},
@@ -37,18 +37,17 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="flex items-center justify-between h-16">
-         <Link href="/"
-         className="flex items-center shrink-0">
-            {/* <Image
-            src={isDark ? "/logo-dark.png" : "/logo-light.png"}
-            alt="RaahYaab Logo"
-            width={170}
-            height={50}
-            className="h-20 w-auto"
-            priority
-            /> */}
-            <h2 className="font-bold"> RAAHYAB </h2>
-         </Link>      
+         <Link href="/" className="flex items-center shrink-0 py-2">
+           <Image
+             src={isDark ? "/l-dark.png" : "/l-light.png"}
+             alt="RaahYab Logo"
+             width={328}
+             height={94}
+             className="h-12 w-auto "
+             priority
+           />
+           </Link>    
+
 
        {/* desktop links */}
           <div className="hidden md:flex items-center gap-1">

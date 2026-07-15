@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Footer() {
   return (
@@ -8,9 +9,17 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-6">
 
            <div className="col-span-2 sm:col-span-1 sm:pr-6">
-             <h3 className="text-lg font-bold text-white mb-3">
-               RaahYab
-             </h3>
+            <Link href="/"
+             className="flex items-center shrink-0">
+            <Image
+            src="/l-dark.png"
+            alt="RaahYaab Logo"
+            width={220}
+            height={80}
+            className="h-12 w-auto"
+            priority
+            />
+         </Link> 
              <p className="text-sm text-white/60 leading-6 max-w-xs">
                Your one-stop platform for jobs, internships, and scholarships across Afghanistan.
              </p>
