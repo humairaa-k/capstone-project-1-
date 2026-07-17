@@ -1,8 +1,8 @@
 "use client";
 
-import OpportunityCard from "@/components/opportunity/OpportunityCard";
+import OpportunityCard from "@/components/opportunities/OpportunityCard";
 import { useSaved }from "@/context/SavedContext";
-import { opportunities } from "@/data/opportunities";
+import { opportunities } from "@/data/boybye";
 import { BookmarkPlus } from "lucide-react";
 import { Bookmark } from "lucide-react";
 import EmptyState from "@/components/common/EmptyState";

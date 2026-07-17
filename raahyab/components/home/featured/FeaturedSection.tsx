@@ -1,4 +1,4 @@
-import { opportunities } from "@/data/opportunities";
+import { opportunities } from "@/data/boybye";
 import FeaturedCard from "./FeaturedCard";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";

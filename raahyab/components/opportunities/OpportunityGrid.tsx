@@ -1,17 +1,23 @@
 "use client"
 
-import { opportunities } from "@/data/opportunities";
-import OpportunityCard  from "@/components/opportunity/OpportunityCard"
+import { Opportunity } from "@/types"; 
+import OpportunityCard  from "@/components/opportunities/OpportunityCard"
 import Heading from "@/components/common/Heading";
-import FiltersSidebar from "@/components/opportunity/FiltersSidebar";
-import SearchBar from "@/components/opportunity/SearchBar";
+import FiltersSidebar from "@/components/opportunities/FiltersSidebar";
+import SearchBar from "@/components/opportunities/SearchBar";
 import { useEffect, useState } from "react";
 import { getDeadlineStatus } from "@/utils/getDeadlineStatus";
 import EmptyState from "../common/EmptyState";
 import { Search, FilePlus } from "lucide-react"
 
+type PropsType = {
+ initialOpportunities: Opportunity[];  
+}
 
-export default function OpportunityGrid() {
+
+export default function OpportunityGrid({initialOpportunities} : PropsType) {
+  const opportunities = initialOpportunities;
+
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState<string[]>([]);
   const [location, setLocation] = useState("All");

@@ -1,6 +1,6 @@
  import { categories } from './CategoryData'
  import CategoryCard from './CategoryCard'
-import { opportunities } from '@/data/opportunities';
+import { opportunities } from '@/data/boybye';
 
  export default function CategoryGrid() {
   return (

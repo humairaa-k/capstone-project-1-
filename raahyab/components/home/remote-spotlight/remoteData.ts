@@ -1,4 +1,4 @@
-import { opportunities} from "@/data/opportunities";
+import { opportunities} from "@/data/boybye";
 
 
 export const remoteOpportunities = opportunities
