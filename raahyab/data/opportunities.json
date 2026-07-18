@@ -21,7 +21,8 @@
       "Full-time"
     ],
     "createdAt": "2026-06-01",
-    "featured": true
+    "featured": true,
+    "status": "approved"
   },
   {
     "id": "2",
@@ -45,7 +46,8 @@
       "Media"
     ],
     "createdAt": "2026-06-03",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   },
   {
     "id": "3",
@@ -69,7 +71,8 @@
       "Entry-level"
     ],
     "createdAt": "2026-06-05",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   },
   {
     "id": "4",
@@ -92,7 +95,8 @@
       "English"
     ],
     "createdAt": "2026-06-07",
-    "featured": true
+    "featured": true,
+    "status": "approved"
   },
   {
     "id": "5",
@@ -115,7 +119,8 @@
       "Beginner"
     ],
     "createdAt": "2026-06-10",
-    "featured": true
+    "featured": true,
+    "status": "approved"
   },
   {
     "id": "6",
@@ -138,7 +143,8 @@
       "Startup"
     ],
     "createdAt": "2026-06-11",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   },
   {
     "id": "7",
@@ -161,7 +167,8 @@
       "Writing"
     ],
     "createdAt": "2026-06-12",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   },
   {
     "id": "8",
@@ -184,7 +191,8 @@
       "Remote"
     ],
     "createdAt": "2026-06-13",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   },
   {
     "id": "9",
@@ -208,7 +216,8 @@
       "Full scholarship"
     ],
     "createdAt": "2026-06-01",
-    "featured": true
+    "featured": true,
+    "status": "approved"
   },
   {
     "id": "10",
@@ -232,7 +241,8 @@
       "Fully funded"
     ],
     "createdAt": "2026-06-02",
-    "featured": true
+    "featured": true,
+    "status": "approved"
   },
   {
     "id": "11",
@@ -256,7 +266,8 @@
       "Youth"
     ],
     "createdAt": "2026-06-04",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   },
   {
     "id": "12",
@@ -280,7 +291,8 @@
       "Merit-based"
     ],
     "createdAt": "2026-06-06",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   },
   {
     "id": "13",
@@ -303,7 +315,8 @@
       "Flexible"
     ],
     "createdAt": "2026-06-08",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   },
   {
     "id": "14",
@@ -327,7 +340,8 @@
       "Flexible hours"
     ],
     "createdAt": "2026-06-09",
-    "featured": true
+    "featured": true,
+    "status": "approved"
   },
   {
     "id": "15",
@@ -351,7 +365,8 @@
       "No experience needed"
     ],
     "createdAt": "2026-06-10",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   },
   {
     "id": "16",
@@ -375,7 +390,8 @@
       "Part-time"
     ],
     "createdAt": "2026-06-11",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   },
   {
     "id": "17",
@@ -398,7 +414,8 @@
       "Certificate"
     ],
     "createdAt": "2026-06-01",
-    "featured": true
+    "featured": true,
+    "status": "approved"
   },
   {
     "id": "18",
@@ -421,7 +438,8 @@
       "Free"
     ],
     "createdAt": "2026-06-03",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   },
   {
     "id": "19",
@@ -444,7 +462,8 @@
       "Free certificate"
     ],
     "createdAt": "2026-06-05",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   },
   {
     "id": "20",
@@ -468,7 +487,8 @@
       "UN Women"
     ],
     "createdAt": "2026-06-01",
-    "featured": true
+    "featured": true,
+    "status": "approved"
   },
   {
     "id": "21",
@@ -491,7 +511,8 @@
       "Free"
     ],
     "createdAt": "2026-06-04",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   },
   {
     "id": "22",
@@ -514,7 +535,8 @@
       "Certificate"
     ],
     "createdAt": "2026-06-06",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   },
   {
     "id": "23",
@@ -537,7 +559,8 @@
       "MSF"
     ],
     "createdAt": "2026-06-02",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   },
   {
     "id": "24",
@@ -560,7 +583,8 @@
       "Youth"
     ],
     "createdAt": "2026-06-07",
-    "featured": true
+    "featured": true,
+    "status": "approved"
   },
   {
     "id": "25",
@@ -583,6 +607,7 @@
       "Volunteer"
     ],
     "createdAt": "2026-06-08",
-    "featured": false
+    "featured": false,
+    "status": "approved"
   }
 ]

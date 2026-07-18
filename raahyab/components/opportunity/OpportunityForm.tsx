@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { opportunitySchema, OpportunityFormData } from "@/lib/schemas/opportunity";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Zap  } from "lucide-react";
+import { Controller } from "react-hook-form";
+import { DatePicker } from "@/components/ui/date-picker";
 
 interface OpportunityFormProps {
   initialData?: Partial<OpportunityFormData>;
@@ -14,9 +16,9 @@ interface OpportunityFormProps {
 const categories = ["Job", "Internship", "Scholarship", "Remote Work", "Online Course", "Training", "Volunteer"];
 const types = ["On-site", "Remote", "Hybrid"];
 
-export default function OpportunityForm({ initialData, onSubmit, submitLabel = "Publish Opportunity",}: OpportunityFormProps) {
+export default function ({ initialData, onSubmit, submitLabel = "Publish Opportunity",}: OpportunityFormProps) {
  
-  const { register, handleSubmit,  watch, formState: { errors, isSubmitting }, } = useForm<OpportunityFormData>({
+  const { register, handleSubmit,  watch, control, formState: { errors, isSubmitting }, } = useForm<OpportunityFormData>({
     resolver: zodResolver(opportunitySchema),
     defaultValues: initialData,
   });
@@ -53,9 +55,11 @@ export default function OpportunityForm({ initialData, onSubmit, submitLabel = "
           <div>
             <label className={labelClass}>Category</label>
             <select {...register("category")} className={inputClass}>
-              <option value="">Select a category</option>
+              <option value="" style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}>
+                Select a category</option>
               {categories.map((c) => (
-                <option key={c} value={c}>{c}</option>
+                <option key={c} value={c} style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}>
+                  {c}</option>
               ))}
             </select>
             {errors.category && <p className={errorClass}>{errors.category.message}</p>}
@@ -75,18 +79,31 @@ export default function OpportunityForm({ initialData, onSubmit, submitLabel = "
             <div>
               <label className={labelClass}>Type</label>
               <select {...register("type")} className={inputClass}>
-                <option value="">Select type</option>
+                <option value="" style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}>
+                  Select type</option>
                 {types.map((t) => (
-                  <option key={t} value={t}>{t}</option>
+                  <option key={t} value={t}  style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}>
+                    {t}</option>
                 ))}
               </select>
               {errors.type && <p className={errorClass}>{errors.type.message}</p>}
             </div>
-            <div>
-              <label className={labelClass}>Deadline</label>
-              <input type="date" {...register("deadline")} className={inputClass} />
-              {errors.deadline && <p className={errorClass}>{errors.deadline.message}</p>}
-            </div>
+
+          <div>
+           <label className={labelClass}>Deadline</label>
+           <Controller
+             name="deadline"
+             control={control}
+             render={({ field }) => (
+               <DatePicker
+                 value={field.value ? new Date(field.value) : undefined}
+                 onChange={(date) => field.onChange(date?.toISOString())}
+                 placeholder="Select deadline"
+               />
+               )}
+             />
+             {errors.deadline && <p className={errorClass}>{errors.deadline.message}</p>}
+           </div>
           </div>
         </div>
 
@@ -141,7 +158,8 @@ export default function OpportunityForm({ initialData, onSubmit, submitLabel = "
        <button
          type="submit"
          disabled={isSubmitting}
-         className="w-full rounded-2xl flex items-center inline-flex justify-center gap-2 bg-primary hover:bg-primary-hover text-white font-semibold py-4 text-base transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
+         className="w-full rounded-2xl flex items-center  justify-center gap-2 bg-primary hover:bg-primary-hover text-white font-semibold py-4 text-base transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
+        // inline-flex
         >
           <Zap className="w-4 h-4 fill-current" />{isSubmitting ? " Saving..." : submitLabel}
        </button>

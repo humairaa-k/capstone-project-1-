@@ -2,6 +2,7 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+
 @theme {
 
     /* Brand */
@@ -32,12 +33,27 @@
   --color-gold-100: #FEF3C7;
   --color-gold-400: #D97706;
 
+  /* shadcn component bridges  */
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring); 
 
 }
 
 :root {
   --background: #FDF6EC;
   --foreground: #1C1917;
+
+  /* shadcn */
+  --muted: #f4f4f5;
+  --muted-foreground: #78716c;
+  --border: #e7e5e4;
+  --ring: #0F766E;
 }
 
 .dark {
@@ -48,6 +64,12 @@
   --color-surface: #292524;
   --color-card: #292524;
   --color-muted-foreground: #78716C;
+
+  /* shadcn */
+    --muted: #292524;
+    --muted-foreground: #a8a29e;
+    --border: #44403c;
+    --ring: #0F766E;
 }
 
 body {
@@ -119,3 +141,25 @@ body {
 .animate-fade-in-up-delay-1 { animation: fade-in-up 0.6s ease-out both 0.1s; }
 
 .animate-fade-in-up-delay-2 { animation: fade-in-up 0.6s ease-out both 0.2s; }
+
+
+/* input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+} */
+
+/* .dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+} */
+
+
+
+
+[data-slot="popover-content"] {
+  background-color: #fcf9f4 !important;
+  color: #1C1917 !important;
+}
+
+.dark [data-slot="popover-content"] {
+  background-color: #1C1917 !important;
+  color: #FDF6EC !important;
+}

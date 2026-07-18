@@ -10,9 +10,10 @@ export const metadata: Metadata = {
 
 export default async function page() {
   const opportunities = await getOpportunities();
+  const approvedOnly = opportunities.filter((opp) => opp.status === "approved");
   return (
 
-    <OpportunityGrid initialOpportunities={ opportunities }/>
+    <OpportunityGrid initialOpportunities={ approvedOnly }/>
   )
 }
 

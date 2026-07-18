@@ -5,10 +5,13 @@ import { getOpportunities } from "@/lib/opportunities";
 
 const dataFilePath = path.join(process.cwd(), "data","opportunities.json");
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
 try {
  const opportunities = await getOpportunities();
- return NextResponse.json(opportunities);
+ const approvedOnly = opportunities.filter((opp: any) => opp.status === "approved")
+ return NextResponse.json(approvedOnly);
 
 } catch {
   return NextResponse.json(
@@ -27,6 +30,7 @@ export async function POST(request: Request) {
     ...body,
     id: Date.now().toString(),
     createdAt: new Date().toISOString().split("T")[0],
+    status: "pending",
   };
 
   const updated = [newOpportunity, ...opportunities]

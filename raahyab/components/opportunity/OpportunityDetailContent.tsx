@@ -241,7 +241,7 @@ export default function OpportunityDetailContent({opportunity} : { opportunity: 
           <button
           onClick={() => setShowConfirm(true)}
             aria-label="Delete opportunity"
-            className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-red-200 py-2.5 text-xs font-medium text-red-400 hover:bg-red-50 hover:border-red-300 transition-all duration-200"
+            className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-red-400/40 py-2.5 text-xs font-medium text-red-400 hover:bg-red-50 hover:border-red-300 dark:hover:bg-red-400/10 dark:hover:border-red-500/40 transition-all duration-200"
           >
             <Trash2 className="h-3.5 w-3.5" />
             Delete
