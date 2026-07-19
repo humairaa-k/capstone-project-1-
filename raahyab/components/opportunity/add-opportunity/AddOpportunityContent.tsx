@@ -10,17 +10,10 @@ export default function AddOpportunityContent() {
 
   const handleCreate = async (data: OpportunityFormData) => {
     try {
-      const payload = {
-        ...data,
-        // convert comma-separated strings into real arrays before sending to the API
-        requirements: data.requirements.split(",").map((r) => r.trim()).filter(Boolean),
-        tags: data.tags.split(",").map((t) => t.trim()).filter(Boolean),
-      };
-
-      const response = await fetch("/api/opportunities", {
+     const response = await fetch("/api/opportunities", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(data),
       });
 
       if (!response.ok) {

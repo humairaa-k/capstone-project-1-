@@ -13,16 +13,10 @@ export default function EditOpportunityContent({ id, initialData,}: {
 
   const handleUpdate = async (data: OpportunityFormData) => {
     try {
-      const payload = {
-        ...data,
-        requirements: data.requirements.split(",").map((r) => r.trim()).filter(Boolean),
-        tags: data.tags.split(",").map((t) => t.trim()).filter(Boolean),
-      };
-
       const response = await fetch(`/api/opportunities/${id}`, {
-        method: "PATCH",
+        method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(data),
       });
 
       if (!response.ok) {
@@ -31,7 +25,7 @@ export default function EditOpportunityContent({ id, initialData,}: {
 
       const updated = await response.json();
 
-      toast.success("Opportunity updated successfully.");
+      toast.success("Changes saved — they'll go live once approved by an admin.");
       router.push(`/opportunities/${updated.id}`);
     } catch (error) {
       toast.error("Something went wrong. Please try again.");

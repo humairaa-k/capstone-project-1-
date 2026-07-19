@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
 import { getOpportunities } from "@/lib/opportunities";
+import { opportunitySchema } from "@/lib/schemas/opportunity";
 
 const dataFilePath = path.join(process.cwd(), "data","opportunities.json");
 
@@ -23,11 +24,21 @@ try {
 
 export async function POST(request: Request) {
  try {
-  const body = await request.json();
+  const rawBody = await request.json();
+  const parsed = opportunitySchema.safeParse(rawBody);
+  if(!parsed.success){
+    return NextResponse.json(
+      { error: parsed.error.flatten()},
+      { status: 400}
+    );
+  }
+
   const opportunities = await getOpportunities();
 
   const newOpportunity = {
-    ...body,
+    ...parsed.data,
+    requirements: parsed.data.requirements.split(",").map((r) => r.trim()).filter(Boolean),
+    tags: parsed.data.tags.split(",").map((t) => t.trim()).filter(Boolean),
     id: Date.now().toString(),
     createdAt: new Date().toISOString().split("T")[0],
     status: "pending",
