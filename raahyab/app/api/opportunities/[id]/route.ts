@@ -57,17 +57,14 @@ export async function PUT( request: Request, {params} : {params: Promise<{ id: s
       tags: parsed.data.tags.split(",").map((t:string) => t.trim()).filter(Boolean),
       id: existing.id,               //these three now can't be changed
       createdAt: existing.createdAt,
-      status: existing.status,
+      status: existing.status === "approved" ? "pending" : existing.status
     };
 
     opportunities[index] = updated;
     await fs.writeFile(dataFilePath, JSON.stringify(opportunities, null, 2));
 
     return NextResponse.json(updated);
-    
-    //  await fs.writeFile(dataFilePath, JSON.stringify(updated, null , 2));
-    //  const updatedOpportunity = updated.find((oppt: any) => oppt.id === id)
-    //  return NextResponse.json(updatedOpportunity);
+  
     } catch {
      return NextResponse.json(
         {error: "Failed to update opportunity."},
