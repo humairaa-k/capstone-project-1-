@@ -1,10 +1,11 @@
-import { opportunities } from "@/data/boybye";
+"use client";
 import FeaturedCard from "./FeaturedCard";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { Opportunity } from "@/types";
 
-export default function FeaturedSection() {
+export default function FeaturedSection({ opportunities }: { opportunities: Opportunity[] }) {
   const featuredJobs = opportunities.filter((opp) => opp.featured).slice(0, 3);
   const sectionRef = useScrollReveal();
   

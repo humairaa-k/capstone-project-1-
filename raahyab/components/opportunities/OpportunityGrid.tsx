@@ -5,7 +5,7 @@ import OpportunityCard  from "@/components/opportunities/OpportunityCard"
 import Heading from "@/components/common/Heading";
 import FiltersSidebar from "@/components/opportunities/FiltersSidebar";
 import SearchBar from "@/components/opportunities/SearchBar";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { getDeadlineStatus } from "@/utils/getDeadlineStatus";
 import EmptyState from "../common/EmptyState";
 import { Search, FilePlus } from "lucide-react"
@@ -28,7 +28,8 @@ export default function OpportunityGrid({initialOpportunities} : PropsType) {
   const itemsPerPage = 9; 
 
 
-  const filteredOpportunities = opportunities.filter((opport) => {
+  const filteredOpportunities = useMemo(() => {
+    return opportunities.filter((opport) => {
     const status = getDeadlineStatus(opport.deadline);
 
     return (
@@ -42,11 +43,13 @@ export default function OpportunityGrid({initialOpportunities} : PropsType) {
      && (location === "All" || opport.location === location) 
      && (type === "All" || opport.type === type)
      && ( !expiringSoon || status === "closingSoon" || status === "endingThisWeek")
-    )} 
-  );
-
+    )
+   });
+  }, [opportunities, search, category, location, type, expiringSoon]);
   
- const sortedOpportunities = [...filteredOpportunities].sort((a, b) => {
+ const sortedOpportunities = useMemo(() => {
+   return [...filteredOpportunities].sort((a, b) => {
+
    if (sortType === "newest") {
      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
    }
@@ -56,19 +59,28 @@ export default function OpportunityGrid({initialOpportunities} : PropsType) {
    return 0;
 
  });
+ }, [filteredOpportunities, sortType]);
   
   //pagination
   const totalPages = Math.ceil(filteredOpportunities.length / itemsPerPage );
   const startIndex = (currentPage - 1 ) * itemsPerPage;
-  const paginatedOpportunities = sortedOpportunities.slice( startIndex, startIndex + itemsPerPage);
+
+  const paginatedOpportunities = useMemo(() => { 
+    return sortedOpportunities.slice( startIndex, startIndex + itemsPerPage);
+  },[sortedOpportunities, startIndex, itemsPerPage] );
 
   useEffect(() => {
     setCurrentPage(1)
   }, [search, category, location, type, expiringSoon])
 
-  const uniqueCat = [...new Set(opportunities.map(opp => opp.category))];
-  const uniqueLocation = [...new Set(opportunities.map(opp => opp.location))]
-  const uniqueType = [...new Set(opportunities.map(opp => opp.type))]
+  const uniqueCat = useMemo(() => [...new Set(opportunities.map(opp => opp.category))],
+  [opportunities]);
+
+ const uniqueLocation = useMemo(() => [...new Set(opportunities.map(opp => opp.location))],
+ [opportunities] );
+
+  const uniqueType = useMemo(() => [...new Set(opportunities.map(opp => opp.type))],
+  [opportunities] );
 
  
   const handleClearAll = () => {

@@ -1,7 +1,9 @@
-import { opportunities} from "@/data/boybye";
+import { Opportunity } from "@/types";
 
 
-export const remoteOpportunities = opportunities
+
+export function getRemoteOpportunities(opportunities: Opportunity[]) {
+  return opportunities
       .filter((opp) => opp.type === "Remote")
       .slice(0, 3); 
-
+}

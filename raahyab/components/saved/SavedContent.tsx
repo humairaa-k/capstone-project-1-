@@ -2,7 +2,6 @@
 
 import OpportunityCard from "@/components/opportunities/OpportunityCard";
 import { useSaved }from "@/context/SavedContext";
-import { opportunities } from "@/data/boybye";
 import { BookmarkPlus } from "lucide-react";
 import { Bookmark } from "lucide-react";
 import EmptyState from "@/components/common/EmptyState";
@@ -10,16 +9,25 @@ import Heading from "@/components/common/Heading";
 import { useState, useEffect } from "react";
 import SearchFilter from "@/components/saved/SeachFilters";
 import ConfirmDialog from "@/components/common/ConfirmDialog";
+import { Opportunity } from "@/types";
 
 export default function SavedContent() {
    const { savedOpt, clearSaved } = useSaved();
   
+   const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
    const [search, setSearch] = useState("");
    const [filter, setFilter] = useState("All");
    const [sortType, setSortType ] = useState("newest");
    const [showConfirm, setShowConfirm] = useState(false);
    const [visibleCount, setVisibleCount] = useState(6);
   
+     useEffect(() => {
+     fetch("/api/opportunities")
+       .then((res) => res.json())
+       .then(setOpportunities);
+   }, []);
+
+
    useEffect(() => {
     setVisibleCount(6);
   }, [search, filter, sortType]);

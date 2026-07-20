@@ -1,8 +1,8 @@
+"use client";
 import Link from "next/link";
-import CategoryGrid from "./CategoryGrid";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-export default function CategorySection() {
+export default function CategorySection({ children }: { children: React.ReactNode }) {
     const sectionRef = useScrollReveal();
   return (
     <section 
@@ -29,7 +29,7 @@ export default function CategorySection() {
           </Link>
         </div>
 
-        <CategoryGrid />
+        {children}
 
         <div className="sm:hidden mt-6 text-center">
           <Link

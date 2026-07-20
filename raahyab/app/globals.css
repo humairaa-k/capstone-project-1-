@@ -54,6 +54,9 @@
   --muted-foreground: #78716c;
   --border: #e7e5e4;
   --ring: #0F766E;
+  /* new */
+   --popover: #FFFFFF;              
+  --popover-foreground: #1C1917; 
 }
 
 .dark {
@@ -70,6 +73,9 @@
     --muted-foreground: #a8a29e;
     --border: #44403c;
     --ring: #0F766E;
+    /* new */
+    --popover: #292524;           
+    --popover-foreground: #FDF6EC;
 }
 
 body {
@@ -162,4 +168,11 @@ body {
 .dark [data-slot="popover-content"] {
   background-color: #1C1917 !important;
   color: #FDF6EC !important;
+}
+
+/* bar chart */
+.recharts-bar-rectangle,
+.recharts-bar-rectangle:hover,
+.recharts-bar-rectangle path {
+  fill-opacity: 1 !important;
 }

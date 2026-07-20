@@ -1,13 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { remoteOpportunities } from "./remoteData";
+import { getRemoteOpportunities } from "./remoteData";
+import { Opportunity } from "@/types";
 import RemoteCard from "./RemoteCard";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-export default function RemoteSpotlightSection() {
+export default function RemoteSpotlightSection({ opportunities }: { opportunities: Opportunity[] }) {
   const sectionRef = useScrollReveal();
+   const remoteOpportunities = getRemoteOpportunities(opportunities);
 
   return (
     <section

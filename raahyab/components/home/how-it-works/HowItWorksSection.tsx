@@ -1,3 +1,5 @@
+"use client";
+
 import StepsGrid from "./StepsGrid";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
