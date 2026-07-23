@@ -5,6 +5,7 @@ import { useTheme } from "@/context/ThemeContext";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import AuthNavButton from "./auth/AuthNavbar";
 
 const links = [
   { href: "/", label: "Home"},
@@ -94,6 +95,9 @@ export default function Navbar() {
              <Menu className={"w-4 h-4 text-foreground"}/>
             )}
             </button>
+
+             <AuthNavButton />
+             
          </div>
         </div>
 
@@ -118,6 +122,8 @@ export default function Navbar() {
              })}
            </div>
           } 
+
+          
      </nav>
    </header>
   )

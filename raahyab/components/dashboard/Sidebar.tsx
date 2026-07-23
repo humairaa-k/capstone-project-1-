@@ -2,20 +2,40 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { PlusCircle, FileText, Bookmark, User } from "lucide-react";
+import { PlusCircle, FileText, Bookmark, User, LayoutDashboard } from "lucide-react";
+import { useSession } from "next-auth/react";
 
 const navItems = [
+  { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/add-opportunity", label: "Add Opportunity", icon: PlusCircle },
-  { href: "/dashboard/cv-builder", label: "CV Builder", icon: FileText },
   { href: "/saved", label: "Saved Opportunities", icon: Bookmark },
-  { href: "/dashboard/profile", label: "Profile", icon: User },
+  { href: "/dashboard/cv-builder", label: "CV Builder", icon: FileText },
+  { href: "/dashboard/profile", label: "Profile", icon: User }
+
 ];
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const {data: session} = useSession();
 
   return (
-    <nav aria-label="Dashboard navigation" className="flex flex-col gap-1.5 mt-25">
+    <nav aria-label="Dashboard navigation" className="flex flex-col gap-1.5 mt-0.5">
+      {session?.user && (
+        <div className="mb-1.5 px-4 py-3">
+          <p className="font-bold uppercase text-[17px] mb-0.5 tracking-[4px] text-primary/80">
+            Signed in
+          </p>
+          <p className="mt-1 truncate text-[14px] font-semibold text-foreground/80 mb-1">
+            {session.user.username ?? session.user.name}
+          </p>
+          <p className="truncate text-sm text-muted-foreground">
+            {session.user.email}
+          </p>
+        </div>
+      )}
+
+      <div className="mx-4 my-1 h-px bg-foreground/10 mb-2.5" />
+
       {navItems.map(({ href, label, icon: Icon }) => {
         const isActive = pathname === href;
 

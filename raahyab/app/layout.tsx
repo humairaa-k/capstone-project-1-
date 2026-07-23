@@ -1,10 +1,13 @@
 import { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+// import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Footer from "@/components/Footer";
 import { SavedProvider } from "@/context/SavedContext";
 import { Toaster } from "sonner";
+import SessionProviderWrapper from "@/components/auth/SessionProviderWrapper";
+import { ConditionalNavbar } from "@/components/ConditionalNavbar";
+import { ConditionalFooter } from "@/components/ConditionalFooter";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://example.vercel.app"), 
@@ -77,17 +80,19 @@ export default function RootLayout({
       lang="en">
       <body className="min-h-full flex flex-col">
 
+      <SessionProviderWrapper>
        <ThemeProvider>
         <SavedProvider>
-        <Navbar/>
+        <ConditionalNavbar/>
         <main className="min-h-screen">
           {children}
           <Toaster position="top-right" richColors offset={80}/>
           </main>
         </SavedProvider>
         </ThemeProvider>
-        <Footer/>
-
+        <ConditionalFooter/>
+      </SessionProviderWrapper>
+      
       </body>
     </html>
   );

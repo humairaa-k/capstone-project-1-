@@ -6,6 +6,9 @@ import StatCardNeutral from "@/components/dashboard/StatCardNeutral";
 import { getDashboardStats, getSubmissionsTrend } from "@/lib/opportunities";
 import SubmissionTrendChart from "@/components/dashboard/SubmissionTrendChart";
 import CategoryBarChart from "@/components/dashboard/CategoryBarChart";
+import PendingApprovals from "@/components/dashboard/admin/PendingApprovals";
+import RecentSubmissions from "@/components/dashboard/RecentSubmissions";
+import { auth } from "@/lib/auth";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -13,6 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default async function DashboardPage() {
+  const session = await auth();
   const stats = await getDashboardStats();
   const trend =  await getSubmissionsTrend();
 
@@ -22,10 +26,11 @@ export default async function DashboardPage() {
     day: "numeric",
   });
 
+
   return (
     <>
-    <div className="rounded-3xl bg-gradient-to-br from-primary/90 to-primary-hover/70 p-6 sm:p-8 mb-6 text-white">
-     <p className="text-[14px] tracking-widest text-white/70 mb-1 leading-none mb-1.5">Welcome Back, Name  · {     today}</p>
+    <div className="rounded-3xl bg-linear-to-br from-primary/90 to-primary-hover/70 p-6 sm:p-8 mb-6 text-white">
+     <p className="text-[14px] tracking-widest text-white/70 leading-none mb-1.5">Welcome Back, {session.user.username ?? session.user.name} · {     today}</p>
      <h1 className="text-2xl sm:text-3xl font-medium">Dashboard Overview</h1>
    </div>
 
@@ -70,6 +75,12 @@ export default async function DashboardPage() {
         { category: "Volunteer", count:stats.volunteer}
       ]}
     />
+
+    <div className="space-y-4">
+     {session?.user.role === "admin" && <PendingApprovals data={stats.pendingApprovals} />}
+     <RecentSubmissions data={stats.recentSubmissions} />
+  
+   </div>
  </>
 
   );

@@ -49,6 +49,7 @@ export async function PUT( request: Request, {params} : {params: Promise<{ id: s
      }
 
      const existing: any = opportunities[index];
+     const wasApproved = existing.status === "approved";
 
      const updated = {
       ...existing,
@@ -57,7 +58,9 @@ export async function PUT( request: Request, {params} : {params: Promise<{ id: s
       tags: parsed.data.tags.split(",").map((t:string) => t.trim()).filter(Boolean),
       id: existing.id,               //these three now can't be changed
       createdAt: existing.createdAt,
-      status: existing.status === "approved" ? "pending" : existing.status
+      status: existing.status === "approved" ? "pending" : existing.status,
+      updatedAt: wasApproved ? new Date().toISOString() : existing.updatedAt,
+      previousState: wasApproved ? existing : existing.previousState, // snapshot the old approved data 
     };
 
     opportunities[index] = updated;

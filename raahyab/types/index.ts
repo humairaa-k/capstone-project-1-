@@ -12,5 +12,7 @@ export interface Opportunity {
   tags: string[]
   createdAt: string
   featured: boolean
-  status: "pending" | "approved";
+  status: "pending" | "approved"
+  updatedAt? : string
+  previousState?: Partial<Opportunity>
 }
