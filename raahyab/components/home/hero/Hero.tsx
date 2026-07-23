@@ -2,7 +2,7 @@
 
 import HeroBackground from "@/components/home/hero/HeroBackground";
 import HeroStats from "@/components/home/hero/HeroStats";
-import HeroButtons from "@/components/home/hero/HeroBackground";
+import HeroButtons from "@/components/home/hero/HeroButtons";
 import { useTypewriter } from "@/hooks/useTypewriter";
 import { useRef } from "react";
 import gsap from "gsap";
@@ -61,7 +61,7 @@ export default function Hero() {
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full 
          pt-24 pb-12 sm:pt-24 sm:pb-16 xl:pt-32 xl:pb-24">
 
-        <div className="hero-title my-8 sm:my-12">
+        <div className="hero-title my-6 sm:my-8">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
             Find Your Next
           </h1>

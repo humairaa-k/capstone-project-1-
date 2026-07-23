@@ -76,6 +76,9 @@
     /* new */
     --popover: #292524;           
     --popover-foreground: #FDF6EC;
+
+    --color-teal-300: #5EEAD4;
+    --color-teal-700: #115E56;
 }
 
 body {

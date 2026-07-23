@@ -45,7 +45,9 @@ export interface DashboardStats {
   volunteer: number;   
   expiringSoon: number;
   newThisMonth: number;
-  // recentSubmissions: Opportunity[];
+  recentSubmissions: Opportunity[];
+  pendingApprovals: Opportunity[];
+
 }
 
 export async function getDashboardStats(): Promise<DashboardStats> {
@@ -67,9 +69,15 @@ export async function getDashboardStats(): Promise<DashboardStats> {
   const remote = approved.filter((o) => o.type === "Remote").length;
   const remotePercent = total > 0 ? Math.round((remote / total) * 100) : 0;
 
-  // const recentSubmissions = [...opportunities]
-  //   .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
-  //   .slice(0, 5);
+  
+  const recentSubmissions = [...approved] 
+    .sort((a, b) =>new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()) 
+    .slice(0,5);
+
+  const pendingApprovals = [...opportunities]
+   .filter((opp) => opp.status === "pending")
+   .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+
 
     return {
     total,
@@ -83,7 +91,8 @@ export async function getDashboardStats(): Promise<DashboardStats> {
     remotePercent,
     expiringSoon: expiringSoon.length,
     newThisMonth,
-    // recentSubmissions,
+    recentSubmissions,
+    pendingApprovals, 
   };
 }
 

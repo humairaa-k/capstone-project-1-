@@ -124,7 +124,7 @@
   },
   {
     "id": "6",
-    "title": "Marketing Intern",
+    "title": "Marketing Intern ",
     "organization": "Afghan Startup Hub",
     "category": "Internship",
     "location": "Kabul",
@@ -148,12 +148,12 @@
   },
   {
     "id": "7",
-    "title": "Journalism Intern edited",
+    "title": "Journalism Intern ",
     "organization": "Tolo News",
     "category": "Internship",
     "location": "Kabul",
     "type": "On-site",
-    "deadline": "2026-07-28",
+    "deadline": "2026-07-31T19:30:00.000Z",
     "description": "Work alongside experienced journalists at Tolo News. Learn reporting, script writing, and news production.",
     "requirements": [
       "Strong Dari writing",
@@ -168,7 +168,7 @@
     ],
     "createdAt": "2026-06-12",
     "featured": false,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "id": "8",
@@ -192,7 +192,7 @@
     ],
     "createdAt": "2026-06-13",
     "featured": false,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "id": "9",
@@ -607,7 +607,6 @@
       "Volunteer"
     ],
     "createdAt": "2026-06-08",
-    "featured": false,
-    "status": "approved"
+    "featured": false
   }
 ]
