@@ -56,7 +56,7 @@ const onSubmit = async (data: SignupFormData) => {
         )}
 
         <div>
-          <label className={labelClass}>Username</label>
+          <label className={labelClass}>Full Name</label>
           <input {...register("username")} placeholder="John Doe" className={inputClass} />
           {errors.username && <p className={errorClass}>{errors.username.message}</p>}
         </div>

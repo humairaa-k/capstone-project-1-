@@ -46,34 +46,19 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
-  // callbacks: {
-  //   async jwt({ token, user }) {
-  //     if (user) {
-  //       token.role = (user as any).role;
-  //       token.id = (user as any).id;
-  //     }
-  //     return token;
-  //   },
-  //   async session({ session, token }) {
-  //     if (session.user) {
-  //       (session.user as any).role = token.role;
-  //       (session.user as any).id = token.id;
-  //     }
-  //     return session;
-  //   },
-  // },
- callbacks: {
-  // ...existing signIn callback...
+  callbacks: {
   async jwt({ token, user }) {
     if (user) {
       token.id = user.id;
       token.role = (user as any).role ?? "user";
       token.username = (user as any).username ?? null;
-    } else if (token.id && !token.username) {
+      token.createdAt = (user as any).createdAt ?? null;
+    } else if (token.id && (!token.createdAt === undefined || token.username === undefined)) {
       const dbUser = await prisma.user.findUnique({ where: { id: token.id as string } });
       if (dbUser) {
         token.role = dbUser.role;
         token.username = dbUser.username;
+        token.createdAt = dbUser.createdAt;
       }
     }
     return token;
@@ -83,10 +68,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       session.user.id = token.id as string;
       session.user.role = token.role as "user" | "admin";
       session.user.username = token.username as string | null;
+      session.user.createdAt = token.createdAt as Date | null;
     }
     return session;
   },
-},
+
+ },
   pages: {
     signIn: "/login",
   },
