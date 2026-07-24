@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react';
 
 interface Props {
   children: ReactNode;
@@ -17,6 +18,8 @@ const SavedContext = createContext<SavedContextType | null>(null);
 
 export const SavedProvider = ({children}: Props ) => {
   const [ savedOpt, setSavedOpt ] = useState<string[]>([]);
+
+  const { data: session } = useSession();
 
   const toggleSave =((id: string) => {
    setSavedOpt((prev) => {
@@ -37,6 +40,20 @@ export const SavedProvider = ({children}: Props ) => {
   useEffect(() => {
    localStorage.setItem("savedOpt", JSON.stringify(savedOpt));
   },[savedOpt])
+
+  useEffect(() => {
+    if(!session) {
+      setSavedOpt([]);
+    }
+  },[session])
+
+  //double check
+  useEffect(() => {
+  if (!session) {
+    setSavedOpt([]);
+    localStorage.removeItem("savedOpportunities");
+  }
+}, [session]);
 
   const clearSaved = () => {
     setSavedOpt([]);

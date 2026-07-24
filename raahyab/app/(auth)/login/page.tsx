@@ -3,14 +3,26 @@ import LoginForm from "@/components/auth/LoginForm";
 import { GradientPanel } from "@/components/auth/GradientPanel";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { auth } from "@/lib/auth";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Log In",
   description: "Log in to your RaahYab account.",
 };
 
+ type SearchParams = Promise<{ [key:string]: string | string[] | undefined }>
 
-export default function SignupPage() {
+export default async function LoginPage({ searchParams,}: {searchParams: SearchParams}) {
+  const session = await auth();
+  const params = await searchParams;
+  const callbackUrl = 
+  typeof params?.callbackUrl === "string" ? params.callbackUrl : "/dashboard";
+
+  if(session?.user){
+    redirect(callbackUrl)
+  }
+
   return (
     <main className="min-h-screen bg-background p-4 lg:p-6">
 
@@ -40,7 +52,7 @@ export default function SignupPage() {
 
           <div className="-mt-8 relative z-10 mx-4 rounded-3xl border border-black/5 bg-card p-8 shadow-xl">
 
-            <LoginForm />
+            <LoginForm callbackUrl={callbackUrl}/>
 
           </div>
 
@@ -51,7 +63,7 @@ export default function SignupPage() {
 
          <div className="flex items-center justify-center bg-card p-10">
             <div className="w-full max-w-md">
-              <LoginForm />
+              <LoginForm callbackUrl={callbackUrl}/>
             </div>
 
           </div>

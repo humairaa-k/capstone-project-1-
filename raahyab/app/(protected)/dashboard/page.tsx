@@ -29,12 +29,12 @@ export default async function DashboardPage() {
 
   return (
     <>
-    <div className="rounded-3xl bg-linear-to-br from-primary/90 to-primary-hover/70 p-6 sm:p-8 mb-6 text-white">
+    <div className="rounded-3xl bg-linear-to-br from-primary/90 to-primary-hover/70 p-6 sm:p-8 mb-6 text-white animate-fade-in-up-delay-1">
      <p className="text-[14px] tracking-widest text-white/70 leading-none mb-1.5">Welcome Back, {session.user.username ?? session.user.name} · {     today}</p>
      <h1 className="text-2xl sm:text-3xl font-medium">Dashboard Overview</h1>
    </div>
 
-     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 animate-fade-in-up-delay-2">
         <StatCardHero
           icon={LayoutGrid}
           label="Total opportunities"
@@ -51,7 +51,7 @@ export default async function DashboardPage() {
         />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-4 mb-4">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-4 mb-4 animate-fade-in-up-delay-2">
 
       <div className="grid grid-cols-2 gap-4">
         <StatCardNeutral icon={Briefcase} label="Jobs" value={stats.jobs} />

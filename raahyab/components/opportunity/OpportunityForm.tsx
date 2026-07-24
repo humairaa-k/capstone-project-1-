@@ -159,7 +159,6 @@ export default function ({ initialData, onSubmit, submitLabel = "Publish Opportu
          type="submit"
          disabled={isSubmitting}
          className="w-full rounded-2xl flex items-center  justify-center gap-2 bg-primary hover:bg-primary-hover text-white font-semibold py-4 text-base transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
-        // inline-flex
         >
           <Zap className="w-4 h-4 fill-current" />{isSubmitting ? " Saving..." : submitLabel}
        </button>

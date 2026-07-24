@@ -13,6 +13,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import ConfirmDialog from "@/components/common/ConfirmDialog";
+import { useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 
 //date format
 function formatFullDate(date: string) {
@@ -37,6 +39,30 @@ export default function OpportunityDetailContent({opportunity} : { opportunity: 
     categoryThemes.Job;
 
   const router = useRouter();
+  const pathname = usePathname();
+  const { data: session, status: sessionStatus } = useSession();
+
+  const handleEdit = () => {
+    if (sessionStatus === "loading") return;
+
+    if (!session?.user) {
+      router.push(`/login?callbackUrl=${encodeURIComponent(`/opportunities/${opportunity.id}/edit`)}`);
+      return;
+    }
+
+    router.push(`/opportunities/${opportunity.id}/edit`);
+  };
+
+  const handleDeleteClick = () => {
+    if (sessionStatus === "loading") return;
+
+    if (!session?.user) {
+      router.push(`/login?callbackUrl=${encodeURIComponent(pathname)}`);
+      return;
+    }
+
+    setShowConfirm(true);
+  };
 
   const handleDelete = async () => {
     try {
@@ -231,15 +257,15 @@ export default function OpportunityDetailContent({opportunity} : { opportunity: 
           Actions
         </p>
         <div className="flex gap-3">
-          <Link
-            href={`/opportunities/${opportunity.id}/edit`}
+          <button
+            onClick={handleEdit}
             className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-foreground/10 py-2.5 text-xs font-medium text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-all duration-200"
           >
             <Pencil className="h-3.5 w-3.5" />
             Edit
-          </Link>
+          </button>
           <button
-          onClick={() => setShowConfirm(true)}
+          onClick={handleDeleteClick}
             aria-label="Delete opportunity"
             className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-red-400/40 py-2.5 text-xs font-medium text-red-400 hover:bg-red-50 hover:border-red-300 dark:hover:bg-red-400/10 dark:hover:border-red-500/40 transition-all duration-200"
           >

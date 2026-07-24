@@ -14,6 +14,9 @@ import {
 
 import { getDeadlineStatus } from "@/utils/getDeadlineStatus";
 import { useSaved } from "@/context/SavedContext";
+import { useSession } from "next-auth/react";
+import { useRouter, usePathname } from "next/navigation";
+import { toast } from "sonner";
 
  interface FeaturedCardProps {
   opportunity: Opportunity;
@@ -34,6 +37,14 @@ export default function FeaturedCard({
   const { savedOpt, toggleSave } = useSaved();
   const isSaved = savedOpt.includes(opportunity.id);
 
+   const {
+     data: session,
+     status: sessionStatus,
+     } = useSession();
+
+   const router = useRouter();
+   const pathname = usePathname();
+
   const visibleTags = opportunity.tags.slice(0, 3);
 
   const theme =
@@ -41,8 +52,22 @@ export default function FeaturedCard({
       opportunity.category as keyof typeof categoryThemes
     ] ?? categoryThemes.Job;
 
-  const status = getDeadlineStatus(opportunity.deadline)
-  console.log(savedOpt);
+  const deadlineStatus = getDeadlineStatus(opportunity.deadline)
+
+  const handleSaveClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  e.preventDefault();
+
+  if (sessionStatus === "loading") return;
+  if (!session?.user) {
+    toast.info("Please log in to save opportunities.");
+    router.push(
+      `/login?callbackUrl=${encodeURIComponent(pathname)}`
+    );
+    return;
+  }
+  toggleSave(opportunity.id);
+};
+
   return (
     <Link
       href={`/opportunities/${opportunity.id}`}
@@ -90,9 +115,7 @@ export default function FeaturedCard({
 
           <button
             aria-label="Save opportunity"
-            onClick={(e) => { e.preventDefault()
-            toggleSave(opportunity.id)
-             }}
+            onClick={handleSaveClick}
             className="
               flex
               h-9
@@ -161,19 +184,19 @@ export default function FeaturedCard({
             </h3>
 
                       
-          {status === "closingSoon" && (
+          {deadlineStatus  === "closingSoon" && (
              <span className="shrink-0 rounded-full bg-red-100 px-2 py-0.5 text-[11px] font-semibold text-red-700">
               Closing Soon
             </span>
           )}
 
-          {status === "endingThisWeek" && (
+          {deadlineStatus  === "endingThisWeek" && (
           <span className="shrink-0 rounded-full bg-orange-100 px-2 py-0.5 text-[11px] font-semibold text-orange-700">
             Ends This Week
           </span>
            )}
 
-           {status === "closed" && (
+           {deadlineStatus === "closed" && (
             <span className="shrink-0 rounded-full bg-gray-200 px-2 py-0.5 text-[11px] font-semibold text-gray-700">
               Closed
             </span>

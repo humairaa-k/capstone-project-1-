@@ -7,7 +7,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, LoginFormData } from "@/lib/schemas/auth";
 
-export default function LoginForm() {
+interface LoginFormProps {
+  callbackUrl?: string;
+}
+
+export default function LoginForm({ callbackUrl}: LoginFormProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const justRegistered = searchParams.get("registered") === "true";
@@ -28,6 +32,7 @@ export default function LoginForm() {
       email: data.email,
       password: data.password,
       redirect: false,
+      callbackUrl,
     });
 
     if (result?.error) {
@@ -35,7 +40,7 @@ export default function LoginForm() {
       return;
     }
 
-    router.push("/dashboard");
+    router.push(callbackUrl || "/dashboard");
     router.refresh();
   };
 
@@ -51,6 +56,8 @@ export default function LoginForm() {
     >
       <h1 className="text-2xl font-medium text-foreground mb-1">Login</h1>
       <p className="text-sm text-muted-foreground mb-6">Log in to your RaahYab account.</p>
+
+      <input type="hidden" name="callbackUrl" value={callbackUrl} />
 
       {justRegistered && (
         <div className="mb-4 px-4 py-3 rounded-xl bg-primary/10 text-primary text-sm">

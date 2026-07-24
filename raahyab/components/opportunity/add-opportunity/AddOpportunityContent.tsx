@@ -30,7 +30,7 @@ export default function AddOpportunityContent() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-26 pb-16">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-26 pb-16 animate-fade-in-up">
 
       <div className="mb-12">
         <h1
@@ -44,7 +44,7 @@ export default function AddOpportunityContent() {
         </p>
       </div>
 
-  <div className="flex flex-col lg:flex-row gap-8 items-stretch lg:items-start">
+  <div className="flex flex-col lg:flex-row gap-8 items-stretch lg:items-start animate-fade-in-up-delay-1">
       <OpportunityForm onSubmit={handleCreate} submitLabel="Submit Opportunity"/>
 
       <div className="w-full  h-fit lg:w-[360px] shrink-0 rounded-3xl border border-dashed border-foreground/15 p-8 lg:sticky lg:top-24">
