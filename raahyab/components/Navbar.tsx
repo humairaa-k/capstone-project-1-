@@ -6,6 +6,8 @@ import { Sun, Moon, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import AuthNavButton from "./auth/AuthNavbar";
+import { useSession } from "next-auth/react";
+
 
 const links = [
   { href: "/", label: "Home"},
@@ -16,10 +18,17 @@ const links = [
   { href: "/contact", label: "Contact"}
 ]
 
+const protectedLinks = [
+  { href: "/add-opportunity", label: "Add opportunity" },
+  {href: "/cv-builder", label: "CV Builder"},
+  {href: "/dashboard/profile", label: "Profile"},
+];
+
 export default function Navbar() {
    const pathName = usePathname();
    const { isDark, toggleTheme } = useTheme();
    const [ isMobileOpen, setIsMobileOpen ] = useState(false);
+   const { data: session } = useSession();
    const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -27,6 +36,8 @@ export default function Navbar() {
    window.addEventListener("scroll", handleScroll)
    return () => window.removeEventListener("scroll", handleScroll)
   },[])
+
+  const moblinks = session?.user? [...links, ...protectedLinks] : links;
 
   return (
    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -103,7 +114,7 @@ export default function Navbar() {
 
          {isMobileOpen &&
            <div className="md:hidden border-t border-accent/10 py-3 space-y-1 w-full">
-              {links.map((link) => {
+              {moblinks.map((link) => {
               const isActive = pathName === link.href;
               return (
                <Link

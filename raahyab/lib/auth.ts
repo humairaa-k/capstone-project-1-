@@ -80,4 +80,3 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   },
 });
 
-console.log("AUTH_SECRET:", process.env.AUTH_SECRET);

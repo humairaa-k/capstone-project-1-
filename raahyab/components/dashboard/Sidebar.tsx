@@ -9,7 +9,7 @@ const navItems = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/add-opportunity", label: "Add Opportunity", icon: PlusCircle },
   { href: "/saved", label: "Saved Opportunities", icon: Bookmark },
-  { href: "/dashboard/cv-builder", label: "CV Builder", icon: FileText },
+  { href: "/cv-builder", label: "CV Builder", icon: FileText },
   { href: "/dashboard/profile", label: "Profile", icon: User }
 
 ];
