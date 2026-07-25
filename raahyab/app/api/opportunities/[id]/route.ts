@@ -3,6 +3,8 @@ import fs from "fs/promises";
 import path from "path";
 import { getOpportunities } from "@/lib/opportunities";
 import { opportunitySchema } from "@/lib/schemas/opportunity";
+import { auth } from "@/lib/auth";
+
 
 const dataFilePath = path.join(process.cwd(), "data", "opportunities.json");
 
@@ -61,6 +63,7 @@ export async function PUT( request: Request, {params} : {params: Promise<{ id: s
       status: existing.status === "approved" ? "pending" : existing.status,
       updatedAt: wasApproved ? new Date().toISOString() : existing.updatedAt,
       previousState: wasApproved ? existing : existing.previousState, // snapshot the old approved data 
+      pendingAction: "edit",
     };
 
     opportunities[index] = updated;
@@ -77,18 +80,41 @@ export async function PUT( request: Request, {params} : {params: Promise<{ id: s
 } 
 
 
-export async function DELETE(request: Request, { params }: {params: Promise<{ id: string }>}) {
-    const { id } = await params;
-    try {
-      const opportunities = await getOpportunities() 
-      const updated = opportunities.filter((oppt: any) => oppt.id !== id)
-      await fs.writeFile(dataFilePath, JSON.stringify( updated, null, 2))
-      return NextResponse.json({success: true})
-    } catch {
-     return NextResponse.json(
-      {error: "Failed to delete Opportunity."},
-      {status: 500}
-     )
-   }
-     
+export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const session = await auth();
+
+  if (!session?.user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  try {
+    const opportunities = await getOpportunities();
+    const index = opportunities.findIndex((oppt: any) => oppt.id === id);
+    if (index === -1) {
+      return NextResponse.json({ error: "Opportunity not found." }, { status: 404 });
+    }
+
+    // Admin deletes immediately
+    if (session.user.role === "admin") {
+      const updated = opportunities.filter((oppt: any) => oppt.id !== id);
+      await fs.writeFile(dataFilePath, JSON.stringify(updated, null, 2));
+      return NextResponse.json({ success: true });
+    }
+
+    // Regular user just flag it
+    opportunities[index] = {
+      ...opportunities[index],
+      status: "pending",
+      pendingAction: "delete",
+    };
+
+    await fs.writeFile(dataFilePath, JSON.stringify(opportunities, null, 2));
+    return NextResponse.json({ success: true, pending: true });
+  } catch {
+    return NextResponse.json(
+      { error: "Failed to process delete request." },
+      { status: 500 }
+    );
+  }
 }

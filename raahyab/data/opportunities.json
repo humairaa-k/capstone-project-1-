@@ -47,7 +47,8 @@
     ],
     "createdAt": "2026-06-03",
     "featured": false,
-    "status": "approved"
+    "status": "pending",
+    "pendingAction": "delete"
   },
   {
     "id": "3",
@@ -144,7 +145,8 @@
     ],
     "createdAt": "2026-06-11",
     "featured": false,
-    "status": "approved"
+    "status": "pending",
+    "pendingAction": "delete"
   },
   {
     "id": "7",
@@ -172,7 +174,7 @@
   },
   {
     "id": "8",
-    "title": "Software Testing",
+    "title": "Software Test",
     "organization": "AfghanTech Solutions",
     "category": "Internship",
     "location": "Online",
@@ -192,7 +194,34 @@
     ],
     "createdAt": "2026-06-13",
     "featured": false,
-    "status": "approved"
+    "status": "pending",
+    "pendingAction": "delete",
+    "updatedAt": "2026-07-25T14:33:12.538Z",
+    "previousState": {
+      "id": "8",
+      "title": "Software Testing",
+      "organization": "AfghanTech Solutions",
+      "category": "Internship",
+      "location": "Online",
+      "type": "Remote",
+      "deadline": "2026-08-29T19:30:00.000Z",
+      "description": "Learn quality assurance and software testing in a remote environment. Perfect for students who want to enter the tech industry.",
+      "requirements": [
+        "Basic computer skills",
+        "Attention to detail",
+        "English reading ability"
+      ],
+      "applyLink": "https://example.com/apply",
+      "tags": [
+        "QA",
+        "Testing",
+        "Remote"
+      ],
+      "createdAt": "2026-06-13",
+      "featured": false,
+      "status": "approved",
+      "pendingAction": "delete"
+    }
   },
   {
     "id": "9",
@@ -370,7 +399,7 @@
   },
   {
     "id": "16",
-    "title": "Virtual Assistant",
+    "title": "Virtual ",
     "organization": "RemoteWork Arabia",
     "category": "Remote Work",
     "location": "Online",
@@ -391,7 +420,35 @@
     ],
     "createdAt": "2026-06-11",
     "featured": false,
-    "status": "approved"
+    "status": "pending",
+    "pendingAction": "edit",
+    "updatedAt": "2026-07-25T17:22:49.414Z",
+    "previousState": {
+      "id": "16",
+      "title": "Virtual Assistant",
+      "organization": "RemoteWork Arabia",
+      "category": "Remote Work",
+      "location": "Online",
+      "type": "Remote",
+      "deadline": "2026-08-12",
+      "description": "Provide administrative support to busy professionals remotely. Tasks include scheduling, email management, and research.",
+      "requirements": [
+        "Organization skills",
+        "English proficiency",
+        "Microsoft Office",
+        "Reliable internet"
+      ],
+      "applyLink": "https://example.com/apply",
+      "tags": [
+        "Admin",
+        "Virtual",
+        "Part-time"
+      ],
+      "createdAt": "2026-06-11",
+      "featured": false,
+      "status": "approved",
+      "pendingAction": "delete"
+    }
   },
   {
     "id": "17",
@@ -488,30 +545,6 @@
     ],
     "createdAt": "2026-06-01",
     "featured": true,
-    "status": "approved"
-  },
-  {
-    "id": "21",
-    "title": "Vocational Skills Training — Tailoring",
-    "organization": "Afghan Relief Organization",
-    "category": "Training",
-    "location": "Herat",
-    "type": "On-site",
-    "deadline": "2026-07-20",
-    "description": "Free vocational training in tailoring and fashion design. Earn a skill and start your own small business.",
-    "requirements": [
-      "No experience needed",
-      "Age 16+",
-      "Commitment to full program"
-    ],
-    "applyLink": "https://example.com/aro",
-    "tags": [
-      "Vocational",
-      "Tailoring",
-      "Free"
-    ],
-    "createdAt": "2026-06-04",
-    "featured": false,
     "status": "approved"
   },
   {

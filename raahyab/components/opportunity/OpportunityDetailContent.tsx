@@ -64,24 +64,48 @@ export default function OpportunityDetailContent({opportunity} : { opportunity: 
     setShowConfirm(true);
   };
 
+  // const handleDelete = async () => {
+  //   try {
+  //     const response = await fetch(`/api/opportunities/${opportunity.id}`, { 
+  //      method: "DELETE",
+  //     });
+
+  //   if(!response.ok) {
+  //     throw new Error ("Failed to delete")
+  //   }
+
+  //   toast.success("Opportunity deleted successfully!")
+  //   router.push('/opportunities')
+
+  //   } catch(error) {
+  //    toast.error("Something went wrong please try again.")
+  //   }
+  // } 
+
   const handleDelete = async () => {
-    try {
-      const response = await fetch(`/api/opportunities/${opportunity.id}`, { 
-       method: "DELETE",
-      });
+    setShowConfirm(false);
 
-    if(!response.ok) {
-      throw new Error ("Failed to delete")
+  try {
+    const response = await fetch(`/api/opportunities/${opportunity.id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to delete");
     }
 
-    toast.success("Opportunity deleted successfully!")
-    router.push('/opportunities')
+    const data = await response.json();
 
-    } catch(error) {
-     toast.error("Something went wrong please try again.")
+    if (data.pending) {
+      toast.success("Your request to delete this opportunity is pending and will be reviewed by admin.");
+    } else {
+      toast.success("Opportunity deleted successfully!");
+      router.push("/opportunities");
     }
-  } 
-
+  } catch (error) {
+    toast.error("Something went wrong please try again.");
+  }
+};
   return (
     <div className="min-h-screen bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 mt-12">

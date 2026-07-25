@@ -13,6 +13,7 @@ export interface Opportunity {
   createdAt: string
   featured: boolean
   status: "pending" | "approved"
+  pendingAction?: "edit" | "delete"
   updatedAt? : string
   previousState?: Partial<Opportunity>
 }

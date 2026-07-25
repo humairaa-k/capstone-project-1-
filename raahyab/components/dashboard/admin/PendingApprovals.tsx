@@ -96,6 +96,16 @@ export default function PendingApprovals({ data }: { data: Opportunity[] }) {
                     <span className="text-[11px] px-2.5 py-1 rounded-full bg-primary/10 text-primary">
                       {opp.category}
                     </span>
+                    {opp.pendingAction === "delete" && (
+                      <span className="ml-1.5 text-[11px] px-2.5 py-1 rounded-full bg-red-400/10 text-red-400">
+                        Delete request
+                      </span>
+                    )}
+                    {opp.pendingAction === "edit" && (
+                      <span className="ml-1.5 text-[11px] px-2.5 py-1 rounded-full bg-amber-400/10 text-amber-500">
+                        Edit request
+                      </span>
+                    )}
                   </div>
 
                   <div
