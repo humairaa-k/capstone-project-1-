@@ -36,7 +36,7 @@ export default function FiltersSidebar({
 }: FilterSidebarProps) {
   const t = useTranslations("opportunitiesPage.filters");
   const { dir } = useLanguage();
-  const [isCategoryOpen, setIsCategoryOpen] = useState(true);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isLocationOpen, setIsLocationOpen] = useState(false);
 
   const handleCategoryToggle = (cat: string) => {

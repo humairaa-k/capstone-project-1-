@@ -450,7 +450,7 @@
     "category": "Training",
     "location": "Online",
     "type": "Remote",
-    "deadline": "2026-08-30",
+    "deadline": "2026-08-25T19:30:00.000Z",
     "description": "Learn the basics of cybersecurity, online safety, and data protection. Free online training with certificate.",
     "requirements": [
       "Basic computer skills",
@@ -465,7 +465,33 @@
     ],
     "createdAt": "2026-06-06",
     "featured": false,
-    "status": "approved"
+    "status": "pending",
+    "updatedAt": "2026-07-27T19:42:03.353Z",
+    "previousState": {
+      "id": "22",
+      "title": "Cybersecurity Awareness Training",
+      "organization": "AfghanTech Institute",
+      "category": "Training",
+      "location": "Online",
+      "type": "Remote",
+      "deadline": "2026-08-30",
+      "description": "Learn the basics of cybersecurity, online safety, and data protection. Free online training with certificate.",
+      "requirements": [
+        "Basic computer skills",
+        "Internet access",
+        "Any age"
+      ],
+      "applyLink": "https://example.com/cyber",
+      "tags": [
+        "Cybersecurity",
+        "Online safety",
+        "Certificate"
+      ],
+      "createdAt": "2026-06-06",
+      "featured": false,
+      "status": "approved"
+    },
+    "pendingAction": "edit"
   },
   {
     "id": "23",

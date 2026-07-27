@@ -116,7 +116,7 @@ export default function PendingApprovals({ data }: { data: Opportunity[] }) {
                       }`}
                     >
                       <Clock size={12} strokeWidth={2} />
-                      {waiting === 0 ? t("today") : t("pendingApprovals.daysShort", { days: waiting })}
+                      {waiting === 0 ? t("pendingApprovals.today") : t("pendingApprovals.daysShort", { days: waiting })}
                     </div>
 
                     <div className="flex items-center gap-2 shrink-0">
