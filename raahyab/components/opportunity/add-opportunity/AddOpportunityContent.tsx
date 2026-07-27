@@ -2,11 +2,13 @@
 
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 import OpportunityForm from "@/components/opportunity/OpportunityForm"
 import { OpportunityFormData } from "@/lib/schemas/opportunity";
 
 export default function AddOpportunityContent() {
   const router = useRouter();
+  const t = useTranslations("addOpportunityPage");
 
   const handleCreate = async (data: OpportunityFormData) => {
     try {
@@ -37,43 +39,43 @@ export default function AddOpportunityContent() {
           style={{ fontFamily: "var(--font-dm-serif)" }}
           className="text-2xl sm:text-[40px] italic text-foreground leading-tight mb-4"
         >
-          Add Opportunity
+          {t("title")}
         </h1>
         <p className="text-sm text-muted-foreground leading-6 max-w-sm">
-          Know a job, scholarship, internship or course? Share it here and help someone discover their next opportunity.
+           {t("intro")}
         </p>
       </div>
 
   <div className="flex flex-col lg:flex-row gap-8 items-stretch lg:items-start animate-fade-in-up-delay-1">
-      <OpportunityForm onSubmit={handleCreate} submitLabel="Submit Opportunity"/>
+      <OpportunityForm onSubmit={handleCreate} submitLabel={t("submitLabel")}/>
 
       <div className="w-full  h-fit lg:w-[360px] shrink-0 rounded-3xl border border-dashed border-foreground/15 p-8 lg:sticky lg:top-24">
           <h3 className="text-base font-semibold text-foreground mb-6">
-            What happens next?
+            {t("whatNext.heading")}
           </h3>
 
           <div className="space-y-5">
             <div className="flex items-start gap-4">
               <span className="text-2xl font-bold text-foreground/20">01</span>
               <div>
-                <p className="font-medium text-sm">Submit your opportunity</p>
-                <p className="text-sm text-muted-foreground">Review your details and publish.</p>
+                <p className="font-medium text-sm">{t("whatNext.step1Title")}</p>
+                <p className="text-sm text-muted-foreground">{t("whatNext.step1Description")}</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
               <span className="text-2xl font-bold text-foreground/20">02</span>
               <div>
-                <p className="font-medium text-sm">Quick review</p>
-                <p className="text-sm text-muted-foreground">We verify the information.</p>
+                <p className="font-medium text-sm">{t("whatNext.step2Title")}</p>
+                <p className="text-sm text-muted-foreground">{t("whatNext.step2Description")}</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
               <span className="text-2xl font-bold text-foreground/20">03</span>
               <div>
-                <p className="font-medium text-sm">Published</p>
-                <p className="text-sm text-muted-foreground">Your opportunity goes live.</p>
+                <p className="font-medium text-sm">{t("whatNext.step3Title")}</p>
+                <p className="text-sm text-muted-foreground">{t("whatNext.step3Description")}</p>
               </div> 
             </div> 
          </div>

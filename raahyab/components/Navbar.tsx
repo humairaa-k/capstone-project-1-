@@ -63,7 +63,7 @@ export default function Navbar() {
              alt="RaahYab Logo"
              width={328}
              height={94}
-             className="h-12 w-auto "
+             className="h-11 w-auto "
              priority
            />
            </Link>    

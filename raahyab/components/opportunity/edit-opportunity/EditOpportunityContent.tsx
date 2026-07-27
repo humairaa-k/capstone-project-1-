@@ -4,12 +4,14 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import OpportunityForm from "@/components/opportunity/OpportunityForm";
 import { OpportunityFormData } from "@/lib/schemas/opportunity";
+import { useTranslations } from "next-intl";
 
 export default function EditOpportunityContent({ id, initialData,}: {
   id: string;
   initialData: Partial<OpportunityFormData>;
 }) {
   const router = useRouter();
+  const t = useTranslations("addOpportunityPage");
 
   const handleUpdate = async (data: OpportunityFormData) => {
     try {
@@ -39,10 +41,10 @@ export default function EditOpportunityContent({ id, initialData,}: {
           style={{ fontFamily: "var(--font-dm-serif)" }}
           className="text-2xl sm:text-[40px] italic text-foreground leading-tight mb-4"
         >
-          Edit Opportunity
+           {t("editTitle")}
         </h1>
         <p className="text-sm text-muted-foreground leading-6 max-w-sm">
-          Update the details below and save your changes.
+          {t("editIntro")}
         </p>
       </div>
 
@@ -50,7 +52,7 @@ export default function EditOpportunityContent({ id, initialData,}: {
         <OpportunityForm
           initialData={initialData}
           onSubmit={handleUpdate}
-          submitLabel="Save Changes"
+           submitLabel={t("saveChanges")}
         />
       </div>
     </div>

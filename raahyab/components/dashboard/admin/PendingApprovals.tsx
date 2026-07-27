@@ -38,7 +38,7 @@ export default function PendingApprovals({ data }: { data: Opportunity[] }) {
   };
 
   return (
-    <div className="rounded-3xl border border-foreground/10 bg-card mb-6 overflow-hidden">
+    <div className="rounded-3xl border border-foreground/10 bg-card my-10 overflow-hidden">
       <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-foreground/10">
         <div className="flex items-center gap-2.5">
           {hasUrgent && (

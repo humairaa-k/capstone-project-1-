@@ -112,10 +112,11 @@ export default function RootLayout({
           {children}
           <Toaster position="top-right" richColors offset={80}/>
           </main>
+          <ConditionalFooter/>
         </SavedProvider>
         </LanguageProvider> 
        </ThemeProvider>
-       <ConditionalFooter/>
+    
       </SessionProviderWrapper>
       
       </body>

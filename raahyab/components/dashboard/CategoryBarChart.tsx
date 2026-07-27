@@ -31,7 +31,7 @@ export default function CategoryBarChart({ data }: CategoryBarChartProps) {
         <span className="text-xs text-muted-foreground">{t("categoryChart.thisMonth")}</span>
       </div>
 
-      <ChartContainer config={chartConfig} className="h-[200px] w-full">
+      <ChartContainer config={chartConfig} className="h-[220px] w-full">
         <BarChart data={data} margin={{ left: -20, right: 10, top: 20 }}>
           <defs>
             <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%">

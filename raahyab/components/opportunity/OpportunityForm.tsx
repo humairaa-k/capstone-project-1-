@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Zap  } from "lucide-react";
 import { Controller } from "react-hook-form";
 import { DatePicker } from "@/components/ui/date-picker";
+import { useTranslations } from "next-intl";
 
 interface OpportunityFormProps {
   initialData?: Partial<OpportunityFormData>;
@@ -16,8 +17,9 @@ interface OpportunityFormProps {
 const categories = ["Job", "Internship", "Scholarship", "Remote Work", "Online Course", "Training", "Volunteer"];
 const types = ["On-site", "Remote", "Hybrid"];
 
-export default function ({ initialData, onSubmit, submitLabel = "Publish Opportunity",}: OpportunityFormProps) {
- 
+export default function OpportunityForm({ initialData, onSubmit, submitLabel,}: OpportunityFormProps) {
+  const t = useTranslations("addOpportunityPage.form");
+
   const { register, handleSubmit,  watch, control, formState: { errors, isSubmitting }, } = useForm<OpportunityFormData>({
     resolver: zodResolver(opportunitySchema),
     defaultValues: initialData,
@@ -37,29 +39,30 @@ export default function ({ initialData, onSubmit, submitLabel = "Publish Opportu
          className="rounded-3xl border border-foreground/10 bg-card p-2 sm:p-4 shadow-sm">
 
         <div className="p-6 sm:p-8">
-          <h2 className={sectionHeadingClass}>Basic Info</h2>
+          <h2 className={sectionHeadingClass}>{t("basicInfo")}</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className={labelClass}>Title</label>
-              <input {...register("title")} placeholder="Frontend Developer" className={inputClass} />
+              <label className={labelClass}>{t("titleLabel")}</label>
+              <input {...register("title")} placeholder={t("titlePlaceholder")} className={inputClass} />
               {errors.title && <p className={errorClass}>{errors.title.message}</p>}
             </div>
             <div>
-              <label className={labelClass}>Organization</label>
-              <input {...register("organization")} placeholder="Kabul Digital Agency" className={inputClass} />
+              <label className={labelClass}>{t("organizationLabel")}</label>
+              <input {...register("organization")} placeholder={t("organizationPlaceholder")} className={inputClass} />
               {errors.organization && <p className={errorClass}>{errors.organization.message}</p>}
             </div>
           </div>
 
           <div>
-            <label className={labelClass}>Category</label>
+            <label className={labelClass}>{t("categoryLabel")}</label>
             <select {...register("category")} className={inputClass}>
               <option value="" style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}>
-                Select a category</option>
+                {t("categoryPlaceholder")} </option>
               {categories.map((c) => (
                 <option key={c} value={c} style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}>
-                  {c}</option>
+                  {t.has(`categories.${c}`) ? t(`categories.${c}`) : c}
+                </option>
               ))}
             </select>
             {errors.category && <p className={errorClass}>{errors.category.message}</p>}
@@ -68,29 +71,31 @@ export default function ({ initialData, onSubmit, submitLabel = "Publish Opportu
 
        
         <div className="p-6 sm:p-8 -mt-8">
-          <h2 className={sectionHeadingClass}>Details</h2>
+          <h2 className={sectionHeadingClass}>{t("details")}</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div>
-              <label className={labelClass}>Location</label>
-              <input {...register("location")} placeholder="Kabul" className={inputClass} />
+              <label className={labelClass}> {t("locationLabel")} </label>
+              <input {...register("location")} placeholder={t("locationPlaceholder")} className={inputClass} />
               {errors.location && <p className={errorClass}>{errors.location.message}</p>}
             </div>
             <div>
-              <label className={labelClass}>Type</label>
+              <label className={labelClass}> {t("typeLabel")} </label>
               <select {...register("type")} className={inputClass}>
                 <option value="" style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}>
-                  Select type</option>
-                {types.map((t) => (
-                  <option key={t} value={t}  style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}>
-                    {t}</option>
+                 {t("typePlaceholder")}  
+                </option>
+                  {types.map((type) => (
+                <option key={type} value={type} style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}>
+                  {t(`types.${type}`)}
+                </option>
                 ))}
               </select>
               {errors.type && <p className={errorClass}>{errors.type.message}</p>}
             </div>
 
           <div>
-           <label className={labelClass}>Deadline</label>
+           <label className={labelClass}> {t("deadlineLabel")} </label>
            <Controller
              name="deadline"
              control={control}
@@ -98,7 +103,7 @@ export default function ({ initialData, onSubmit, submitLabel = "Publish Opportu
                <DatePicker
                  value={field.value ? new Date(field.value) : undefined}
                  onChange={(date) => field.onChange(date?.toISOString())}
-                 placeholder="Select deadline"
+                 placeholder={t("deadlinePlaceholder")}
                />
                )}
              />
@@ -108,34 +113,34 @@ export default function ({ initialData, onSubmit, submitLabel = "Publish Opportu
         </div>
 
         <div className="p-6 sm:p-8 -mt-6">
-          <h2 className={sectionHeadingClass}>Description</h2>
+          <h2 className={sectionHeadingClass}> {t("description")} </h2>
           <textarea
             {...register("description")}
             rows={5}
-            placeholder="Describe the opportunity, responsibilities, and what makes it a good fit..."
+            placeholder={t("descriptionPlaceholder")}
             className={`${inputClass} resize-none`}
           />
           {errors.description && <p className={errorClass}>{errors.description.message}</p>}
         </div>
 
         <div className="p-6 sm:p-8 space-y-6 -mt-8">
-          <h2 className={sectionHeadingClass}>Requirements & Tags</h2>
+          <h2 className={sectionHeadingClass}>{t("requirementsTags")}</h2>
 
           <div>
-            <label className={labelClass}>Requirements (comma-separated)</label>
+            <label className={labelClass}> {t("requirementsLabel")} </label>
             <input
               {...register("requirements")}
-              placeholder="React, Next.js, 2+ years experience"
+              placeholder={t("requirementsPlaceholder")}
               className={inputClass}
             />
             {errors.requirements && <p className={errorClass}>{errors.requirements.message}</p>}
           </div>
 
           <div>
-            <label className={labelClass}>Tags (comma-separated)</label>
+            <label className={labelClass}> {t("tagsLabel")} </label>
             <input
               {...register("tags")}
-              placeholder="React, Frontend, Full-time"
+              placeholder={t("tagsPlaceholder")}
               className={inputClass}
             />
             {errors.tags && <p className={errorClass}>{errors.tags.message}</p>}
@@ -144,10 +149,10 @@ export default function ({ initialData, onSubmit, submitLabel = "Publish Opportu
 
 
         <div className="p-6 sm:p-8 -mt-8">
-          <label className={labelClass}>Apply Link</label>
+          <label className={labelClass}>{t("applyLinkLabel")}</label>
           <input
             {...register("applyLink")}
-            placeholder="https://example.com/apply"
+            placeholder={t("applyLinkPlaceholder")} 
             className={inputClass}
           />
           {errors.applyLink && <p className={errorClass}>{errors.applyLink.message}</p>}
@@ -160,7 +165,8 @@ export default function ({ initialData, onSubmit, submitLabel = "Publish Opportu
          disabled={isSubmitting}
          className="w-full rounded-2xl flex items-center  justify-center gap-2 bg-primary hover:bg-primary-hover text-white font-semibold py-4 text-base transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <Zap className="w-4 h-4 fill-current" />{isSubmitting ? " Saving..." : submitLabel}
+          <Zap className="w-4 h-4 fill-current" />
+           {isSubmitting ? t("saving") : (submitLabel ?? t("publishButton"))}
        </button>
         </div>
    </form>

@@ -1,7 +1,14 @@
+"use client";
+
 import Link from "next/link"
 import Image from "next/image"
+import { useLanguage } from "@/context/LanguageContext";
+import { useTranslations } from 'next-intl';
 
 export default function Footer() {
+  const tFooter = useTranslations("footer");
+   const tNav = useTranslations("nav");
+
   return (
     <footer className="bg-zinc-900 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
@@ -20,35 +27,35 @@ export default function Footer() {
             priority
             />
          </Link> 
-             <p className="text-sm text-white/60 leading-6 max-w-xs">
-               Your one-stop platform for jobs, internships, and scholarships across Afghanistan.
+             <p className="text-sm text-white/60 leading-6 mt-3 max-w-xs">
+               {tFooter("tagline")}
              </p>
            </div>
 
            <div className="pl-3">
-             <h4 className="text-sm font-semibold text-white mb-4"> Platform</h4>
+             <h4 className="text-sm font-semibold text-white mb-4"> {tFooter("platform")} </h4>
              <ul className="space-y-2.5 ">
                <li>
                  <Link href="/" className="text-sm text-white/60 hover:text-primary hover:translate-x-1 transition-all inline-block duration-200">
-                   Home
+                  {tNav("home")}
                  </Link>
                </li>
 
                 <li>
                  <Link href="/opportunities" className="text-sm text-white/60  hover:text-primary hover:translate-x-1 transition-all inline-block duration-200">
-                    Opportunities
+                     {tNav("opportunities")}
                  </Link>
                </li>
                
                 <li>
                  <Link href="/saved" className="text-sm text-white/60  hover:text-primary hover:translate-x-1 transition-all inline-block duration-200">
-                   Saved
+                    {tNav("saved")}
                  </Link>
                </li>
 
                  <li>
                  <Link href="/dashboard" className="text-sm text-white/60  hover:text-primary hover:translate-x-1 transition-all inline-block duration-200">
-                   Dashboard
+                    {tNav("dashboard")}
                  </Link>
                </li>
 
@@ -57,23 +64,23 @@ export default function Footer() {
            </div>
 
             <div>
-             <h4 className="text-sm font-semibold text-white mb-4"> Company</h4>
+             <h4 className="text-sm font-semibold text-white mb-4"> {tFooter("company")} </h4>
              <ul className="space-y-2.5">
                <li>
                  <Link href="/about" className="text-sm text-white/60 hover:text-primary hover:translate-x-1 transition-all inline-block duration-200">
-                   About
+                   {tNav("about")}
                  </Link>
                </li>
 
                 <li>
                  <Link href="/contact" className="text-sm text-white/60  hover:text-primary hover:translate-x-1 transition-all inline-block duration-200">
-                    Contact
+                   {tNav("contact")}
                  </Link>
                </li>
                
                 <li>
                  <Link href="/add-opportunity" className="text-sm text-white/60  hover:text-primary hover:translate-x-1 transition-all inline-block duration-200">
-                   Add Opportunity
+                   {tNav("addOpportunity")}
                  </Link>
                </li>
              </ul>
@@ -81,26 +88,26 @@ export default function Footer() {
            </div>
 
            <div>
-            <h4 className="text-sm font-semibold text-white mb-4">Categories</h4>
+            <h4 className="text-sm font-semibold text-white mb-4">{tFooter("categories")}</h4>
             <ul className="space-y-2.5">
               <li>
                 <Link href="/opportunities" className="text-sm text-white/60  hover:text-primary hover:translate-x-1 transition-all inline-block duration-200">
-                  Jobs
+                  {tFooter("jobs")}
                 </Link>
               </li>
               <li>
                 <Link href="/opportunities" className="text-sm text-white/60  hover:text-primary hover:translate-x-1 transition-all inline-block duration-200">
-                  Internships
+                   {tFooter("internships")}
                 </Link>
               </li>
               <li>
              <Link href="/opportunities"  className="text-sm text-white/60  hover:text-primary hover:translate-x-1 transition-all inline-block duration-200">
-               Scholarships
+               {tFooter("scholarships")}
              </Link>
            </li>
            <li>
              <Link href="/opportunities"  className="text-sm text-white/60  hover:text-primary hover:translate-x-1 transition-all inline-block duration-200">
-               Remote Work
+               {tFooter("remoteWork")}
              </Link>
            </li>
          </ul>

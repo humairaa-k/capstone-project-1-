@@ -12,7 +12,7 @@ export default async function Home() {
   const opportunities = await getOpportunities();
  return (
   <>
-  <Hero/>
+   <Hero opportunities={opportunities} />
   <CategorySection >
    <CategoryGrid opportunities={opportunities} />
    </CategorySection>

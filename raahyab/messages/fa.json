@@ -11,13 +11,19 @@
     "profile": "پروفایل",
     "signedIn": "وارد شده"
   },
+  "authNav": {
+  "dashboard": "داشبورد",
+  "profile": "پروفایل کاربری",
+  "logOut": "خروج از سیستم",
+  "logIn": "ورود به سیستم"
+},
   "hero": {
   "titleStatic": "بهترین را برای خود پیدا کنید",
   "words": ["کار از راه دور", "کارآموزی", "بورسیه تحصیلی", "دوره‌های آنلاین", "داوطلبی", "برنامه‌های آموزشی"],
   "subtitle": "کار، بورسیه، کارآموزی، کار از راه دور و دوره‌ها — هر آنچه جوانان افغان برای ساختن آینده خود نیاز دارند، همین‌جا.",
   "getStarted": "شروع کنید",
   "exploreOpportunities": "فرصت‌ها را کاوش کنید"
- },
+ }, 
  "howItWorks": {
   "heading": "چگونه <brand>راه‌یاب</brand> کار می‌کند",
   "subtitle": "سه گام ساده برای یافتن فرصت بعدی شما",
@@ -43,7 +49,8 @@
   "eyebrow": "مرور بر اساس دسته‌بندی",
   "heading": "دنبال <highlight>چه چیزی هستید؟</highlight>",
   "viewAll": "مشاهده همه",
-  "viewAllMobile": "مشاهده همه فرصت‌ها"
+  "viewAllMobile": "مشاهده همه فرصت‌ها",
+  "opportunityCount": "{count, plural, =0 {هیچ فرصتی} other {# فرصت}}"
 },
  "cta": {
   "heading": "فرصتی می‌شناسید؟",
@@ -283,5 +290,205 @@
     "deleteSuccess": "فرصت با موفقیت حذف شد!",
     "deleteError": "مشکلی پیش آمد، لطفاً دوباره تلاش کنید."
   }
+},
+
+"addOpportunityPage": {
+  "title": "افزودن فرصت",
+  "intro": "شغل، بورسیه، کارآموزی یا دوره‌ای می‌شناسید؟ آن را اینجا به اشتراک بگذارید و به کسی کمک کنید فرصت بعدی خود را پیدا کند.",
+  "submitLabel": "ارسال فرصت",
+  "saving": "در حال ذخیره...",
+  "editTitle": "ویرایش فرصت",
+  "editIntro": "جزئیات زیر را به‌روزرسانی کرده و تغییرات خود را ذخیره کنید.",
+  "saveChanges": "ذخیره تغییرات",
+  "toast": {
+    "success": "متشکریم! فرصت شما ارسال شد و در انتظار بررسی است.",
+    "error": "مشکلی پیش آمد. لطفاً دوباره تلاش کنید."
+  },
+  "whatNext": {
+    "heading": "بعد از این چه می‌شود؟",
+    "step1Title": "فرصت خود را ارسال کنید",
+    "step1Description": "جزئیات خود را بررسی و منتشر کنید.",
+    "step2Title": "بررسی سریع",
+    "step2Description": "ما اطلاعات را تأیید می‌کنیم.",
+    "step3Title": "منتشر شد",
+    "step3Description": "فرصت شما منتشر می‌شود."
+  },
+  "form": {
+    "basicInfo": "اطلاعات پایه",
+    "titleLabel": "عنوان",
+    "titlePlaceholder": "توسعه‌دهنده فرانت‌اند",
+    "organizationLabel": "سازمان",
+    "organizationPlaceholder": "آژانس دیجیتال کابل",
+    "categoryLabel": "دسته‌بندی",
+    "categoryPlaceholder": "یک دسته‌بندی انتخاب کنید",
+    "details": "جزئیات",
+    "locationLabel": "موقعیت",
+    "locationPlaceholder": "کابل",
+    "typeLabel": "نوع",
+    "typePlaceholder": "نوع را انتخاب کنید",
+    "deadlineLabel": "مهلت",
+    "deadlinePlaceholder": "مهلت را انتخاب کنید",
+    "description": "توضیحات",
+    "descriptionPlaceholder": "فرصت، مسئولیت‌ها و آنچه آن را مناسب می‌سازد را توضیح دهید...",
+    "requirementsTags": "الزامات و برچسب‌ها",
+    "requirementsLabel": "الزامات (با کاما جدا شود)",
+    "requirementsPlaceholder": "ری‌اکت، نکست جی‌اس، ۲+ سال تجربه",
+    "tagsLabel": "برچسب‌ها (با کاما جدا شود)",
+    "tagsPlaceholder": "ری‌اکت، فرانت‌اند، تمام‌وقت",
+    "applyLinkLabel": "لینک درخواست",
+    "applyLinkPlaceholder": "https://example.com/apply",
+    "publishButton": "انتشار فرصت",
+    "categories": {
+      "Job": "شغل",
+      "Internship": "کارآموزی",
+      "Scholarship": "بورسیه",
+      "Remote Work": "کار از راه دور",
+      "Online Course": "دوره آنلاین",
+      "Training": "آموزش",
+      "Volunteer": "داوطلبی"
+    },
+    "types": {
+      "On-site": "حضوری",
+      "Remote": "دورکاری",
+      "Hybrid": "ترکیبی"
+    }
+  }
+},
+
+"profilePage": {
+  "eyebrow": "حساب کاربری",
+  "title": "پروفایل شما",
+  "roleAdmin": "مدیر",
+  "roleUser": "کاربر",
+  "usernameLabel": "نام کاربری",
+  "emailLabel": "ایمیل",
+  "memberSinceLabel": "عضو از",
+  "adminNotice": {
+    "title": "حساب مدیر",
+    "description": "حساب‌های مدیر را نمی‌توان از این صفحه حذف کرد. در صورت نیاز با مدیر دیگری تماس بگیرید یا مستقیماً از پایگاه داده مدیریت کنید."
+  },
+  "dangerZone": {
+    "title": "منطقه خطر",
+    "description": "حذف حساب شما دائمی است و قابل بازگشت نیست. تمام فرصت‌های ذخیره‌شده و اطلاعات شما حذف خواهد شد."
+  }
+},
+
+"cvBuilderPage": {
+  "title": "سازنده رزومه",
+  "form": {
+    "personalDetails": "اطلاعات شخصی",
+    "fullName": "نام کامل",
+    "jobTitle": "عنوان شغلی",
+    "email": "ایمیل",
+    "phone": "تلفن",
+    "location": "موقعیت",
+    "website": "وب‌سایت",
+    "summary": "خلاصه",
+    "experience": "تجربه کاری",
+    "add": "افزودن",
+    "removeExperienceAria": "حذف تجربه کاری",
+    "rolePlaceholder": "سمت",
+    "companyPlaceholder": "شرکت",
+    "locationPlaceholder": "موقعیت",
+    "currentlyWorking": "در حال حاضر اینجا کار می‌کنم",
+    "descriptionPlaceholder": "توضیحات",
+    "education": "تحصیلات",
+    "removeEducationAria": "حذف تحصیلات",
+    "degreePlaceholder": "مدرک",
+    "fieldPlaceholder": "رشته تحصیلی",
+    "institutionPlaceholder": "موسسه آموزشی",
+    "skills": "مهارت‌ها",
+    "skillNamePlaceholder": "نام مهارت",
+    "removeSkillAria": "حذف مهارت",
+    "levels": {
+      "Beginner": "مبتدی",
+      "Intermediate": "متوسط",
+      "Advanced": "پیشرفته",
+      "Expert": "متخصص"
+    }
+  },
+
+  "exportButton": {
+  "download": "دانلود پی‌دی‌اف",
+  "generating": "در حال تولید پی‌دی‌اف...",
+  "notReadyError": "پیش‌نمایش هنوز آماده نیست.",
+  "genericError": "مشکلی در تولید پی‌دی‌اف پیش آمد. لطفاً دوباره تلاش کنید."
+ }
+},
+
+"signup": {
+  "heading": "راه خود را پیدا کنید",
+  "subtitle": "مکانی برای یافتن کار، بورسیه تحصیلی و کارآموزی در سراسر افغانستان.",
+       "benefitCards": [
+      {
+        "title": "سازماندهی شده بمانید",
+        "desc": "فرصت‌ها را ذخیره کنید، درخواست‌ها را پیگیری کنید و مسیر شغلی خود را مدیریت کنید."
+      },
+      {
+        "title": "پیگیری ضرب‌الاجل‌ها",
+        "desc": "مهلت‌های ارسال درخواست را مشاهده کنید و قبل از انقضا، به فرصت‌ها اولویت دهید."
+      },
+      {
+        "title": "رشد مسیر شغلی",
+        "desc": "فرصت‌هایی را کاوش کنید که به رشد مهارت‌ها، تحصیلات و حرفه شما کمک می‌کنند."
+      }
+    ],
+  "back": "بازگشت",
+  "formHeading": "به ما بپیوندید",
+  "formSubtitle": "برای ارسال و پیگیری فرصت‌ها حساب کاربری بسازید.",
+  "fullName": "نام کامل",
+  "fullNamePlaceholder": "جان دو",
+  "email": "ایمیل",
+  "emailPlaceholder": "you@example.com",
+  "password": "رمز عبور",
+  "passwordPlaceholder": "حداقل ۸ کاراکتر",
+  "confirmPassword": "تکرار رمز عبور",
+  "confirmPasswordPlaceholder": "رمز عبور را دوباره وارد کنید",
+  "continue": "ادامه",
+  "creatingAccount": "در حال ساخت حساب...",
+  "haveAccount": "حساب کاربری دارید؟",
+  "logIn": "وارد شوید",
+  "successToast": "حساب کاربری با موفقیت ساخته شد!"
+},
+"login": {
+  "back": "بازگشت",
+  "welcomeHeading": "به راه‌یاب خوش آمدید",
+  "welcomeSubtitle": "فرصت بعدی شما در انتظار است.",
+  "formHeading": "ورود",
+  "formSubtitle": "به حساب راه‌یاب خود وارد شوید.",
+  "registeredNotice": "حساب کاربری ساخته شد! لطفاً وارد شوید.",
+  "invalidCredentials": "ایمیل یا رمز عبور نادرست است.",
+  "email": "ایمیل",
+  "emailPlaceholder": "you@example.com",
+  "password": "رمز عبور",
+  "passwordPlaceholder": "رمز عبور شما",
+  "logIn": "ورود",
+  "loggingIn": "در حال ورود...",
+  "noAccount": "حساب کاربری ندارید؟",
+  "signUp": "ثبت‌نام"
+},
+"notFound": {
+  "title": "راه شما را از اینجا پیدا نکردیم.",
+  "subtitle": "صفحه‌ای که دنبال آن هستید وجود ندارد، جابجا شده، یا لینک منسوخ شده است. بیایید شما را به مسیر برگردانیم.",
+  "browse": "مشاهده فرصت‌ها",
+  "backHome": "بازگشت به خانه"
+},
+
+"footer": {
+    "tagline": "پلتفرم یکپارچه شما برای یافتن وظایف، کارآموزی‌ها و بورسیه‌های تحصیلی در سراسر افغانستان.",
+    "platform": "پلتفرم",
+    "company": "شرکت",
+    "categories": "دسته‌بندی‌ها",
+    "jobs": "وظایف",
+    "internships": "کارآموزی‌ها",
+    "scholarships": "بورسیه‌های تحصیلی",
+    "remoteWork": "کار از راه دور (ریموت)"
+  },
+  "heroStats": {
+  "opportunities": "فرصت‌ها",
+  "categories": "دسته‌بندی‌ها",
+  "organizations": "سازمان‌ها",
+  "remoteRoles": "مشاغل دورکاری"
 }
+
 }

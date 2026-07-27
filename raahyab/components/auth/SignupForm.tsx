@@ -7,9 +7,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { signupSchema, SignupFormData } from "@/lib/schemas/auth";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 export default function SignupForm() {
   const router = useRouter();
+  const t = useTranslations("signup");
   const [serverError, setServerError] = useState<string | null>(null);
 
   const { register, handleSubmit,formState: { errors, isSubmitting }, } = useForm<SignupFormData>({ resolver: zodResolver(signupSchema) });
@@ -43,9 +45,9 @@ const onSubmit = async (data: SignupFormData) => {
 
   return (
     <div className="w-full">
-      <h1 className="text-3xl font-medium text-foreground mb-1">Join Us</h1>
+      <h1 className="text-3xl font-medium text-foreground mb-1">{t("formHeading")}</h1>
       <p className="text-sm text-muted-foreground mb-8">
-        Create an account to post and track opportunities.
+        {t("formSubtitle")}
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -56,26 +58,26 @@ const onSubmit = async (data: SignupFormData) => {
         )}
 
         <div>
-          <label className={labelClass}>Full Name</label>
-          <input {...register("username")} placeholder="John Doe" className={inputClass} />
+          <label className={labelClass}>{t("fullName")}</label>
+          <input {...register("username")} placeholder={t("fullNamePlaceholder")} className={inputClass} />
           {errors.username && <p className={errorClass}>{errors.username.message}</p>}
         </div>
 
         <div>
-          <label className={labelClass}>Email</label>
-          <input {...register("email")} type="email" placeholder="you@example.com" className={inputClass} />
+          <label className={labelClass}>{t("email")}</label>
+          <input {...register("email")} type="email" placeholder={t("emailPlaceholder")} className={inputClass} />
           {errors.email && <p className={errorClass}>{errors.email.message}</p>}
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className={labelClass}>Password</label>
-            <input {...register("password")} type="password" placeholder="At least 8 characters" className={inputClass} />
+            <label className={labelClass}>{t("password")}</label>
+            <input {...register("password")} type="password" placeholder={t("passwordPlaceholder")} className={inputClass} />
             {errors.password && <p className={errorClass}>{errors.password.message}</p>}
           </div>
           <div>
-            <label className={labelClass}>Confirm Password</label>
-            <input {...register("confirmPassword")} type="password" placeholder="Repeat password" className={inputClass} />
+            <label className={labelClass}>{t("confirmPassword")}</label>
+            <input {...register("confirmPassword")} type="password" placeholder={t("confirmPasswordPlaceholder")} className={inputClass} />
             {errors.confirmPassword && <p className={errorClass}>{errors.confirmPassword.message}</p>}
           </div>
         </div>
@@ -85,16 +87,15 @@ const onSubmit = async (data: SignupFormData) => {
           disabled={isSubmitting}
           className="w-full rounded-2xl bg-primary hover:bg-primary-hover text-white font-semibold py-3.5 text-sm transition-all duration-200 disabled:opacity-50"
         >
-          {isSubmitting ? "Creating account..." : "Continue"}
+          {isSubmitting ? t("creatingAccount") : t("continue")}
         </button>
 
         <p className="text-sm text-muted-foreground text-center">
-          Already have an account?{" "}
+          {t("haveAccount")}{" "}
          <Link
            href="/login"
-           className="text-primary font-medium hover:underline"
-         >
-           Log in
+           className="text-primary font-medium hover:underline">
+          {t("logIn")}
          </Link>       
         </p>
 {/* 

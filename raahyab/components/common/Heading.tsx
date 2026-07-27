@@ -13,7 +13,7 @@ export default function PageHeading({
   className=""
 }: PageHeadingProps) {
   return (
-    <div className={`relative w-full pt-23 pb-8 px-8  ${className}`}>
+    <div className={`relative w-full pt-20 pb-6 px-8  ${className}`}>
 
   {/* borders top & bottom  */}
       <div

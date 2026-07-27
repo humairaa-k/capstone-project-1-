@@ -4,6 +4,7 @@ import { SkillEntry } from "@/types/cv";
 import { Plus, Trash2 } from "lucide-react";
 import { ChangeEvent } from "react";
 import { UseCVDataReturn } from "@/hooks/useCVData";
+import { useTranslations } from "next-intl";
 
 type CVBuilderFormProps = UseCVDataReturn;
 
@@ -22,6 +23,7 @@ const skillLevels: SkillEntry["level"][] = [
 export function CVBuilderForm({data, updatePersonalDetails, addExperience, updateExperience,
   removeExperience, addEducation, updateEducation, removeEducation, addSkill,
   updateSkill, removeSkill, }: CVBuilderFormProps) {
+  const t = useTranslations("cvBuilderPage.form");
   const { personalDetails, experience, education, skills } = data;
 
   return (
@@ -33,7 +35,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
         </h2>
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className={labelClass}>Full Name</label>
+            <label className={labelClass}>{t("fullName")}</label>
             <input
               className={inputClass}
               value={personalDetails.fullName}
@@ -43,7 +45,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
             />
           </div>
           <div>
-            <label className={labelClass}>Job Title</label>
+            <label className={labelClass}> {t("jobTitle")} </label>
             <input
               className={inputClass}
               value={personalDetails.jobTitle}
@@ -53,7 +55,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
             />
           </div>
           <div>
-            <label className={labelClass}>Email</label>
+            <label className={labelClass}> {t("email")} </label>
             <input
               type="email"
               className={inputClass}
@@ -64,7 +66,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
             />
           </div>
           <div>
-            <label className={labelClass}>Phone</label>
+            <label className={labelClass}> {t("phone")} </label>
             <input
               className={inputClass}
               value={personalDetails.phone}
@@ -74,7 +76,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
             />
           </div>
           <div>
-            <label className={labelClass}>Location</label>
+            <label className={labelClass}>{t("location")}</label>
             <input
               className={inputClass}
               value={personalDetails.location}
@@ -84,7 +86,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
             />
           </div>
           <div>
-            <label className={labelClass}>Website</label>
+            <label className={labelClass}> {t("website")} </label>
             <input
               className={inputClass}
               value={personalDetails.website}
@@ -95,7 +97,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
           </div>
         </div>
         <div className="mt-3">
-          <label className={labelClass}>Summary</label>
+          <label className={labelClass}> {t("summary")} </label>
           <textarea
             rows={3}
             className={inputClass}
@@ -110,13 +112,13 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
       {/* Experience */}
       <section>
         <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-foreground">Experience</h2>
+          <h2 className="text-sm font-semibold text-foreground">{t("experience")}</h2>
           <button
             type="button"
             onClick={addExperience}
             className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:text-primary-hover"
           >
-            <Plus className="h-3.5 w-3.5" /> Add
+            <Plus className="h-3.5 w-3.5" /> {t("add")}
           </button>
         </div>
 
@@ -131,7 +133,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
                   type="button"
                   onClick={() => removeExperience(item.id)}
                   className="text-foreground/40 hover:text-red-600"
-                  aria-label="Remove experience entry"
+                  aria-label={t("removeExperienceAria")}
                 >
                   <Trash2 className="h-3.5 w-3.5" />
                 </button>
@@ -140,7 +142,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
               <div className="grid grid-cols-3 gap-2">
                 <input
                   className={inputClass}
-                  placeholder="Role"
+                  placeholder={t("rolePlaceholder")}
                   value={item.role}
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
                     updateExperience(item.id, "role", e.target.value)
@@ -148,7 +150,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
                 />
                 <input
                   className={inputClass}
-                  placeholder="Company"
+                  placeholder={t("companyPlaceholder")}
                   value={item.company}
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
                     updateExperience(item.id, "company", e.target.value)
@@ -156,7 +158,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
                 />
                 <input
                   className={inputClass}
-                  placeholder="Location"
+                  placeholder={t("locationPlaceholder")}
                   value={item.location}
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
                     updateExperience(item.id, "location", e.target.value)
@@ -191,12 +193,12 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
                     updateExperience(item.id, "current", e.target.checked)
                   }
                 />
-                Currently working here
+                 {t("currentlyWorking")}
               </label>
 
               <textarea
                 rows={2}
-                placeholder="Description"
+                placeholder={t("descriptionPlaceholder")}
                 className={`${inputClass} mt-2`}
                 value={item.description}
                 onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
@@ -211,13 +213,13 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
       {/* Education */}
       <section>
         <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-foreground">Education</h2>
+          <h2 className="text-sm font-semibold text-foreground"> {t("education")} </h2>
           <button
             type="button"
             onClick={addEducation}
             className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:text-primary-hover"
           >
-            <Plus className="h-3.5 w-3.5" /> Add
+            <Plus className="h-3.5 w-3.5" /> {t("add")}
           </button>
         </div>
 
@@ -232,7 +234,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
                   type="button"
                   onClick={() => removeEducation(item.id)}
                   className="text-foreground/40 hover:text-red-600"
-                  aria-label="Remove education entry"
+                  aria-label={t("removeEducationAria")}
                 >
                   <Trash2 className="h-3.5 w-3.5" />
                 </button>
@@ -241,7 +243,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
               <div className="grid grid-cols-3 gap-2">
                 <input
                   className={inputClass}
-                  placeholder="Degree"
+                  placeholder={t("degreePlaceholder")}
                   value={item.degree}
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
                     updateEducation(item.id, "degree", e.target.value)
@@ -249,7 +251,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
                 />
                 <input
                   className={inputClass}
-                  placeholder="Field of Study"
+                  placeholder={t("fieldPlaceholder")}
                   value={item.field}
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
                     updateEducation(item.id, "field", e.target.value)
@@ -257,7 +259,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
                 />
                 <input
                   className={inputClass}
-                  placeholder="Institution"
+                  placeholder={t("institutionPlaceholder")}
                   value={item.institution}
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
                     updateEducation(item.id, "institution", e.target.value)
@@ -290,13 +292,13 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
       {/* Skills */}
       <section>
         <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-foreground">Skills</h2>
+          <h2 className="text-sm font-semibold text-foreground">{t("skills")}</h2>
           <button
             type="button"
             onClick={addSkill}
             className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:text-primary-hover"
           >
-            <Plus className="h-3.5 w-3.5" /> Add
+            <Plus className="h-3.5 w-3.5" /> {t("add")}
           </button>
         </div>
 
@@ -305,7 +307,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
             <div key={item.id} className="flex items-center gap-2">
               <input
                 className={inputClass}
-                placeholder="Skill name"
+                placeholder={t("skillNamePlaceholder")}
                 value={item.name}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   updateSkill(item.id, "name", e.target.value)
@@ -324,7 +326,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
               >
                 {skillLevels.map((level) => (
                   <option key={level} value={level}>
-                    {level}
+                    {t(`levels.${level}`)}
                   </option>
                 ))}
               </select>
@@ -332,7 +334,7 @@ export function CVBuilderForm({data, updatePersonalDetails, addExperience, updat
                 type="button"
                 onClick={() => removeSkill(item.id)}
                 className="text-foreground/40 hover:text-red-600"
-                aria-label="Remove skill"
+                aria-label={t("removeSkillAria")}
               >
                 <Trash2 className="h-4 w-4" />
               </button>

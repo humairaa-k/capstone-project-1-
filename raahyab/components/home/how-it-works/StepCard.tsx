@@ -8,7 +8,7 @@ interface StepCardProps {
   icon: LucideIcon;
 }
 
-export default function StepCard({ number, title, description, icon:Icon, }: StepDataType) {
+export default function StepCard({ number, title, description, icon:Icon, }: StepCardProps) {
   return (
    <div className="relative bg-card dark:bg-background border border-accent/20 dark:border-gold-400/20 rounded-2xl p-6 sm:p-8">
      

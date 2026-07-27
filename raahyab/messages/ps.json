@@ -11,7 +11,12 @@
     "profile": "پروفایل",
     "signedIn": "ننوتلی"
   },
-
+  "authNav": {
+  "dashboard": "داشبورډ",
+  "profile": "پروفایل",
+  "logOut": "له سیسټم څخه وتل",
+  "logIn": "سیسټم ته ننوتل"
+},
   "hero": {
   "titleStatic": "خپل راتلونکی پیدا کړئ",
   "words": ["د لرې پرتو کار", "کارورکونه", "بورسونه", "آنلاین کورسونه", "رضاکارتیا", "روزنیز برنامې"],
@@ -42,7 +47,8 @@
   "eyebrow": "د کټګورۍ له مخې وپلټئ",
   "heading": "تاسو <highlight>د څه لټون کوئ؟</highlight>",
   "viewAll": "ټول وګورئ",
-  "viewAllMobile": "ټول فرصتونه وګورئ"
+  "viewAllMobile": "ټول فرصتونه وګورئ",
+  "opportunityCount": "{count, plural, =0 {هیڅ فرصت} other {# فرصتونه}}"
 },
 "cta": {
   "heading": "کوم فرصت پیژنئ؟",
@@ -280,7 +286,206 @@
     "deleteSuccess": "فرصت په بریالیتوب سره حذف شو!",
     "deleteError": "یو څه غلط شول، مهرباني وکړئ بیا هڅه وکړئ."
   }
-}
+},
 
+"addOpportunityPage": {
+  "title": "فرصت اضافه کول",
+  "intro": "کوم دنده، بورس، کارورکونه یا کورس پیژنئ؟ دلته یې شریک کړئ او یو چا سره مرسته وکړئ چې خپل راتلونکی فرصت ومومي.",
+  "submitLabel": "فرصت وسپارئ",
+  "saving": "ساتل کیږي...",
+  "editTitle": "فرصت سمول",
+  "editIntro": "لاندې توضیحات تازه کړئ او خپلې بدلونونه وساتئ.",
+  "saveChanges": "بدلونونه وساتئ",
+  "toast": {
+    "success": "مننه! ستاسو فرصت وسپارل شو او د بیاکتنې په انتظار کې دی.",
+    "error": "یو څه غلط شول. مهرباني وکړئ بیا هڅه وکړئ."
+  },
+  "whatNext": {
+    "heading": "له دې وروسته څه پیښیږي؟",
+    "step1Title": "خپل فرصت وسپارئ",
+    "step1Description": "خپل توضیحات وګورئ او خپاره یې کړئ.",
+    "step2Title": "ژر بیاکتنه",
+    "step2Description": "موږ معلومات تایید کوو.",
+    "step3Title": "خپور شو",
+    "step3Description": "ستاسو فرصت خپور کیږي."
+  },
+  "form": {
+    "basicInfo": "بنسټیز معلومات",
+    "titleLabel": "سرلیک",
+    "titlePlaceholder": "فرنټ اینډ پرمخ وړونکی",
+    "organizationLabel": "اداره",
+    "organizationPlaceholder": "کابل ډیجیټل اداره",
+    "categoryLabel": "کټګورۍ",
+    "categoryPlaceholder": "یوه کټګورۍ وټاکئ",
+    "details": "توضیحات",
+    "locationLabel": "موقعیت",
+    "locationPlaceholder": "کابل",
+    "typeLabel": "ډول",
+    "typePlaceholder": "ډول وټاکئ",
+    "deadlineLabel": "پای نیټه",
+    "deadlinePlaceholder": "پای نیټه وټاکئ",
+    "description": "تشریح",
+    "descriptionPlaceholder": "فرصت، مسئولیتونه، او هغه څه چې دا سم کوي تشریح کړئ...",
+    "requirementsTags": "اړتیاوې او ټاګونه",
+    "requirementsLabel": "اړتیاوې (په کاما جلا شي)",
+    "requirementsPlaceholder": "ری‌اکت، نکست جی‌اس، ۲+ کاله تجربه",
+    "tagsLabel": "ټاګونه (په کاما جلا شي)",
+    "tagsPlaceholder": "ری‌اکت، فرنټ اینډ، بشپړ وخت",
+    "applyLinkLabel": "د غوښتنلیک لینک",
+    "applyLinkPlaceholder": "https://example.com/apply",
+    "publishButton": "فرصت خپور کړئ",
+    "categories": {
+      "Job": "دنده",
+      "Internship": "کارورکونه",
+      "Scholarship": "بورس",
+      "Remote Work": "د لرې پرتو کار",
+      "Online Course": "آنلاین کورس",
+      "Training": "روزنه",
+      "Volunteer": "رضاکارتیا"
+    },
+    "types": {
+      "On-site": "حضوري",
+      "Remote": "لرې پرتی",
+      "Hybrid": "ګډ ډول"
+    }
+  }
+},
+
+"profilePage": {
+  "eyebrow": "حساب",
+  "title": "ستاسو پروفایل",
+  "roleAdmin": "اډمین",
+  "roleUser": "کارن",
+  "usernameLabel": "کارن نوم",
+  "emailLabel": "بریښنالیک",
+  "memberSinceLabel": "له کومې نیټې غړی دی",
+  "adminNotice": {
+    "title": "د اډمین حساب",
+    "description": "د اډمین حسابونه له دې پاڼې څخه نشي حذف کیدی. که اړتیا وي له بل اډمین سره اړیکه ونیسئ یا مستقیم له ډیټابیس څخه یې اداره کړئ."
+  },
+  "dangerZone": {
+    "title": "خطرناکه سیمه",
+    "description": "ستاسو د حساب حذف کول دایمي دي او بیرته نشي کیدی. ستاسو ټول ساتل شوي فرصتونه او معلومات به حذف شي."
+  }
+},
+
+"cvBuilderPage": {
+  "title": "سي‌ وي جوړونکی",
+  "form": {
+    "personalDetails": "شخصي معلومات",
+    "fullName": "بشپړ نوم",
+    "jobTitle": "د دندې سرلیک",
+    "email": "بریښنالیک",
+    "phone": "تلیفون",
+    "location": "موقعیت",
+    "website": "ویب‌ پاڼه",
+    "summary": "لنډیز",
+    "experience": "تجربه",
+    "add": "اضافه کول",
+    "removeExperienceAria": "د تجربې ړنګول",
+    "rolePlaceholder": "دنده",
+    "companyPlaceholder": "شرکت",
+    "locationPlaceholder": "موقعیت",
+    "currentlyWorking": "اوس مهال دلته کار کوم",
+    "descriptionPlaceholder": "تشریح",
+    "education": "زده کړه",
+    "removeEducationAria": "د زده کړې ړنګول",
+    "degreePlaceholder": "سند",
+    "fieldPlaceholder": "د زده کړې برخه",
+    "institutionPlaceholder": "ښوونیز موسسه",
+    "skills": "مهارتونه",
+    "skillNamePlaceholder": "د مهارت نوم",
+    "removeSkillAria": "د مهارت ړنګول",
+    "levels": {
+      "Beginner": "پیل کوونکی",
+      "Intermediate": "منځنی",
+      "Advanced": "پرمختللی",
+      "Expert": "متخصص"
+    }
+  },
+  "exportButton": {
+  "download": "پی‌ډی‌اف ډاونلوډ کړئ",
+  "generating": "پی‌ډی‌اف جوړیږي...",
+  "notReadyError": "مخکتنه لا تر اوسه چمتو نه ده.",
+  "genericError": "د پی‌ډی‌اف په جوړولو کې یو څه غلط شول. مهرباني وکړئ بیا هڅه وکړئ."
+}
+  
+},
+
+"signup": {
+  "heading": "خپله لاره ومومئ",
+  "subtitle": "د افغانستان په ټول هیواد کې د دندو، بورسونو، او کارورکونو موندلو ځای.",
+  "benefitCards": [
+      {
+        "title": "منظم پاتې شئ",
+        "desc": "فرصتونه خوندي کړئ، غوښتنلیکونه تعقیب کړئ، او د خپل مسلک لاره مدیریت کړئ."
+      },
+      {
+        "title": "وروستي مهلتونه تعقیب کړئ",
+        "desc": "د غوښتنلیکونو وروستي مهلتونه وګورئ او د ختمیدو دمخه فرصتونو ته لومړیتوب ورکړئ."
+      },
+      {
+        "title": "خپل مسلک ته وده ورکړئ",
+        "desc": "هغه فرصتونه وپلټئ چې ستاسو د مهارتونو، زده کړې او مسلک په وده کې مرسته کوي."
+      }
+    ],
+  "back": "شاته",
+  "formHeading": "زموږ سره یوځای شئ",
+  "formSubtitle": "د فرصتونو د خپرولو او تعقیب لپاره حساب جوړ کړئ.",
+  "fullName": "بشپړ نوم",
+  "fullNamePlaceholder": "جان ډو",
+  "email": "بریښنالیک",
+  "emailPlaceholder": "you@example.com",
+  "password": "پټنوم",
+  "passwordPlaceholder": "لږترلږه ۸ توري",
+  "confirmPassword": "پټنوم تایید کړئ",
+  "confirmPasswordPlaceholder": "پټنوم بیا ولیکئ",
+  "continue": "دوام",
+  "creatingAccount": "حساب جوړیږي...",
+  "haveAccount": "حساب لرئ؟",
+  "logIn": "ننوځئ",
+  "successToast": "حساب په بریالیتوب سره جوړ شو!"
+},
+"login": {
+  "back": "شاته",
+  "welcomeHeading": "راه‌یاب ته ښه راغلاست",
+  "welcomeSubtitle": "ستاسو راتلونکی فرصت منتظر دی.",
+  "formHeading": "ننوتل",
+  "formSubtitle": "خپل راه‌یاب حساب ته ننوځئ.",
+  "registeredNotice": "حساب جوړ شو! مهرباني وکړئ ننوځئ.",
+  "invalidCredentials": "بریښنالیک یا پټنوم سم نه دی.",
+  "email": "بریښنالیک",
+  "emailPlaceholder": "you@example.com",
+  "password": "پټنوم",
+  "passwordPlaceholder": "ستاسو پټنوم",
+  "logIn": "ننوتل",
+  "loggingIn": "ننوتل روان دي...",
+  "noAccount": "حساب نلرئ؟",
+  "signUp": "نوم لیکنه"
+},
+"notFound": {
+  "title": "موږ ستاسو لاره له دې ځایه ونه موندله.",
+  "subtitle": "هغه پاڼه چې تاسو یې لټوئ شتون نلري، لیږدول شوې، یا لینک زاړه دی. راځئ تاسو بیرته لار ته ورسوو.",
+  "browse": "فرصتونه وګورئ",
+  "backHome": "کور ته بیرته"
+},
+
+  "footer": {
+    "tagline": "په ټول افغانستان کې د دندو، انټرنشپونو او تحصیلي بورسونو موندلو لپاره ستاسو ځانګړی پلتفرم.",
+    "platform": "پلتفرم",
+    "company": "شرکت",
+    "categories": "کتګورۍ",
+    "jobs": "دنډې",
+    "internships": "انټرنشپونه",
+    "scholarships": "تحصیلي بورسونه",
+    "remoteWork": "له لرې څخه کار (ریموت)"
+  },
+
+  "heroStats": {
+  "opportunities": "فرصتونه",
+  "categories": "کټګورۍ",
+  "organizations": "موسسې",
+  "remoteRoles": "د لرې پرتو دندې"
+}
 
 }

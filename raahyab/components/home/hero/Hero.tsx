@@ -9,10 +9,15 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useTranslations } from "next-intl";
+import { Opportunity } from "@/types";
 
 gsap.registerPlugin(useGSAP);
 
-export default function Hero() {
+interface HeroProps {
+  opportunities: Opportunity[];
+}
+
+export default function Hero({ opportunities }: HeroProps) {
   const { dir } = useLanguage();
   const t = useTranslations("hero");
   const words = t.raw("words") as string[];
@@ -92,7 +97,7 @@ export default function Hero() {
         </div>
 
         <div className="hero-stats w-full border-t border-accent/20 pt-8 sm:pt-10">
-          <HeroStats />
+          <HeroStats opportunities={opportunities} />
         </div>
       </div>
     </section>

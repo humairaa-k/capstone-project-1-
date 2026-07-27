@@ -11,6 +11,13 @@
    "profile": "Profile",
    "signedIn": "Signed in"
  },
+
+  "authNav": {
+  "dashboard": "Dashboard",
+  "profile": "Profile",
+  "logOut": "Log out",
+  "logIn": "Log in"
+ },
  "hero": {
    "titleStatic": "Find Your Next",
    "words": ["Remote Jobs", "Internships", "Scholarships", "Online Courses", "Volunteering", "Training Programs"],
@@ -43,7 +50,9 @@
   "eyebrow": "Browse by category",
   "heading": "What are you <highlight>looking for?</highlight>",
   "viewAll": "View all",
-  "viewAllMobile": "View all opportunities"
+  "viewAllMobile": "View all opportunities",
+  "opportunityCount": "{count, plural, =0 {No opportunities} one {# opportunity} other {# opportunities}}"
+
 },
 "cta": {
   "heading": "Know an opportunity?",
@@ -278,6 +287,206 @@
     "deleteSuccess": "Opportunity deleted successfully!",
     "deleteError": "Something went wrong please try again."
   }
+},
+
+"addOpportunityPage": {
+  "title": "Add Opportunity",
+  "intro": "Know a job, scholarship, internship or course? Share it here and help someone discover their next opportunity.",
+  "submitLabel": "Submit Opportunity",
+  "saving": "Saving...",
+  "editTitle": "Edit Opportunity",
+  "editIntro": "Update the details below and save your changes.",
+  "saveChanges": "Save Changes",
+  "toast": {
+    "success": "Thanks! Your opportunity has been submitted and is pending review.",
+    "error": "Something went wrong. Please try again."
+  },
+  "whatNext": {
+    "heading": "What happens next?",
+    "step1Title": "Submit your opportunity",
+    "step1Description": "Review your details and publish.",
+    "step2Title": "Quick review",
+    "step2Description": "We verify the information.",
+    "step3Title": "Published",
+    "step3Description": "Your opportunity goes live."
+  },
+  "form": {
+    "basicInfo": "Basic Info",
+    "titleLabel": "Title",
+    "titlePlaceholder": "Frontend Developer",
+    "organizationLabel": "Organization",
+    "organizationPlaceholder": "Kabul Digital Agency",
+    "categoryLabel": "Category",
+    "categoryPlaceholder": "Select a category",
+    "details": "Details",
+    "locationLabel": "Location",
+    "locationPlaceholder": "Kabul",
+    "typeLabel": "Type",
+    "typePlaceholder": "Select type",
+    "deadlineLabel": "Deadline",
+    "deadlinePlaceholder": "Select deadline",
+    "description": "Description",
+    "descriptionPlaceholder": "Describe the opportunity, responsibilities, and what makes it a good fit...",
+    "requirementsTags": "Requirements & Tags",
+    "requirementsLabel": "Requirements (comma-separated)",
+    "requirementsPlaceholder": "React, Next.js, 2+ years experience",
+    "tagsLabel": "Tags (comma-separated)",
+    "tagsPlaceholder": "React, Frontend, Full-time",
+    "applyLinkLabel": "Apply Link",
+    "applyLinkPlaceholder": "https://example.com/apply",
+    "publishButton": "Publish Opportunity",
+    "categories": {
+      "Job": "Job",
+      "Internship": "Internship",
+      "Scholarship": "Scholarship",
+      "Remote Work": "Remote Work",
+      "Online Course": "Online Course",
+      "Training": "Training",
+      "Volunteer": "Volunteer"
+    },
+    "types": {
+      "On-site": "On-site",
+      "Remote": "Remote",
+      "Hybrid": "Hybrid"
+    }
+  }
+},
+
+"profilePage": {
+  "eyebrow": "Account",
+  "title": "Your Profile",
+  "roleAdmin": "Admin",
+  "roleUser": "User",
+  "usernameLabel": "Username",
+  "emailLabel": "Email",
+  "memberSinceLabel": "Member since",
+  "adminNotice": {
+    "title": "Admin Account",
+    "description": "Admin accounts can't be deleted from this page. Contact another admin or manage this from the database directly if needed."
+  },
+  "dangerZone": {
+    "title": "Danger Zone",
+    "description": "Deleting your account is permanent and cannot be undone. All your saved opportunities and data will be removed."
+  }
+},
+
+"cvBuilderPage": {
+  "title": "CV Builder",
+  "form": {
+    "personalDetails": "Personal Details",
+    "fullName": "Full Name",
+    "jobTitle": "Job Title",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "website": "Website",
+    "summary": "Summary",
+    "experience": "Experience",
+    "add": "Add",
+    "removeExperienceAria": "Remove experience entry",
+    "rolePlaceholder": "Role",
+    "companyPlaceholder": "Company",
+    "locationPlaceholder": "Location",
+    "currentlyWorking": "Currently working here",
+    "descriptionPlaceholder": "Description",
+    "education": "Education",
+    "removeEducationAria": "Remove education entry",
+    "degreePlaceholder": "Degree",
+    "fieldPlaceholder": "Field of Study",
+    "institutionPlaceholder": "Institution",
+    "skills": "Skills",
+    "skillNamePlaceholder": "Skill name",
+    "removeSkillAria": "Remove skill",
+    "levels": {
+      "Beginner": "Beginner",
+      "Intermediate": "Intermediate",
+      "Advanced": "Advanced",
+      "Expert": "Expert"
+    }
+  },
+
+  "exportButton": {
+  "download": "Download PDF",
+  "generating": "Generating PDF...",
+  "notReadyError": "Preview is not ready yet.",
+  "genericError": "Something went wrong while generating the PDF. Please try again."
+}
+},
+
+"signup": {
+  "heading": "Find Your Path",
+  "subtitle": "A place to find jobs, scholarships, and internships across Afghanistan.",
+  "benefitCards": [
+      {
+        "title": "Stay Organized",
+        "desc": "Save opportunities, track applications, and manage your career journey."
+      },
+      {
+        "title": "Track Deadlines",
+        "desc": "View application deadlines and prioritize opportunities before they expire."
+      },
+      {
+        "title": "Grow Your Career",
+        "desc": "Explore opportunities that help you grow your skills, education, and career."
+      }
+    ],
+  "back": "Back",
+  "formHeading": "Join Us",
+  "formSubtitle": "Create an account to post and track opportunities.",
+  "fullName": "Full Name",
+  "fullNamePlaceholder": "John Doe",
+  "email": "Email",
+  "emailPlaceholder": "you@example.com",
+  "password": "Password",
+  "passwordPlaceholder": "At least 8 characters",
+  "confirmPassword": "Confirm Password",
+  "confirmPasswordPlaceholder": "Repeat password",
+  "continue": "Continue",
+  "creatingAccount": "Creating account...",
+  "haveAccount": "Already have an account?",
+  "logIn": "Log in",
+  "successToast": "Account created successfully!"
+},
+"login": {
+  "back": "Back",
+  "welcomeHeading": "Welcome back to Raahyab",
+  "welcomeSubtitle": "Your next opportunity is waiting.",
+  "formHeading": "Login",
+  "formSubtitle": "Log in to your RaahYab account.",
+  "registeredNotice": "Account created! Please log in.",
+  "invalidCredentials": "Invalid email or password.",
+  "email": "Email",
+  "emailPlaceholder": "you@example.com",
+  "password": "Password",
+  "passwordPlaceholder": "Your password",
+  "logIn": "Log In",
+  "loggingIn": "Logging in...",
+  "noAccount": "Don't have an account?",
+  "signUp": "Sign up"
+},
+"notFound": {
+  "title": "We couldn't find your way from here.",
+  "subtitle": "The page you're looking for doesn't exist, was moved, or the link might be outdated. Let's get you back on track.",
+  "browse": "Browse Opportunities",
+  "backHome": "Back to Home"
+},
+
+ "footer": {
+    "tagline": "Your one-stop platform for jobs, internships, and scholarships across Afghanistan.",
+    "platform": "Platform",
+    "company": "Company",
+    "categories": "Categories",
+    "jobs": "Jobs",
+    "internships": "Internships",
+    "scholarships": "Scholarships",
+    "remoteWork": "Remote Work"
+  },
+
+  "heroStats": {
+  "opportunities": "Opportunities",
+  "categories": "Categories",
+  "organizations": "Organizations",
+  "remoteRoles": "Remote Roles"
 }
 
 }
