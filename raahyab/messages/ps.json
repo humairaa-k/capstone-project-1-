@@ -1,0 +1,286 @@
+{
+  "nav": {
+    "home": "کور",
+    "opportunities": "فرصتونه",
+    "saved": "ساتل‌شوي",
+    "dashboard": "ډشبورډ",
+    "about": "زموږ په اړه",
+    "contact": "اړیکه",
+    "addOpportunity": "فرصت اضافه کول",
+    "cvBuilder": "سي وي جوړونکی",
+    "profile": "پروفایل",
+    "signedIn": "ننوتلی"
+  },
+
+  "hero": {
+  "titleStatic": "خپل راتلونکی پیدا کړئ",
+  "words": ["د لرې پرتو کار", "کارورکونه", "بورسونه", "آنلاین کورسونه", "رضاکارتیا", "روزنیز برنامې"],
+  "subtitle": "دندې، بورسونه، کارورکونه، د لرې پرتو کار، او کورسونه — هر هغه څه چې افغان ځوانان د خپل راتلونکي لپاره ورته اړتیا لري، دلته.",
+  "getStarted": "پیل وکړئ",
+  "exploreOpportunities": "فرصتونه وپلټئ"
+},
+
+"howItWorks": {
+  "heading": "<brand>راه‌یاب</brand> څنګه کار کوي",
+  "subtitle": "د راتلونکي فرصت موندلو لپاره درې ساده ګامونه",
+  "step1": { "title": "لټون", "description": "دندې، بورسونه، کارورکونه او نور وپلټئ او فلټر یې کړئ — ټول په یو ځای کې." },
+  "step2": { "title": "ساتل", "description": "خپل خوښ فرصتونه وساتئ ترڅو هر وخت بیرته ورشئ." },
+  "step3": { "title": "غوښتنه", "description": "مستقیم رسمي غوښتنلیک ته لاړ شئ او راتلونکی ګام واخلئ." }
+},
+ "featuredSection": {
+  "heading": "ځانګړي <highlight>فرصتونه</highlight>",
+  "subtitle": "هغه بیړني او د ارزښت لرونکي لارې وپلټئ چې د وروستیو دندو، بورسونو، برنامو، او د لرې پرتو کاري فرصتونو څخه غوره شوي دي.",
+  "viewAll": "ټول وګورئ"
+},
+ "remoteSpotlight": {
+  "eyebrow": "له هرځای نه کار وکړئ",
+  "heading": "د هر افغان لپاره د لرې پرتو فرصتونه",
+  "subtitle": "د ځای بدلولو اړتیا نشته — هغه فرصتونه ومومئ چې د افغانستان په هر ګوټ کې له کوره یې ترسره کولی شئ.",
+  "viewAll": "ټول د لرې پرتو فرصتونه وګورئ"
+},
+ "categoryBrowse": {
+  "eyebrow": "د کټګورۍ له مخې وپلټئ",
+  "heading": "تاسو <highlight>د څه لټون کوئ؟</highlight>",
+  "viewAll": "ټول وګورئ",
+  "viewAllMobile": "ټول فرصتونه وګورئ"
+},
+"cta": {
+  "heading": "کوم فرصت پیژنئ؟",
+  "subtitle": "دا له زرګونو افغان ځوانانو سره شریک کړئ چې خپل راتلونکي ګام لټوي.",
+  "addOpportunity": "فرصت اضافه کول"
+},
+"opportunitiesPage": {
+  "title": "پلټنه",
+  "highlight": "فرصتونه",
+  "subtitle": "{count, plural, =0 {هیڅ فرصت ونه موندل شو} other {# فرصتونه وموندل شول}} (نمایښتي معلومات)",
+
+  "filters": {
+  "title": "فلټرونه",
+  "category": "کټګورۍ",
+  "location": "موقعیت",
+  "allLocations": "ټول ځایونه",
+  "jobType": "د دندې ډول",
+  "all": "ټول",
+  "deadline": "پای نیټه",
+  "expiringSoon": "ژر ختمیږي",
+  "clearAll": "ټول فلټرونه پاک کړئ"
+},
+
+ "OpportunitySearch": {
+    "title": "خپله راتلونکې فرصت پیدا کړئ",
+    "placeholder": "د سرلیک، ادارې یا کلیدي کلمې له مخې لټون وکړئ...",
+    "searchAria": "لټون"
+  },
+    "OpportunitySort": {
+    "sortBy": "ترتیب:",
+    "newest": "تازه شوي",
+    "deadline": "نږدې نیټه"
+  },
+
+  "empty": {
+  "noneYetTitle": "تر اوسه پورې هېڅ فرصت نشته",
+  "noneYetDescription": "لومړی کس شئ چې فرصت اضافه کوئ او نورو ته مرسته کوئ چې دا ومومي.",
+  "addOpportunity": "فرصت اضافه کړئ",
+  "noMatchTitle": "هېڅ سمون ونه پیدا شو",
+  "noMatchDescription": "خپل لټون یا فلټر بدل کړئ ترڅو هغه څه ومومئ چې لټوئ یې.",
+  "clearFilters": "فلټرونه پاک کړئ"
+ },
+
+ "pagination": {
+  "previous": "مخکینی",
+  "next": "راتلونکی"
+},
+
+ "card": {
+  "saveAria": "فرصت ساتل",
+  "closingSoon": "ژر بندیږي",
+  "endingThisWeek": "دا اونۍ پای ته رسیږي",
+  "closed": "بند شوی",
+  "exploreThis": "دا فرصت وپلټئ",
+  "viewDetails": "توضیحات وګورئ"
+ }
+ 
+},
+
+"savedPage": {
+  "title": "ساتل‌شوي",
+  "highlight": "فرصتونه",
+  "subtitle": "{count, plural, =0 {هیڅ فرصت نه دی ساتل شوی} other {# فرصتونه ساتل شوي}}",
+
+  "searchFilters": {
+    "heading": "خپل ساتل شوي فرصتونه ولټوئ او فلټر یې کړئ",
+    "searchPlaceholder": "دلته لټون وکړئ...",
+    "clear": "پاک کول",
+    "clearAria": "فلټرونه پاک کول",
+    "filter": "فلټر",
+    "filterAria": "فلټرونه ښکاره/پټ کول",
+    "sort": "ترتیب",
+    "sortAria": "د ترتیب ښکاره/پټ کول",
+    "filterByAria": "د {option} له مخې فلټر",
+    "sortOptions": {
+      "newest": "تازه شوي",
+      "az": "الف - ی",
+      "deadline": "پای نیټه"
+    },
+    "filterOptions": {
+      "all": "ټول",
+      "job": "دنده",
+      "internship": "کارورکونه",
+      "scholarship": "بورس",
+      "remoteWork": "د لرې پرتو کار",
+      "onlineCourse": "آنلاین کورس",
+      "training": "روزنه",
+      "volunteer": "رضاکارتیا"
+    }
+  },
+
+  "empty": {
+    "noneYetTitle": "هېڅ ساتل شوی فرصت نشته",
+    "noneYetDescription": "دندې، بورسونه، کارورکونه، او نور فرصتونه وساتئ ترڅو هر وخت ورته لاسرسی ولرئ.",
+    "browse": "فرصتونه وپلټئ",
+    "noMatchTitle": "هېڅ سمون ونه موندل شو",
+    "noMatchDescription": "خپل لټون یا فلټر بدل کړئ ترڅو هغه څه ومومئ چې لټوئ یې.",
+    "clearFilters": "فلټرونه پاک کړئ"
+  },
+
+  "clearAllButton": "ټول ساتل شوي پاک کړئ",
+  "loadMore": "نور وښایاست",
+
+  "confirmDialog": {
+    "title": "ټول ساتل شوي فرصتونه پاک شي؟",
+    "description": "دا به ستاسو ټول ساتل شوي فرصتونه لرې کړي. دا کار بیرته نشي کیدی.",
+    "confirmText": "ټول پاک کړئ"
+  }
+},
+
+"dashboard": {
+  "welcomeBack": "ښه راغلاست",
+  "overview": "د ډشبورډ لنډیز",
+  "totalOpportunities": "ټول فرصتونه",
+  "remoteOpportunities": "د لرې پرتو فرصتونه",
+  "newThisMonth": "{count}+ پدې میاشت کې",
+  "percentOfTotal": "{percent}% د ټول",
+  "jobs": "دندې",
+  "scholarships": "بورسونه",
+  "internships": "کارورکونه",
+  "expiringSoon": "ژر ختمیږي",
+  "remote": "د لرې پرتو",
+  "onlineCourse": "آنلاین کورس",
+  "training": "روزنه",
+  "volunteer": "رضاکارتیا",
+
+  "trendChart": {
+  "heading": "وروستي ثبتونه",
+  "submissions": "ثبتونه",
+  "week": "دا اونۍ",
+  "month": "دا میاشت",
+  "allTime": "ټول وخت"
+ },
+
+"categoryChart": {
+  "heading": "د کټګورۍ له مخې",
+  "thisMonth": "دا میاشت"
+},
+
+"recentSubmissions": {
+  "heading": "وروستي ثبتونه",
+  "titleCompany": "سرلیک او شرکت",
+  "category": "کټګورۍ",
+  "deadline": "پای نیټه",
+  "submitted": "لیږل شوی",
+  "justNow": "همدا اوس",
+  "hoursAgo": "{hours} ساعته مخکې",
+  "daysAgo": "{days} ورځې مخکې"
+},
+
+"pendingApprovals": {
+  "heading": "منتظر منظوریو",
+  "waiting": "{count} منتظر",
+  "nothingWaiting": "اوس مهال هیڅ شی ستاسو منتظر نه دی.",
+  "titleCompany": "سرلیک او شرکت",
+  "category": "کټګورۍ",
+  "lastUpdated": "وروستی تازه شوی",
+  "actions": "کړنې",
+  "deleteRequest": "د حذف غوښتنه",
+  "editRequest": "د سمون غوښتنه",
+  "today": "نن",
+  "daysShort": "{days} ورځې",
+  "accept": "منل",
+  "decline": "ردول"
+}
+},
+"aboutPage": {
+  "heading": {
+    "titlePart1": "زموږ ",
+    "titlePart2": "په اړه",
+    "subtitle": "یو پلیټ فارم. هر فرصت."
+  },
+  "section1": {
+    "eyebrow": "ستونزه",
+    "heading": "فرصتونه شته — خو دا د فیسبوک ګروپونو، واټساپ چیټونو، او نورو پلیټ فارمونو په مینځ کې خواره دي.",
+    "closing": "راه‌یاب دا ټول په یو پاک او د لټون وړ ځای کې راټولوي."
+  },
+  "section2": {
+    "eyebrow": "دا د چا لپاره دی",
+    "heading": "د هر افغان ځوان لپاره جوړ شوی چې د غوره فرصت په لټه کې دی."
+  },
+  "section3": {
+    "heading": "آیا تاسو د خپل راتلونکي فرصت موندلو ته چمتو یاست؟",
+    "subtitle": "هغه دندې، کارورکونه، او بورسونه وپلټئ چې د ټولو لپاره جوړ شوي دي.",
+    "cta": "فرصتونه وپلټئ"
+  }
+},
+
+"contactPage": {
+  "eyebrow": "له موږ سره اړیکه ونیسئ",
+  "title": "له موږ سره اړیکه",
+  "intro": "پوښتنه یا وړاندیز لرئ؟ موږ به خوشحاله شو چې ستاسو نظر واورو — فورمه ډکه کړئ ترڅو ژر له تاسو سره اړیکه ونیسو.",
+  "form": {
+    "nameLabel": "ستاسو نوم",
+    "namePlaceholder": "ساره",
+    "emailLabel": "بریښنالیک",
+    "emailPlaceholder": "example@gmail.com",
+    "subjectLabel": "موضوع",
+    "subjectPlaceholder": "موضوع",
+    "messageLabel": "پیغام",
+    "messagePlaceholder": "ستاسو پیغام...",
+    "sending": "لیږل کیږي...",
+    "send": "پیغام ولیږئ",
+    "successToast": "پیغام په بریالیتوب سره ولیږل شو!",
+    "errorToast": "یو څه غلط شول."
+  }
+},
+
+"opportunityDetail": {
+  "backLink": "فرصتونو ته بیرته",
+  "expiringSoon": "ژر ختمیږي",
+  "about": "د دې فرصت په اړه",
+  "requirements": "اړتیاوې",
+  "tags": "ټاګونه",
+  "deadlineLabel": "د غوښتنلیک پای نیټه",
+  "daysRemaining": "{days} ورځې پاتې دي",
+  "deadlinePassed": "نیټه تیره شوې",
+  "applyNow": "اوس غوښتنه وکړئ",
+  "saveAria": "فرصت ساتل",
+  "removeSaveAria": "له ساتل شویو څخه لرې کول",
+  "saved": "وساتل شو",
+  "saveOpportunity": "فرصت ساتل",
+  "actions": "کړنې",
+  "edit": "سمون",
+  "delete": "حذف",
+  "deleteAria": "فرصت حذف کول",
+  "demoReminder": "نمایښتي معلومات — یوازې د زده‌کړې موخو لپاره",
+  "confirmDialog": {
+    "title": "دا فرصت حذف شي؟",
+    "description": "دا کار بیرته نشي کیدی.",
+    "confirmText": "حذف"
+  },
+  "toast": {
+    "deletePending": "ستاسو د دې فرصت د حذف غوښتنه انتظار کې ده او د اډمین لخوا به بیاکتنه شي.",
+    "deleteSuccess": "فرصت په بریالیتوب سره حذف شو!",
+    "deleteError": "یو څه غلط شول، مهرباني وکړئ بیا هڅه وکړئ."
+  }
+}
+
+
+}

@@ -1,10 +1,18 @@
 import { StepDataType } from "./StepsData";
+import { LucideIcon } from "lucide-react";
+
+interface StepCardProps {
+  number: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
 
 export default function StepCard({ number, title, description, icon:Icon, }: StepDataType) {
   return (
    <div className="relative bg-card dark:bg-background border border-accent/20 dark:border-gold-400/20 rounded-2xl p-6 sm:p-8">
      
-      <span className="absolute top-4 right-5 text-4xl font-bold text-primary/10 dark:text-teal-100/10 select-none">
+      <span className="absolute top-4 end-5 text-4xl font-bold text-primary/10 dark:text-teal-100/10 select-none">
         {number}
       </span>
 

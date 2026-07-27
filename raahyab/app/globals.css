@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-jakarta), var(--font-arabic), sans-serif;
+  --font-serif-accent: var(--font-dm-serif), serif;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 

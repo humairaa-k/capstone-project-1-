@@ -6,7 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { Briefcase, GraduationCap, BookOpen, Users,
         Globe, Award,} from "lucide-react";
-
+import Heading from "@/components/common/Heading";
+import { useTranslations } from "next-intl";
 
 const targetUsers = [
   { label: "Students", icon: GraduationCap },
@@ -29,7 +30,8 @@ const scatteredSources = [
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function AboutContent() {
-   const containerRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations("aboutPage");
+  const containerRef = useRef<HTMLDivElement>(null);
   const chipsRef = useRef<HTMLDivElement>(null);
   const usersCardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -97,16 +99,22 @@ export default function AboutContent() {
 
   return (
     <>
+     <Heading
+      title={t("heading.titlePart1")}
+      highlight={t("heading.titlePart2")}
+      subtitle={t("heading.subtitle")}
+      className="animate-fade-in-up"
+      />
+
        {/* section 1 */}
     <div ref={containerRef}>
 
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 animate-fade-in-up-delay-1">
         <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-4">
-          The Problem
+         {t("section1.eyebrow")}
         </p>
         <h2 className="text-2xl sm:text-3xl font-bold text-foreground max-w-2xl leading-snug mb-16">
-          Opportunities exist — but they&apos;re scattered across Facebook
-          groups, WhatsApp chats, and other platforms.
+         {t("section1.heading")}
         </h2>
 
         <div
@@ -124,17 +132,17 @@ export default function AboutContent() {
         </div>
 
         <p className="text-center text-sm text-primary mt-16 max-w-md mx-auto">
-          RaahYab brings it all into one clean, searchable place.
+          {t("section1.closing")}
         </p>
       </section>
     
     {/* section 2 */}
     <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
       <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-4 text-center">
-        Who It&apos;s For
+          {t("section2.eyebrow")}
       </p>
       <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-14">
-        Built for every Afghan youth chasing a better opportunity.
+        {t("section2.heading")}
       </h2>
     
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
@@ -168,16 +176,16 @@ export default function AboutContent() {
 
       <div className="relative z-10">
         <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-          Ready to find your next opportunity?
+          {t("section3.heading")}
         </h2>
         <p className="text-sm text-muted-foreground mb-8 max-w-md mx-auto">
-          Browse jobs, internships, and scholarships built for Everyone.
+           {t("section3.subtitle")}
         </p>
         
          <a href="/opportunities"
           className="inline-flex items-center justify-center rounded-2xl bg-primary hover:bg-primary-hover text-white font-medium px-8 py-4 text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/20"
         >
-          Explore Opportunities
+       {t("section3.cta")}
         </a>
       </div>
    </section>

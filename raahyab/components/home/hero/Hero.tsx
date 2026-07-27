@@ -7,11 +7,16 @@ import { useTypewriter } from "@/hooks/useTypewriter";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useLanguage } from "@/context/LanguageContext";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(useGSAP);
 
 export default function Hero() {
-  const { displayed } = useTypewriter();
+  const { dir } = useLanguage();
+  const t = useTranslations("hero");
+  const words = t.raw("words") as string[];
+  const { displayed } = useTypewriter(words);
   const heroRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -55,6 +60,7 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
+      dir={dir}
       className="relative overflow-hidden flex items-start xl:items-center xl:min-h-[calc(100vh-4rem)] bg-background"
     >
       <HeroBackground />
@@ -63,7 +69,7 @@ export default function Hero() {
 
         <div className="hero-title my-6 sm:my-8">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-            Find Your Next
+            {t("titleStatic")}
           </h1>
 
           <div className="min-h-[70px] sm:min-h-[72px] lg:min-h-[88px] flex items-baseline mt-2">
@@ -78,8 +84,7 @@ export default function Hero() {
         </div>
 
         <p className="hero-description text-sm sm:text-base text-muted-foreground max-w-lg leading-relaxed mb-8 sm:mb-10">
-          Jobs, scholarships, internships, remote work and courses - everything
-          Afghan youth need to build their future, right here.
+          {t("subtitle")}
         </p>
 
         <div className="hero-buttons mb-12 sm:mb-16">

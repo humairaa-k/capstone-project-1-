@@ -4,13 +4,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PlusCircle, FileText, Bookmark, User, LayoutDashboard } from "lucide-react";
 import { useSession } from "next-auth/react";
+import { useLanguage } from "@/context/LanguageContext";
+import { useTranslations } from 'next-intl';
 
 const navItems = [
-  { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/add-opportunity", label: "Add Opportunity", icon: PlusCircle },
-  { href: "/saved", label: "Saved Opportunities", icon: Bookmark },
-  { href: "/cv-builder", label: "CV Builder", icon: FileText },
-  { href: "/dashboard/profile", label: "Profile", icon: User }
+  { href: "/dashboard", key: "dashboard", icon: LayoutDashboard },
+  { href: "/add-opportunity", key: "addOpportunity", icon: PlusCircle },
+  { href: "/saved", key: "saved", icon: Bookmark },
+  { href: "/cv-builder", key: "cvBuilder", icon: FileText },
+  { href: "/dashboard/profile", key: "profile", icon: User }
 
 ];
 
@@ -18,12 +20,15 @@ export default function Sidebar() {
   const pathname = usePathname();
   const {data: session} = useSession();
 
+   const {dir} = useLanguage();
+   const t = useTranslations("nav");
+
   return (
     <nav aria-label="Dashboard navigation" className="flex flex-col gap-1.5 mt-0.5">
       {session?.user && (
         <div className="mb-1.5 px-4 py-3">
           <p className="font-bold uppercase text-[17px] mb-0.5 tracking-[4px] text-primary/80">
-            Signed in
+            {t("signedIn")}
           </p>
           <p className="mt-1 truncate text-[14px] font-semibold text-foreground/80 mb-1">
             {session.user.username ?? session.user.name}
@@ -36,7 +41,7 @@ export default function Sidebar() {
 
       <div className="mx-4 my-1 h-px bg-foreground/10 mb-2.5" />
 
-      {navItems.map(({ href, label, icon: Icon }) => {
+      {navItems.map(({ href, key, icon: Icon }) => {
         const isActive = pathname === href;
 
         return (
@@ -49,7 +54,7 @@ export default function Sidebar() {
             }`}
           >
             <Icon className="w-4 h-4" strokeWidth={1.75} />
-            <span>{label}</span>
+            <span> {t(key)}</span>
           </Link>
         );
       })}

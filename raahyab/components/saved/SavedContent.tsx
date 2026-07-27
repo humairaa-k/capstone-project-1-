@@ -10,10 +10,12 @@ import { useState, useEffect } from "react";
 import SearchFilter from "@/components/saved/SeachFilters";
 import ConfirmDialog from "@/components/common/ConfirmDialog";
 import { Opportunity } from "@/types";
+import { useTranslations } from "next-intl";
 
 export default function SavedContent() {
    const { savedOpt, clearSaved } = useSaved();
-  
+   const t = useTranslations("savedPage");
+
    const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
    const [search, setSearch] = useState("");
    const [filter, setFilter] = useState("All");
@@ -72,10 +74,10 @@ export default function SavedContent() {
   return (
      <div>
    <Heading
-     title="Saved"
-     highlight="Opportunities"
-     subtitle={`${savedOpportunities.length} opportunities saved`}
-      className="animate-fade-in-up"
+     title={t("title")}
+     highlight={t("highlight")}
+     subtitle={t("subtitle", { count: savedOpportunities.length })}
+     className="animate-fade-in-up"
    />
 
    <SearchFilter
@@ -89,21 +91,21 @@ export default function SavedContent() {
    />
   
    {savedOpt.length === 0 ? (
-   <EmptyState
-     title="No Saved Opportunities"
-     description="Save jobs, scholarships, internships, and other opportunities to access them anytime."
-     icon={BookmarkPlus}
-     buttonText="Browse Opportunities"
-     buttonHref="/opportunities"
-   />
- ) : sortedOpport.length === 0 ? (
     <EmptyState
-      title="No Matching Results"
-      description="Try adjusting your search or filter to find what you're looking for."
+      title={t("empty.noneYetTitle")}
+      description={t("empty.noneYetDescription")}
       icon={BookmarkPlus}
-      buttonText="Clear Filters"
-      onButtonClick={clearPhilter}
+      buttonText={t("empty.browse")}
+      buttonHref="/opportunities"
     />
+ ) : sortedOpport.length === 0 ? (
+      <EmptyState
+          title={t("empty.noMatchTitle")}
+          description={t("empty.noMatchDescription")}
+          icon={BookmarkPlus}
+          buttonText={t("empty.clearFilters")}
+          onButtonClick={clearPhilter}
+        />
 
   ) : (
 
@@ -114,7 +116,7 @@ export default function SavedContent() {
            onClick={() => setShowConfirm(true)}
            className="text-sm font-semibold border-2 px-6 py-2.5 rounded-xl border-red-400/40 text-red-400 hover:bg-red-400/10 transition-all duration-200"
          >
-           Clear all Saved
+          {t("clearAllButton")}
          </button>
        </div>
      )}
@@ -131,21 +133,21 @@ export default function SavedContent() {
         <button onClick={() => setVisibleCount((prev) => prev + 6)}
          className="text-sm font-medium px-6 py-2.5 rounded-xl border border-primary/30 text-primary hover:bg-teal-100 dark:hover:bg-teal-500/10 transition-all duration-200 hover:-translate-y-0.5"
          >
-          Load More
+         {t("loadMore")}
         </button>
       </div>
     )}
     </>
   )}
 
-  <ConfirmDialog
-  open={showConfirm}
-  title="Clear all saved opportunities?"
-  description="This will remove all your saved opportunities. This action cannot be undone."
-  confirmText="Clear All"
-  onConfirm={handleConfirmClear}
-  onCancel={() => setShowConfirm(false)}
-  />
+   <ConfirmDialog
+    open={showConfirm}
+    title={t("confirmDialog.title")}
+    description={t("confirmDialog.description")}
+    confirmText={t("confirmDialog.confirmText")}
+    onConfirm={handleConfirmClear}
+    onCancel={() => setShowConfirm(false)}
+    />
   </div>
     
   )

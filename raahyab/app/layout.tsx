@@ -1,3 +1,4 @@
+import { Plus_Jakarta_Sans, Noto_Sans_Arabic, DM_Serif_Display } from "next/font/google";
 import { Metadata } from "next";
 import "./globals.css";
 // import Navbar from "@/components/Navbar";
@@ -8,6 +9,7 @@ import { Toaster } from "sonner";
 import SessionProviderWrapper from "@/components/auth/SessionProviderWrapper";
 import { ConditionalNavbar } from "@/components/ConditionalNavbar";
 import { ConditionalFooter } from "@/components/ConditionalFooter";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://example.vercel.app"), 
@@ -70,6 +72,26 @@ export const metadata: Metadata = {
   category: "education",
 };
 
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
+
+const notoSansArabic = Noto_Sans_Arabic({
+  subsets: ["arabic"],
+  variable: "--font-arabic",
+  display: "swap",
+});
+
+const dmSerif = DM_Serif_Display({
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+  variable: "--font-dm-serif",
+  display: "swap",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -78,10 +100,12 @@ export default function RootLayout({
   return (
     <html
       lang="en">
-      <body className="min-h-full flex flex-col">
+       <body
+      className={`${jakarta.variable} ${notoSansArabic.variable} ${dmSerif.variable} min-h-full flex flex-col font-sans`}>
 
       <SessionProviderWrapper>
        <ThemeProvider>
+       <LanguageProvider>
         <SavedProvider>
         <ConditionalNavbar/>
         <main className="min-h-screen">
@@ -89,8 +113,9 @@ export default function RootLayout({
           <Toaster position="top-right" richColors offset={80}/>
           </main>
         </SavedProvider>
-        </ThemeProvider>
-        <ConditionalFooter/>
+        </LanguageProvider> 
+       </ThemeProvider>
+       <ConditionalFooter/>
       </SessionProviderWrapper>
       
       </body>

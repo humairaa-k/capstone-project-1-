@@ -16,36 +16,37 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { SubmissionsTrend } from "@/lib/opportunities";
+import { useTranslations } from "next-intl";
 
-const chartConfig = {
-  submissions: {
-    label: "Submissions",
-    color: "var(--color-primary)",
-  },
-} satisfies ChartConfig;
-
-
-export default function SubmissionsTrendChart({trendData} : {trendData: SubmissionsTrend}) {
+export default function SubmissionsTrendChart({ trendData }: { trendData: SubmissionsTrend }) {
+  const t = useTranslations("dashboard");
   const [range, setRange] = useState<"week" | "month" | "all">("all");
   const data = trendData[range];
 
+  const chartConfig = {
+    submissions: {
+      label: t("submissions"),
+      color: "var(--color-primary)",
+    },
+  } satisfies ChartConfig;
+
   return (
-     <div className="rounded-3xl border border-primary/15 bg-primary/5 p-5 sm:p-6">
+    <div className="rounded-3xl border border-primary/15 bg-primary/5 p-5 sm:p-6">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-base font-medium text-foreground">Latest Submissions</h3>
+        <h3 className="text-base font-medium text-foreground">{t("trendChart.heading")}</h3>
         <Select value={range} onValueChange={(v) => setRange(v as typeof range)}>
           <SelectTrigger className="w-[130px] h-8 text-xs bg-card border-foreground/10">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="week">This Week</SelectItem>
-            <SelectItem value="month">This Month</SelectItem>
-            <SelectItem value="all">All Time</SelectItem>
+            <SelectItem value="week">{t("trendChart.week")}</SelectItem>
+            <SelectItem value="month">{t("trendChart.month")}</SelectItem>
+            <SelectItem value="all">{t("trendChart.allTime")}</SelectItem>
           </SelectContent>
         </Select>
       </div>
 
-     <ChartContainer config={chartConfig} className="h-[180px] w-full">
+      <ChartContainer config={chartConfig} className="h-[180px] w-full">
         <AreaChart data={data} margin={{ left: -20, right: 10, top: 10 }}>
           <defs>
             <linearGradient id="fillSubmissions" x1="0" y1="0" x2="0" y2="1">

@@ -17,6 +17,7 @@ import { useSaved } from "@/context/SavedContext";
 import { useSession } from "next-auth/react";
 import { useRouter, usePathname } from "next/navigation";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
  interface FeaturedCardProps {
   opportunity: Opportunity;
@@ -30,10 +31,8 @@ function formatDeadline(deadline: string) {
 }
 
 
-export default function FeaturedCard({
-  opportunity,
-}: FeaturedCardProps) {
-
+export default function FeaturedCard({opportunity,}: FeaturedCardProps) {
+  const t = useTranslations("opportunitiesPage");
   const { savedOpt, toggleSave } = useSaved();
   const isSaved = savedOpt.includes(opportunity.id);
 
@@ -114,7 +113,7 @@ export default function FeaturedCard({
           </span>
 
           <button
-            aria-label="Save opportunity"
+            aria-label={t("card.saveAria")}
             onClick={handleSaveClick}
             className="
               flex
@@ -172,7 +171,7 @@ export default function FeaturedCard({
                 font-bold
                 line-clamp-2
                 leading-tight
-                text-foreground
+                text-foreground/90
                 transition-colors
                 duration-300
                 group-hover:text-primary
@@ -186,19 +185,19 @@ export default function FeaturedCard({
                       
           {deadlineStatus  === "closingSoon" && (
              <span className="shrink-0 rounded-full bg-red-100 px-2 py-0.5 text-[11px] font-semibold text-red-700">
-              Closing Soon
+               {t("card.closingSoon")}
             </span>
           )}
 
           {deadlineStatus  === "endingThisWeek" && (
           <span className="shrink-0 rounded-full bg-orange-100 px-2 py-0.5 text-[11px] font-semibold text-orange-700">
-            Ends This Week
+            {t("card.endingThisWeek")}
           </span>
            )}
 
            {deadlineStatus === "closed" && (
             <span className="shrink-0 rounded-full bg-gray-200 px-2 py-0.5 text-[11px] font-semibold text-gray-700">
-              Closed
+              {t("card.closed")}
             </span>
           )}
 
@@ -267,7 +266,7 @@ export default function FeaturedCard({
 
         <div className="flex items-center justify-between">
           <span className="text-xs text-muted-foreground">
-            Explore this opportunity
+            {t("card.exploreThis")}
           </span>
 
           <span
@@ -282,8 +281,7 @@ export default function FeaturedCard({
               ${theme.accent}
             `}
           >
-            View Details
-
+           {t("card.viewDetails")}
             <ArrowRight
               className="
                 h-3.5

@@ -1,0 +1,283 @@
+{
+  "nav": {
+   "home": "Home",
+   "opportunities": "Opportunities",
+   "saved": "Saved",
+   "dashboard": "Dashboard",
+   "about": "About",
+   "contact": "Contact",
+   "addOpportunity": "Add opportunity",
+   "cvBuilder": "CV Builder",
+   "profile": "Profile",
+   "signedIn": "Signed in"
+ },
+ "hero": {
+   "titleStatic": "Find Your Next",
+   "words": ["Remote Jobs", "Internships", "Scholarships", "Online Courses", "Volunteering", "Training Programs"],
+   "subtitle": "Jobs, scholarships, internships, remote work and courses - everything Afghan youth need to build their future, right here.",
+   "getStarted": "Get Started",
+   "exploreOpportunities": "Explore Opportunities"
+  },
+
+"howItWorks": {
+   "heading": "How <brand>RaahYab</brand> Works",
+  "subtitle": "Three simple steps to find your next opportunity",
+  "step1": { "title": "Browse", "description": "Search and filter through jobs, scholarships, internships and more — all in one place." },
+  "step2": { "title": "Save", "description": "Bookmark opportunities you like so you can come back to them anytime." },
+  "step3": { "title": "Apply", "description": "Click through directly to the official application and take the next step." }
+},
+
+ "featuredSection": {
+  "heading": "Featured <highlight>opportunities</highlight>",
+  "subtitle": "Explore urgent and high-value paths selected from the latest jobs, scholarships, programs, and remote work openings.",
+  "viewAll": "View all"
+},
+
+ "remoteSpotlight": {
+  "eyebrow": "Work from anywhere",
+  "heading": "Remote Opportunities for Every Afghan",
+  "subtitle": "No need to relocate — find opportunities you can do from home, anywhere in Afghanistan.",
+  "viewAll": "View all remote"
+},
+"categoryBrowse": {
+  "eyebrow": "Browse by category",
+  "heading": "What are you <highlight>looking for?</highlight>",
+  "viewAll": "View all",
+  "viewAllMobile": "View all opportunities"
+},
+"cta": {
+  "heading": "Know an opportunity?",
+  "subtitle": "Share it with thousands of Afghan youth looking for their next step.",
+  "addOpportunity": "Add an Opportunity"
+},
+"opportunitiesPage": {
+  "title": "Explore",
+  "highlight": "Opportunities",
+  "subtitle": "{count, plural, =0 {No opportunities found} one {# opportunity found} other {# opportunities found}} (Demo Data)",
+ 
+"filters": {
+  "title": "Filters",
+  "category": "Category",
+  "location": "Location",
+  "allLocations": "All Locations",
+  "jobType": "Job type",
+  "all": "All",
+  "deadline": "Deadline",
+  "expiringSoon": "Expiring Soon",
+  "clearAll": "Clear All Filters"
+},
+
+  "OpportunitySearch": {
+    "title": "Find Your Next Opportunity",
+    "placeholder": "Search by title, organization, or keyword...",
+    "searchAria": "Search"
+  },
+    "OpportunitySort": {
+    "sortBy": "Sort by:",
+    "newest": "Newest First",
+    "deadline": "Deadline Soonest"
+  },
+    "empty": {
+      "noneYetTitle": "No Opportunities Yet",
+      "noneYetDescription": "Be the first to add an opportunity and help others in the community discover it.",
+      "addOpportunity": "Add Opportunity",
+      "noMatchTitle": "No Matching Results",
+      "noMatchDescription": "Try adjusting your search or filter to find what you're looking for.",
+      "clearFilters": "Clear Filters"
+    },
+
+  "pagination": {
+   "previous": "Previous",
+   "next": "Next"
+  },
+
+  "card": {
+  "saveAria": "Save opportunity",
+  "closingSoon": "Closing Soon",
+  "endingThisWeek": "Ends This Week",
+  "closed": "Closed",
+  "exploreThis": "Explore this opportunity",
+  "viewDetails": "View Details"
+ }
+},
+
+"savedPage": {
+  "title": "Saved",
+  "highlight": "Opportunities",
+  "subtitle": "{count, plural, =0 {No opportunities saved} one {# opportunity saved} other {# opportunities saved}}",
+
+  "searchFilters": {
+    "heading": "Search & Filter Your Saved Opportunities",
+    "searchPlaceholder": "Search here...",
+    "clear": "Clear",
+    "clearAria": "Clear filters",
+    "filter": "Filter",
+    "filterAria": "Toggle filters",
+    "sort": "Sort",
+    "sortAria": "Toggle sort",
+    "filterByAria": "Filter by {option}",
+    "sortOptions": {
+      "newest": "Newest",
+      "az": "A - Z",
+      "deadline": "Deadline"
+    },
+    "filterOptions": {
+      "all": "All",
+      "job": "Job",
+      "internship": "Internship",
+      "scholarship": "Scholarship",
+      "remoteWork": "Remote Work",
+      "onlineCourse": "Online Course",
+      "training": "Training",
+      "volunteer": "Volunteer"
+    }
+  },
+
+  "empty": {
+    "noneYetTitle": "No Saved Opportunities",
+    "noneYetDescription": "Save jobs, scholarships, internships, and other opportunities to access them anytime.",
+    "browse": "Browse Opportunities",
+    "noMatchTitle": "No Matching Results",
+    "noMatchDescription": "Try adjusting your search or filter to find what you're looking for.",
+    "clearFilters": "Clear Filters"
+  },
+
+  "clearAllButton": "Clear all Saved",
+  "loadMore": "Load More",
+
+  "confirmDialog": {
+    "title": "Clear all saved opportunities?",
+    "description": "This will remove all your saved opportunities. This action cannot be undone.",
+    "confirmText": "Clear All"
+  }
+},
+"dashboard": {
+  "welcomeBack": "Welcome Back",
+  "overview": "Dashboard Overview",
+  "totalOpportunities": "Total opportunities",
+  "remoteOpportunities": "Remote opportunities",
+  "newThisMonth": "+{count} this month",
+  "percentOfTotal": "{percent}% of total",
+  "jobs": "Jobs",
+  "scholarships": "Scholarships",
+  "internships": "Internships",
+  "expiringSoon": "Expiring soon",
+  "remote": "Remote",
+  "onlineCourse": "Online Course",
+  "training": "Training",
+  "volunteer": "Volunteer",
+
+  "trendChart": {
+  "heading": "Latest Submissions",
+  "submissions": "Submissions",
+  "week": "This Week",
+  "month": "This Month",
+  "allTime": "All Time"
+  },
+
+  "categoryChart": {
+  "heading": "By category",
+  "thisMonth": "This month"
+  },
+
+  "pendingApprovals": {
+  "heading": "Pending Approvals",
+  "waiting": "{count} waiting",
+  "nothingWaiting": "Nothing waiting on you right now.",
+  "titleCompany": "Title & Company",
+  "category": "Category",
+  "lastUpdated": "Last Updated",
+  "actions": "Actions",
+  "deleteRequest": "Delete request",
+  "editRequest": "Edit request",
+  "today": "today",
+  "daysShort": "{days}d",
+  "accept": "Accept",
+  "decline": "Decline"
+},
+ "recentSubmissions": {
+  "heading": "Recent Submissions",
+  "titleCompany": "Title & Company",
+  "category": "Category",
+  "deadline": "Deadline",
+  "submitted": "Submitted",
+  "justNow": "just now",
+  "hoursAgo": "{hours}h ago",
+  "daysAgo": "{days}d ago"
+}
+ },
+  "aboutPage": {
+  "heading": {
+    "titlePart1": "About ",
+    "titlePart2": "Us",
+    "subtitle": "One platform. Every opportunity."
+  },
+  "section1": {
+  "eyebrow": "The Problem",
+  "heading": "Opportunities exist — but they're scattered across Facebook groups, WhatsApp chats, and other platforms.",
+  "closing": "RaahYab brings it all into one clean, searchable place."
+},
+
+"section2": {
+  "eyebrow": "Who It's For",
+  "heading": "Built for every Afghan youth chasing a better opportunity."
+},
+  "section3": {
+    "heading": "Ready to find your next opportunity?",
+    "subtitle": "Browse jobs, internships, and scholarships built for Everyone.",
+    "cta": "Explore Opportunities"
+  }
+},
+
+"contactPage": {
+  "eyebrow": "Get in Touch",
+  "title": "Contact Us",
+  "intro": "Have a question or suggestion? We'd love to hear from you — fill out the form and we'll get back to you soon.",
+  "form": {
+    "nameLabel": "Your Name",
+    "namePlaceholder": "Sara",
+    "emailLabel": "Email",
+    "emailPlaceholder": "example@gmail.com",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "Subject",
+    "messageLabel": "Message",
+    "messagePlaceholder": "your message...",
+    "sending": "Sending...",
+    "send": "Send Message",
+    "successToast": "Message sent successfully!",
+    "errorToast": "Something went wrong."
+  }
+ },
+
+ "opportunityDetail": {
+  "backLink": "Back to opportunities",
+  "expiringSoon": "Expiring soon",
+  "about": "About this opportunity",
+  "requirements": "Requirements",
+  "tags": "Tags",
+  "deadlineLabel": "Application deadline",
+  "daysRemaining": "{days} {days, plural, one {day} other {days}} remaining",
+  "deadlinePassed": "Deadline passed",
+  "applyNow": "Apply Now",
+  "saveAria": "Save opportunity",
+  "removeSaveAria": "Remove from saved",
+  "saved": "Saved",
+  "saveOpportunity": "Save opportunity",
+  "actions": "Actions",
+  "edit": "Edit",
+  "delete": "Delete",
+  "deleteAria": "Delete opportunity",
+  "demoReminder": "Demo Data — for educational purposes only",
+  "confirmDialog": {
+    "title": "Delete this opportunity?",
+    "description": "This action cannot be undone.",
+    "confirmText": "Delete"
+  },
+  "toast": {
+    "deletePending": "Your request to delete this opportunity is pending and will be reviewed by admin.",
+    "deleteSuccess": "Opportunity deleted successfully!",
+    "deleteError": "Something went wrong please try again."
+  }
+}
+
+}

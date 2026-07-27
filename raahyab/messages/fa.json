@@ -1,0 +1,287 @@
+{
+  "nav": {
+    "home": "خانه",
+    "opportunities": "فرصت‌ها",
+    "saved": "ذخیره‌شده‌ها",
+    "dashboard": "داشبورد",
+    "about": "درباره ما",
+    "contact": "تماس با ما",
+    "addOpportunity": "افزودن فرصت",
+    "cvBuilder": "سازنده رزومه",
+    "profile": "پروفایل",
+    "signedIn": "وارد شده"
+  },
+  "hero": {
+  "titleStatic": "بهترین را برای خود پیدا کنید",
+  "words": ["کار از راه دور", "کارآموزی", "بورسیه تحصیلی", "دوره‌های آنلاین", "داوطلبی", "برنامه‌های آموزشی"],
+  "subtitle": "کار، بورسیه، کارآموزی، کار از راه دور و دوره‌ها — هر آنچه جوانان افغان برای ساختن آینده خود نیاز دارند، همین‌جا.",
+  "getStarted": "شروع کنید",
+  "exploreOpportunities": "فرصت‌ها را کاوش کنید"
+ },
+ "howItWorks": {
+  "heading": "چگونه <brand>راه‌یاب</brand> کار می‌کند",
+  "subtitle": "سه گام ساده برای یافتن فرصت بعدی شما",
+   "step1": { "title": "جستجو", "description": "کار، بورسیه، کارآموزی و موارد دیگر را جستجو و فیلتر کنید — همه در یک‌جا." },
+   "step2": { "title": "ذخیره", "description": "فرصت‌های موردعلاقه خود را ذخیره کنید تا هر زمان بخواهید به آن‌ها برگردید." },
+   "step3": { "title": "درخواست", "description": "مستقیم به درخواست رسمی بروید و قدم بعدی را بردارید." }
+ }, 
+
+  "featuredSection": {
+  "heading": "فرصت‌های <highlight>ویژه</highlight>",
+  "subtitle": "مسیرهای فوری و باارزش را که از جدیدترین کارها، بورسیه‌ها، برنامه‌ها و فرصت‌های دورکاری انتخاب شده‌اند، بررسی کنید.",
+  "viewAll": "مشاهده همه"
+ },
+
+ "remoteSpotlight": {
+  "eyebrow": "از هر جا کار کنید",
+  "heading": "فرصت‌های دورکاری برای هر افغان",
+  "subtitle": "نیازی به جابجایی نیست — فرصت‌هایی پیدا کنید که می‌توانید از خانه، در هر نقطه افغانستان انجام دهید.",
+  "viewAll": "مشاهده همه فرصت‌های دورکاری"
+ },
+
+ "categoryBrowse": {
+  "eyebrow": "مرور بر اساس دسته‌بندی",
+  "heading": "دنبال <highlight>چه چیزی هستید؟</highlight>",
+  "viewAll": "مشاهده همه",
+  "viewAllMobile": "مشاهده همه فرصت‌ها"
+},
+ "cta": {
+  "heading": "فرصتی می‌شناسید؟",
+  "subtitle": "آن را با هزاران جوان افغان که به دنبال قدم بعدی خود هستند به اشتراک بگذارید.",
+  "addOpportunity": "افزودن فرصت"
+ },
+
+ "opportunitiesPage": {
+  "title": "کاوش",
+  "highlight": "فرصت‌ها",
+  "subtitle": "{count, plural, =0 {هیچ فرصتی یافت نشد} other {# فرصت یافت شد}} (داده نمایشی)",
+ 
+  "filters": {
+  "title": "فیلترها",
+  "category": "دسته‌بندی",
+  "location": "موقعیت",
+  "allLocations": "همه موقعیت‌ها",
+  "jobType": "نوع شغل",
+  "all": "همه",
+  "deadline": "مهلت",
+  "expiringSoon": "به‌زودی منقضی می‌شود",
+  "clearAll": "پاک کردن همه فیلترها"
+},
+  "OpportunitySearch": {
+    "title": "فرصت بعدی خود را پیدا کنید",
+    "placeholder": "جستجو بر اساس عنوان، سازمان یا کلمه کلیدی...",
+    "searchAria": "جستجو"
+  },
+   "OpportunitySort": {
+    "sortBy": "مرتب‌سازی بر اساس:",
+    "newest": "جدیدترین",
+    "deadline": "نزدیک‌ترین مهلت"
+  },
+
+  "empty": {
+  "noneYetTitle": "هنوز فرصتی وجود ندارد",
+  "noneYetDescription": "اولین نفری باشید که یک فرصت اضافه می‌کند و به دیگران در جامعه کمک می‌کند آن را پیدا کنند.",
+  "addOpportunity": "افزودن فرصت",
+  "noMatchTitle": "نتیجه‌ای یافت نشد",
+  "noMatchDescription": "جستجو یا فیلتر خود را تغییر دهید تا آنچه را که به دنبال آن هستید پیدا کنید.",
+  "clearFilters": "پاک کردن فیلترها"
+},
+
+ "pagination": {
+  "previous": "قبلی",
+  "next": "بعدی"
+},
+
+"card": {
+  "saveAria": "ذخیره فرصت",
+  "closingSoon": "به‌زودی بسته می‌شود",
+  "endingThisWeek": "این هفته پایان می‌یابد",
+  "closed": "بسته شده",
+  "exploreThis": "این فرصت را کاوش کنید",
+  "viewDetails": "مشاهده جزئیات"
+}
+
+},
+
+ "savedPage": {
+  "title": "ذخیره‌شده",
+  "highlight": "فرصت‌ها",
+  "subtitle": "{count, plural, =0 {هیچ فرصتی ذخیره نشده} other {# فرصت ذخیره شده}}",
+
+  "searchFilters": {
+    "heading": "فرصت‌های ذخیره‌شده خود را جستجو و فیلتر کنید",
+    "searchPlaceholder": "اینجا جستجو کنید...",
+    "clear": "پاک کردن",
+    "clearAria": "پاک کردن فیلترها",
+    "filter": "فیلتر",
+    "filterAria": "نمایش/مخفی کردن فیلترها",
+    "sort": "مرتب‌سازی",
+    "sortAria": "نمایش/مخفی کردن مرتب‌سازی",
+    "filterByAria": "فیلتر بر اساس {option}",
+    "sortOptions": {
+      "newest": "جدیدترین",
+      "az": "الف - ی",
+      "deadline": "مهلت"
+    },
+    "filterOptions": {
+      "all": "همه",
+      "job": "شغل",
+      "internship": "کارآموزی",
+      "scholarship": "بورسیه",
+      "remoteWork": "کار از راه دور",
+      "onlineCourse": "دوره آنلاین",
+      "training": "آموزش",
+      "volunteer": "داوطلبی"
+    }
+  },
+
+  "empty": {
+    "noneYetTitle": "هیچ فرصت ذخیره‌شده‌ای وجود ندارد",
+    "noneYetDescription": "کارها، بورسیه‌ها، کارآموزی‌ها و سایر فرصت‌ها را ذخیره کنید تا هر زمان به آن‌ها دسترسی داشته باشید.",
+    "browse": "مرور فرصت‌ها",
+    "noMatchTitle": "نتیجه‌ای یافت نشد",
+    "noMatchDescription": "جستجو یا فیلتر خود را تغییر دهید تا آنچه را که به دنبال آن هستید پیدا کنید.",
+    "clearFilters": "پاک کردن فیلترها"
+  },
+
+  "clearAllButton": "پاک کردن همه ذخیره‌شده‌ها",
+  "loadMore": "نمایش بیشتر",
+
+  "confirmDialog": {
+    "title": "همه فرصت‌های ذخیره‌شده پاک شوند؟",
+    "description": "این کار همه فرصت‌های ذخیره‌شده شما را حذف می‌کند. این عمل قابل بازگشت نیست.",
+    "confirmText": "پاک کردن همه"
+  }
+},
+
+"dashboard": {
+  "welcomeBack": "خوش آمدید",
+  "overview": "نمای کلی داشبورد",
+  "totalOpportunities": "مجموع فرصت‌ها",
+  "remoteOpportunities": "فرصت‌های دورکاری",
+  "newThisMonth": "{count}+ در این ماه",
+  "percentOfTotal": "{percent}% از کل",
+  "jobs": "کارها",
+  "scholarships": "بورسیه‌ها",
+  "internships": "کارآموزی‌ها",
+  "expiringSoon": "به‌زودی منقضی می‌شود",
+  "remote": "دورکاری",
+  "onlineCourse": "دوره آنلاین",
+  "training": "آموزش",
+  "volunteer": "داوطلبی",
+
+  "trendChart": {
+  "heading": "آخرین ثبت‌نامها",
+  "submissions": "ثبت‌نامها",
+  "week": "این هفته",
+  "month": "این ماه",
+  "allTime": "همه زمان‌ها"
+ },
+
+ "categoryChart": {
+  "heading": "بر اساس دسته‌بندی",
+  "thisMonth": "این ماه"
+},
+
+"recentSubmissions": {
+  "heading": "ثبت‌نامهای اخیر",
+  "titleCompany": "عنوان و شرکت",
+  "category": "دسته‌بندی",
+  "deadline": "مهلت",
+  "submitted": "ارسال‌شده",
+  "justNow": "هم‌اکنون",
+  "hoursAgo": "{hours} ساعت پیش",
+  "daysAgo": "{days} روز پیش"
+},
+
+"pendingApprovals": {
+  "heading": "درخواست‌های در انتظار",
+  "waiting": "{count} در انتظار",
+  "nothingWaiting": "در حال حاضر چیزی در انتظار شما نیست.",
+  "titleCompany": "عنوان و شرکت",
+  "category": "دسته‌بندی",
+  "lastUpdated": "آخرین به‌روزرسانی",
+  "actions": "اقدامات",
+  "deleteRequest": "درخواست حذف",
+  "editRequest": "درخواست ویرایش",
+  "today": "امروز",
+  "daysShort": "{days} روز",
+  "accept": "پذیرفتن",
+  "decline": "رد کردن"
+ }
+},
+
+"aboutPage": {
+  "heading": {
+    "titlePart1": "درباره ",
+    "titlePart2": "ما",
+    "subtitle": "یک پلتفرم. همه فرصت‌ها."
+  },
+  "section1": {
+  "eyebrow": "مشکل",
+  "heading": "فرصت‌ها وجود دارند — اما در گروه‌های فیس‌بوک، چت‌های واتساپ و سایر پلتفرم‌ها پراکنده‌اند.",
+  "closing": "راه‌یاب همه آن‌ها را در یک مکان تمیز و قابل جستجو گرد هم می‌آورد."
+},
+
+"section2": {
+  "eyebrow": "برای چه کسانی است",
+  "heading": "برای هر جوان افغان که به دنبال فرصت بهتری است، ساخته شده."
+},
+
+"section3": {
+  "heading": "آماده‌اید فرصت بعدی خود را پیدا کنید؟",
+  "subtitle": "کارها، کارآموزی‌ها و بورسیه‌های ساخته‌شده برای همه را مرور کنید.",
+  "cta": "کاوش فرصت‌ها"
+}
+},
+"contactPage": {
+  "eyebrow": "با ما در تماس باشید",
+  "title": "تماس با ما",
+  "intro": "سوال یا پیشنهادی دارید؟ خوشحال می‌شویم نظر شما را بشنویم — فرم را پر کنید تا به‌زودی با شما تماس بگیریم.",
+  "form": {
+    "nameLabel": "نام شما",
+    "namePlaceholder": "سارا",
+    "emailLabel": "ایمیل",
+    "emailPlaceholder": "example@gmail.com",
+    "subjectLabel": "موضوع",
+    "subjectPlaceholder": "موضوع",
+    "messageLabel": "پیام",
+    "messagePlaceholder": "پیام شما...",
+    "sending": "در حال ارسال...",
+    "send": "ارسال پیام",
+    "successToast": "پیام با موفقیت ارسال شد!",
+    "errorToast": "مشکلی پیش آمد."
+  }
+ },
+
+ "opportunityDetail": {
+  "backLink": "بازگشت به فرصت‌ها",
+  "expiringSoon": "به‌زودی منقضی می‌شود",
+  "about": "درباره این فرصت",
+  "requirements": "الزامات",
+  "tags": "برچسب‌ها",
+  "deadlineLabel": "مهلت درخواست",
+  "daysRemaining": "{days} روز باقی‌مانده",
+  "deadlinePassed": "مهلت به پایان رسیده",
+  "applyNow": "اکنون درخواست دهید",
+  "saveAria": "ذخیره فرصت",
+  "removeSaveAria": "حذف از ذخیره‌شده‌ها",
+  "saved": "ذخیره شد",
+  "saveOpportunity": "ذخیره فرصت",
+  "actions": "عملیات",
+  "edit": "ویرایش",
+  "delete": "حذف",
+  "deleteAria": "حذف فرصت",
+  "demoReminder": "داده نمایشی — فقط برای اهداف آموزشی",
+  "confirmDialog": {
+    "title": "این فرصت حذف شود؟",
+    "description": "این عمل قابل بازگشت نیست.",
+    "confirmText": "حذف"
+  },
+  "toast": {
+    "deletePending": "درخواست شما برای حذف این فرصت در انتظار بررسی توسط مدیر است.",
+    "deleteSuccess": "فرصت با موفقیت حذف شد!",
+    "deleteError": "مشکلی پیش آمد، لطفاً دوباره تلاش کنید."
+  }
+}
+}

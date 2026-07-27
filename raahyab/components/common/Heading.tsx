@@ -13,7 +13,7 @@ export default function PageHeading({
   className=""
 }: PageHeadingProps) {
   return (
-    <div className={`relative w-full pt-23 pb-8  ${className}`}>
+    <div className={`relative w-full pt-23 pb-8 px-8  ${className}`}>
 
   {/* borders top & bottom  */}
       <div
@@ -39,10 +39,10 @@ export default function PageHeading({
       />
 
       {/* Content */}
-      <div className="relative z-10 flex items-center gap-6 pl-12 pr-4 ">
+      <div className="relative z-10 flex items-center gap-6  pr-4 ">
         
         <div>
-          <h1 className="text-4xl sm:text-5xl italic font-bold text-foreground leading-tight">
+          <h1 className="text-4xl sm:text-5xl italic font-bold text-foreground/86 leading-tight">
             {title}{" "}
             <span
               style={{ fontFamily: "var(--font-dm-serif)" }}

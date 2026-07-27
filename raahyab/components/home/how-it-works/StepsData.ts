@@ -3,8 +3,7 @@ import { LucideIcon, Search, Bookmark, Send } from "lucide-react";
 export type StepDataType = {
   id: number;
   number: string;
-  title: string;
-  description: string;
+  key: "step1" | "step2" | "step3";
   icon: LucideIcon;
 };
 
@@ -12,22 +11,19 @@ export const steps: StepDataType[] = [
   {
     id: 1,
     number: "01",
-    title: "Browse",
-    description: "Search and filter through jobs, scholarships, internships and more — all in one place.",
+    key: "step1",
     icon: Search,
   },
   {
     id: 2,
     number: "02",
-    title: "Save",
-    description: "Bookmark opportunities you like so you can come back to them anytime.",
+    key: "step2",
     icon: Bookmark,
   },
   {
     id: 3,
     number: "03",
-    title: "Apply",
-    description: "Click through directly to the official application and take the next step.",
+    key: "step3",
     icon: Send,
   },
 ];

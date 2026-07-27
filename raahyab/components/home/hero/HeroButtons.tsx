@@ -1,7 +1,11 @@
 import Link from "next/link"
 import { ArrowRight, Compass } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+import { useTranslations } from "next-intl";
 
 export default function HeroButtons() {
+  const { dir } = useLanguage();
+  const t = useTranslations("hero");
 
   return (
        <>
@@ -10,7 +14,7 @@ export default function HeroButtons() {
             href="/signup"
             className="group flex items-center gap-2 bg-primary hover:bg-primary-hover text-white rounded-xl px-7 py-3 text-sm font-medium  text-center transition-colors duration-200"
           >
-            Get Started
+            {t("getStarted")}
              <ArrowRight
                size={16}
                strokeWidth={2}
@@ -21,7 +25,7 @@ export default function HeroButtons() {
             href="/add-opportunity"
             className="group flex items-center gap-2 bg-transparent text-foreground border border-accent/40 hover:bg-surface rounded-xl px-7 py-3 text-sm font-semibold transition-all duration-200 text-center">
              <Compass size={16} strokeWidth={2} className="text-primary" />
-             Explore Opportunities
+             {t("exploreOpportunities")}
           </Link>
         </div>
      </>

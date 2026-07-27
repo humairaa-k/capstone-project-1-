@@ -47,8 +47,7 @@
     ],
     "createdAt": "2026-06-03",
     "featured": false,
-    "status": "pending",
-    "pendingAction": "delete"
+    "status": "approved"
   },
   {
     "id": "3",
@@ -124,31 +123,6 @@
     "status": "approved"
   },
   {
-    "id": "6",
-    "title": "Marketing Intern ",
-    "organization": "Afghan Startup Hub",
-    "category": "Internship",
-    "location": "Kabul",
-    "type": "On-site",
-    "deadline": "2026-08-01",
-    "description": "Join our marketing team and learn digital marketing, social media management, and content creation for Afghan startups.",
-    "requirements": [
-      "Social media knowledge",
-      "Creative writing",
-      "Basic English"
-    ],
-    "applyLink": "https://example.com/apply",
-    "tags": [
-      "Marketing",
-      "Social Media",
-      "Startup"
-    ],
-    "createdAt": "2026-06-11",
-    "featured": false,
-    "status": "pending",
-    "pendingAction": "delete"
-  },
-  {
     "id": "7",
     "title": "Journalism Intern ",
     "organization": "Tolo News",
@@ -171,57 +145,6 @@
     "createdAt": "2026-06-12",
     "featured": false,
     "status": "approved"
-  },
-  {
-    "id": "8",
-    "title": "Software Test",
-    "organization": "AfghanTech Solutions",
-    "category": "Internship",
-    "location": "Online",
-    "type": "Remote",
-    "deadline": "2026-08-29T19:30:00.000Z",
-    "description": "Learn quality assurance and software testing in a remote environment. Perfect for students who want to enter the tech industry.",
-    "requirements": [
-      "Basic computer skills",
-      "Attention to detail",
-      "English reading ability"
-    ],
-    "applyLink": "https://example.com/apply",
-    "tags": [
-      "QA",
-      "Testing",
-      "Remote"
-    ],
-    "createdAt": "2026-06-13",
-    "featured": false,
-    "status": "pending",
-    "pendingAction": "delete",
-    "updatedAt": "2026-07-25T14:33:12.538Z",
-    "previousState": {
-      "id": "8",
-      "title": "Software Testing",
-      "organization": "AfghanTech Solutions",
-      "category": "Internship",
-      "location": "Online",
-      "type": "Remote",
-      "deadline": "2026-08-29T19:30:00.000Z",
-      "description": "Learn quality assurance and software testing in a remote environment. Perfect for students who want to enter the tech industry.",
-      "requirements": [
-        "Basic computer skills",
-        "Attention to detail",
-        "English reading ability"
-      ],
-      "applyLink": "https://example.com/apply",
-      "tags": [
-        "QA",
-        "Testing",
-        "Remote"
-      ],
-      "createdAt": "2026-06-13",
-      "featured": false,
-      "status": "approved",
-      "pendingAction": "delete"
-    }
   },
   {
     "id": "9",
@@ -399,7 +322,7 @@
   },
   {
     "id": "16",
-    "title": "Virtual ",
+    "title": "Virtual Assistant",
     "organization": "RemoteWork Arabia",
     "category": "Remote Work",
     "location": "Online",
@@ -421,34 +344,7 @@
     "createdAt": "2026-06-11",
     "featured": false,
     "status": "pending",
-    "pendingAction": "edit",
-    "updatedAt": "2026-07-25T17:22:49.414Z",
-    "previousState": {
-      "id": "16",
-      "title": "Virtual Assistant",
-      "organization": "RemoteWork Arabia",
-      "category": "Remote Work",
-      "location": "Online",
-      "type": "Remote",
-      "deadline": "2026-08-12",
-      "description": "Provide administrative support to busy professionals remotely. Tasks include scheduling, email management, and research.",
-      "requirements": [
-        "Organization skills",
-        "English proficiency",
-        "Microsoft Office",
-        "Reliable internet"
-      ],
-      "applyLink": "https://example.com/apply",
-      "tags": [
-        "Admin",
-        "Virtual",
-        "Part-time"
-      ],
-      "createdAt": "2026-06-11",
-      "featured": false,
-      "status": "approved",
-      "pendingAction": "delete"
-    }
+    "pendingAction": "delete"
   },
   {
     "id": "17",

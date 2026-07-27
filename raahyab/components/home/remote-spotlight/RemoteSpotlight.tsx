@@ -6,14 +6,20 @@ import { Opportunity } from "@/types";
 import RemoteCard from "./RemoteCard";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useTranslations } from "next-intl";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function RemoteSpotlightSection({ opportunities }: { opportunities: Opportunity[] }) {
   const sectionRef = useScrollReveal();
-   const remoteOpportunities = getRemoteOpportunities(opportunities);
+  const remoteOpportunities = getRemoteOpportunities(opportunities);
+
+   const t = useTranslations("remoteSpotlight");
+     const { dir } = useLanguage();
 
   return (
     <section
       ref={sectionRef}
+      dir={dir}
       className="py-16 sm:py-20 bg-background relative overflow-hidden"
     >
       
@@ -33,21 +39,20 @@ export default function RemoteSpotlightSection({ opportunities }: { opportunitie
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 gap-4">
           <div>
             <p className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-primary">
-              🌐 Work from anywhere
+              🌐 {t("eyebrow")}
             </p>
             <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
-              Remote Opportunities
-              <br className="sm:hidden" /> for Every Afghan
+                 {t("heading")}
             </h2>
             <p className="text-sm text-muted-foreground mt-3 max-w-md">
-              No need to relocate — find opportunities you can do from home, anywhere in Afghanistan.
+               {t("subtitle")}
             </p>
           </div>
           <Link
             href="/opportunities?type=Remote"
             className="inline-flex w-fit items-center gap-2 rounded-lg border border-primary/20 bg-card px-4 py-2 text-sm font-medium text-primary transition-all duration-200 hover:border-primary/40 hover:bg-primary hover:text-card"
           >
-            View all remote 
+            {t("viewAll")}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>

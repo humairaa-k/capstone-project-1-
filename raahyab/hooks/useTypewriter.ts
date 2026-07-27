@@ -1,22 +1,19 @@
 import { useEffect, useState } from "react";
 
-const words = [
-  "Remote Jobs",
-  "Internships",
-  "Scholarships",
-  "Online Courses",
-  "Volunteering",
-  "Training Programs",
-];
 
-export function useTypewriter() {
+export function useTypewriter(words:string[]) {
  const [ displayed, setDisplayed ] = useState("");
  const [ wordIndex, setWordIndex ] = useState(0);
  const [ isDeleting, setIsDeleting ] = useState(false);
 
+ useEffect(() => {
+    setDisplayed("");
+    setWordIndex(0);
+    setIsDeleting(false);
+  }, [words]);
 
  useEffect(() => {
-   const currentWord = words[wordIndex];
+   const currentWord = words[wordIndex] ?? "";
    const speed = isDeleting ? 50 : 85 
 
  const timeout = setTimeout(() => {

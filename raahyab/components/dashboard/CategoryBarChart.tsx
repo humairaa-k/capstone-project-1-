@@ -8,6 +8,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { useTranslations } from "next-intl";
 
 const chartConfig = {
   count: {
@@ -21,11 +22,13 @@ interface CategoryBarChartProps {
 }
 
 export default function CategoryBarChart({ data }: CategoryBarChartProps) {
+  const t = useTranslations("dashboard");
+
   return (
-    <div className="relative rounded-3xl bg-black/90 p-6 sm:p-8 overflow-hidden my-8">
-      <div className="flex items-center justify-between mb-6">
-        <h3 className="text-white/90 font-medium text-background">By category</h3>
-        <span className="text-xs text-muted-foreground">This month</span>
+    <div className="relative rounded-3xl bg-black/90 backdrop-blur-2xl p-6 sm:p-8 overflow-hidden my-8 border border-white/10 shadow-2xl shadow-black/40">
+         <div className="flex items-center justify-between mb-6">
+        <h3 className="text-white/90 font-medium text-background">{t("categoryChart.heading")}</h3>
+        <span className="text-xs text-muted-foreground">{t("categoryChart.thisMonth")}</span>
       </div>
 
       <ChartContainer config={chartConfig} className="h-[200px] w-full">

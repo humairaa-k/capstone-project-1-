@@ -2,6 +2,8 @@
 
 import { ChevronDown, X } from "lucide-react";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { useLanguage } from "@/context/LanguageContext";
 
  interface FilterSidebarProps {
   category: string[];
@@ -34,6 +36,8 @@ export default function FiltersSidebar({
   onClearAll
 }: FilterSidebarProps) {
 
+  const t = useTranslations("opportunitiesPage.filters");
+  const { dir } = useLanguage();
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isLocationOpen, setIsLocationOpen] = useState(false);
 
@@ -49,9 +53,11 @@ export default function FiltersSidebar({
 
   return (
     <>
-     <div className="bg-card w-full sticky top-24 rounded-2xl border border-foreground/8 shadow-sm p-6 space-y-6 max-h-[calc(100vh-6rem)] mt-10 overflow-y-auto custom-scrollbar">
+     <div
+     dir={dir} 
+     className="bg-card w-full sticky top-24 rounded-2xl border border-foreground/8 shadow-sm p-6 space-y-6 max-h-[calc(100vh-6rem)] mt-10 overflow-y-auto custom-scrollbar">
       <div className=""> 
-        <h2 className="text-base font-bold text-foreground">Filters</h2>
+        <h2 className="text-base font-bold text-foreground">{t("title")}</h2>
     
       </div>
       {/* category */}
@@ -59,7 +65,7 @@ export default function FiltersSidebar({
        onClick={ () => setIsCategoryOpen(!isCategoryOpen)}
        className="w-full flex justify-between font-semibold mb-4 rounded-lg px-6 py-1.5 hover:bg-foreground/5 transition-colors"
        >
-       Category  
+        {t("category")}
        <ChevronDown className={`w-4 h-4 transition-transform ${isCategoryOpen ? "rotate-180" : ""}`}/>
      </button>   
 
@@ -85,7 +91,7 @@ export default function FiltersSidebar({
     onClick={() => setIsLocationOpen(!isLocationOpen)}
     className="w-full flex justify-between font-semibold mb-4 rounded-lg px-6 py-1.5 hover:bg-foreground/5 transition-colors"
     >
-      Location
+      {t("location")}
     <ChevronDown className={`w-4 h-4 transition-transform ${isLocationOpen ? "rotate-180" : ""}`}/>
     </button>
 
@@ -107,7 +113,7 @@ export default function FiltersSidebar({
 
   {/* job type */}
   <div className="mt-4 pl-6">
-    <h2 className="font-semibold mb-4">Job type</h2>
+    <h2 className="font-semibold mb-4">{t("jobType")}</h2>
     <label className="flex items-center gap-2 mb-2 cursor-pointer  pl-1">
       <input 
       type="radio"
@@ -116,7 +122,7 @@ export default function FiltersSidebar({
       onChange={() => onTypeChange("All")}
        className="accent-primary" 
        />
-       All
+      All
     </label>
 
     {availableTypes.map((t) => (
@@ -137,7 +143,7 @@ export default function FiltersSidebar({
   </div>
 
   <div className="mt-4 pl-6">
-  <h2 className="font-semibold mb-4">Deadline</h2>
+  <h2 className="font-semibold mb-4">{t("deadline")}</h2>
   <label className="flex items-center gap-2 cursor-pointer">
     <input
       type="checkbox"
@@ -145,7 +151,7 @@ export default function FiltersSidebar({
       onChange={() => onExpiringChange(!expiringSoon)}
       className="accent-primary w-4 h-4"
     />
-    Expiring Soon
+    {t("expiringSoon")}
   </label>
 </div>
 
@@ -154,7 +160,7 @@ export default function FiltersSidebar({
       onClick={onClearAll}
       className="flex items-center justify-center w-full text-sm font-semibold text-amber-50 bg-primary py-3 px-3 rounded-xl shadow-sm hover:bg-primary/90 hover:shadow-md active:scale-[0.98] transition-all duration-200"
     >
-      Clear All Filters
+    {t("clearAll")}
     </button>
   )}
    

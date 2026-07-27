@@ -1,8 +1,8 @@
 export default function HeroBackground() {
   return (
     <>
-      {/* Afghan pattern top right */}
-      <div className="absolute top-0 right-0 w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 opacity-[0.08] pointer-events-none">
+      {/* Afghan pattern — top, inline-end side  */}
+      <div className="absolute top-0 end-0 w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 opacity-[0.08] pointer-events-none">
         <svg viewBox="0 0 400 400" className="w-full h-full">
           <defs>
             <pattern
@@ -36,8 +36,8 @@ export default function HeroBackground() {
         </svg>
       </div>
 
-      {/* Afghan pattern bottom left */}
-      <div className="absolute bottom-0 left-0 w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64 opacity-[0.06] pointer-events-none">
+      {/* Afghan pattern — bottom, inline-start side */}
+      <div className="absolute bottom-0 start-0 w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64 opacity-[0.06] pointer-events-none">
         <svg viewBox="0 0 280 280" className="w-full h-full">
           <defs>
             <pattern
@@ -60,6 +60,6 @@ export default function HeroBackground() {
           <rect width="280" height="280" fill="url(#afghan2)" />
         </svg>
       </div>
-   </>
-  )
+    </>
+  );
 }

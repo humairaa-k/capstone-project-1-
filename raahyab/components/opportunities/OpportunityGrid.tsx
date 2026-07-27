@@ -9,6 +9,7 @@ import { useEffect, useState, useMemo } from "react";
 import { getDeadlineStatus } from "@/utils/getDeadlineStatus";
 import EmptyState from "../common/EmptyState";
 import { Search, FilePlus } from "lucide-react"
+import { useTranslations } from "next-intl";
 
 type PropsType = {
  initialOpportunities: Opportunity[];  
@@ -17,6 +18,7 @@ type PropsType = {
 
 export default function OpportunityGrid({initialOpportunities} : PropsType) {
   const opportunities = initialOpportunities;
+  const t = useTranslations("opportunitiesPage");
 
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState<string[]>([]);
@@ -91,16 +93,14 @@ export default function OpportunityGrid({initialOpportunities} : PropsType) {
    setSearch("")
   };
 
-
-
   return (
    <>
     <Heading
-      title=" Explore"
-      highlight=" Opportunities"
-      subtitle = {`${filteredOpportunities.length} opportunities found ( Demo Data )`}
-      className="animate-fade-in-up"
-    />
+     title={t("title")}
+     highlight={t("highlight")}
+     subtitle={t("subtitle", { count: filteredOpportunities.length })}
+     className="animate-fade-in-up"
+   />
 
     <div className=" p-5 sm:px-6 lg:px-10">
 
@@ -130,7 +130,7 @@ export default function OpportunityGrid({initialOpportunities} : PropsType) {
              <div className="flex justify-end">
              <div className="flex items-center gap-3">
                <label htmlFor="sort" className="text-sm text-muted-foreground hidden sm:block">
-                 Sort by:
+                  {t("OpportunitySort.sortBy")}
                </label>
                <select
                  id="sort"
@@ -138,30 +138,28 @@ export default function OpportunityGrid({initialOpportunities} : PropsType) {
                  onChange={(e) => setSortType(e.target.value)}
                  className="border border-foreground/15 rounded-lg px-3 py-1.5 text-sm bg-background focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer"
                >
-                 <option value="newest">Newest First</option>
-                 <option value="deadline">Deadline Soonest</option>
+                <option value="newest">{t("OpportunitySort.newest")}</option>
+                <option value="deadline">{t("OpportunitySort.deadline")}</option>
                </select>
              </div>
            </div>
             
           { opportunities.length === 0 ? (
+             <EmptyState
+              title={t("empty.noneYetTitle")}
+              description={t("empty.noneYetDescription")}
+              icon={FilePlus}
+              buttonText={t("empty.addOpportunity")}
+              buttonHref="/add-opportunity"
+             />
+            ) : filteredOpportunities.length === 0 ? (
               <EmptyState
-               title="No Opportunities Yet"
-               description="Be the first to add an opportunity and help others in the community discover it."
-               icon={FilePlus}
-               buttonText="Add Opportunity"
-               buttonHref="/add-opportunity"
-              
-              />
-        
-            ): filteredOpportunities.length === 0 ?(
-              <EmptyState
-               title="No Matching Results"
-               description="Try adjusting your search or filter to find what you're looking for."
+               title={t("empty.noMatchTitle")}
+               description={t("empty.noMatchDescription")}
                icon={Search}
-               buttonText="Clear Filters"
+               buttonText={t("empty.clearFilters")}
                onButtonClick={handleClearAll}
-               />
+              />
             ) : (
 
              <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -184,7 +182,7 @@ export default function OpportunityGrid({initialOpportunities} : PropsType) {
          disabled={currentPage === 1}
          className="px-3 py-2 rounded-lg border border-foreground/15 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-foreground/5"
        >
-         Previous
+         {t("pagination.previous")}
        </button>
       
        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
@@ -206,7 +204,7 @@ export default function OpportunityGrid({initialOpportunities} : PropsType) {
          disabled={currentPage === totalPages}
          className="px-3 py-2 rounded-lg border border-foreground/15 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-foreground/5"
        >
-         Next
+      {t("pagination.next")}
     </button>
   </div>
 

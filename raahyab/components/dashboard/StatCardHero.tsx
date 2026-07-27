@@ -14,11 +14,11 @@ export default function StatCardHero({ icon: Icon, label, value, trend, variant,
   return (
     <div
       className={`relative rounded-3xl p-5 sm:p-6 overflow-hidden min-h-[160px] ${
-        isDark ? "bg-black text-white" : "bg-accent text-foreground"
+        isDark ? "bg-black/90 text-white" : "bg-accent/90 text-foreground"
       }`} >
 
       <Icon
-        className="absolute -right-4 -bottom-4 opacity-10"
+        className="absolute -end-4 -bottom-4 opacity-10"
         size={120}
         strokeWidth={1}
       />

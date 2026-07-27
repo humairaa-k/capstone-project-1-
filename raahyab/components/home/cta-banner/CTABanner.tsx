@@ -2,12 +2,16 @@
 
 import Link from "next/link";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useTranslations } from "next-intl";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function CTABanner() {
- const sectionRef = useScrollReveal();    
+ const sectionRef = useScrollReveal(); 
+ const t = useTranslations("cta");
+ const { dir } = useLanguage();   
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-20 bg-background dark:bg-warm-900/30">
+    <section ref={sectionRef} dir={dir} className="py-16 sm:py-20 bg-background dark:bg-warm-900/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-primary rounded-3xl px-6 sm:px-12 py-10 sm:py-14 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left relative overflow-hidden">
 
@@ -15,11 +19,11 @@ export default function CTABanner() {
            <div className="absolute -bottom-12 -left-8 w-32 h-32 bg-white/5 rounded-full" />
 
           <div className="relative z-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-              Know an opportunity?
+            <h2 className="text-2xl text-white mb-2 sm:text-3xl font-bold text-start relative overflow-hidden">
+              {t("heading")}
             </h2>
             <p className="text-sm text-teal-100 max-w-md">
-              Share it with thousands of Afghan youth looking for their next step.
+              {t("subtitle")}
             </p>
           </div>
 
@@ -27,7 +31,7 @@ export default function CTABanner() {
             href="/add-opportunity"
             className="relative z-10 bg-gold-400 hover:bg-gold-500 text-white rounded-xl px-7 py-3 text-sm font-medium transition-colors duration-200 shrink-0 whitespace-nowrap"
           >
-            + Add an Opportunity
+             + {t("addOpportunity")}
           </Link>
 
         </div>
