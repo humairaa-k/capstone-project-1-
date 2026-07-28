@@ -12,7 +12,7 @@ import { ConditionalFooter } from "@/components/ConditionalFooter";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://example.vercel.app"), 
+  metadataBase: new URL("https://raahyab.vercel.app/"), 
 
   title: {
     default: "RaahYab — Find Jobs, Internships & Scholarships in Afghanistan",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "RaahYab — Find Jobs, Internships & Scholarships in Afghanistan",
     description:
       "Discover real opportunities for Afghan youth — jobs, internships, scholarships, and remote work, all in one place.",
-    url: "https://raahyab.ex.app",
+    url: "https://raahyab.vercel.app/",
     siteName: "RaahYab",
     images: [
       {
