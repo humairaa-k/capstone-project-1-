@@ -73,8 +73,7 @@
   "all": "All",
   "deadline": "Deadline",
   "expiringSoon": "Expiring Soon",
-  "clearAll": "Clear All Filters",
-  "showResults": "Show {count} results"
+  "clearAll": "Clear All Filters"
 },
 
   "OpportunitySearch": {
