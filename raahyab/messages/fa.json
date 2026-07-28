@@ -72,7 +72,8 @@
   "all": "همه",
   "deadline": "مهلت",
   "expiringSoon": "به‌زودی منقضی می‌شود",
-  "clearAll": "پاک کردن همه فیلترها"
+  "clearAll": "پاک کردن همه فیلترها",
+  "showResults": "نمایش {count} نتیجه"
 },
   "OpportunitySearch": {
     "title": "فرصت بعدی خود را پیدا کنید",

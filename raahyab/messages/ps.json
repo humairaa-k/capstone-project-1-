@@ -478,7 +478,8 @@
     "jobs": "دنډې",
     "internships": "انټرنشپونه",
     "scholarships": "تحصیلي بورسونه",
-    "remoteWork": "له لرې څخه کار (ریموت)"
+    "remoteWork": "له لرې څخه کار (ریموت)",
+    "showResults": "{count} پایلې وښایاست"
   },
 
   "heroStats": {
