@@ -215,9 +215,6 @@ lib/
 prisma/
   schema.prisma         # Database schema
 
-data/
-  opportunities.json    # Current opportunity storage (temporary — see Future Improvements)
-
 messages/
   en.json / fa.json / ps.json  # i18n translation files
 
@@ -227,14 +224,13 @@ proxy.ts                # Route protection (runs before protected pages load)
 
 ## Future Improvements
 
-- **Move opportunities from JSON to the database** — migrate `data/opportunities.json` into a proper `Opportunity` model in `schema.prisma`, replacing file reads/writes in `lib/opportunities.ts` with Prisma queries
 - **Company/organization pages with full CRUD** — a separate `Organization` model with its own profile page, instead of storing org names as plain text
 - **Profile page with real editing** — a form to update username, email, password, and profile photo
 - **Automated testing** — no unit or end-to-end tests yet; priority areas are the dashboard stats, approve/decline logic, and signup/login flow
 - **Contact form** — wire it up to save submissions to the database or send them via an email service (e.g. Resend)
 - **Google OAuth** — schema already supports it via the `Account` model; just needs adding to `lib/auth.ts`
 - **Email notifications** — notify users when their submission is approved/declined, and notify admins on new submissions
-- **Opportunities filters** — fix filter visibility on small screens (currently broken on mobile)
+- **Opportunities filters** — fix filter visibility on small screens (currently not visible on mobile)
 - **Dashboard** — expand admin controls, insights, and refinements beyond current stats/charts
 - **CV Builder** — add more templates, sections, and export options
 
@@ -243,6 +239,7 @@ proxy.ts                # Route protection (runs before protected pages load)
 - Working with Prisma and Supabase — this was my first time using Prisma as an ORM connected to a Supabase PostgreSQL database, and I ran into a fair number of setup and configuration challenges along the way, especially since I'd never used either tool before
 - Understanding how APIs are actually built — writing the API routes for opportunities, auth, and admin decisions gave me a much clearer picture of how backend APIs work in practice, not just in theory
 - Thinking about scalability and security, not just UI — this project pushed me to consider how the app would hold up with more users and data, and where security mattered (validation, auth checks), instead of only focusing on how things looked
+
 
 ## Demo Accounts
 
@@ -256,11 +253,13 @@ You can use the credentials below to log in and explore the platform without cre
 - Email: `userr@gmail.com`
 - Password: `Userdemo123`
 
+
 ## Contact Me
 
 Have questions or suggestion about this project? Feel free to reach out.
 
 **Email:** humirakhaliq2@gmail.com
+
 
 ## Author
 
