@@ -1,20 +1,18 @@
-import fs from "fs/promises";
-import path from "path";
 import { Opportunity} from "@/types"; 
 import { OpportunityFormData } from "@/lib/schemas/opportunity";
+import { prisma } from "@/lib/prisma";
 
-
-const dataFilePath = path.join( process.cwd(), "data", "opportunities.json");
 
 export async function getOpportunities(): Promise<Opportunity[]> {  
-    const fileContents = await fs.readFile(dataFilePath, "utf-8")
-    return JSON.parse(fileContents)
+    const opportunities = await prisma.opportunity.findMany({
+      orderBy: { createdAt: "desc" }
+    });
+    return opportunities as unknown as Opportunity[];
 } 
 
-
-export async function getOpportunityById (id: string) : Promise<Opportunity | null> {
-const opportunities = await getOpportunities();
-return opportunities.find((opp) => opp.id === id) ?? null;
+export async function getOpportunityById(id: string): Promise<Opportunity | null> {
+  const opportunity = await prisma.opportunity.findUnique({ where: { id } });
+  return (opportunity as unknown as Opportunity) ?? null;
 }
 
 export function toFormData(opp: Opportunity): Partial<OpportunityFormData> {

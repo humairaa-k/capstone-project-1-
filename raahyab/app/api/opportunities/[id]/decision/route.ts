@@ -1,66 +1,57 @@
-import { getOpportunities } from "@/lib/opportunities";
 import { NextResponse } from "next/server";
-import fs from "fs/promises";
-import path from "path";
-
-const dataFilePath = path.join(process.cwd(), "data", "opportunities.json");
+import { prisma } from "@/lib/prisma";
+import { Prisma } from "@/lib/generated/prisma/client";
 
 export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   try {
     const { action } = await request.json();
-    const opportunities = await getOpportunities();
-    const index = opportunities.findIndex((opp: any) => opp.id === id);
-    if (index === -1) {
+    const existing = await prisma.opportunity.findUnique({ where: { id } });
+
+    if (!existing) {
       return NextResponse.json({ error: "Opportunity not found." }, { status: 404 });
     }
 
-    const existing: any = opportunities[index];
-
-    // --- Delete requests: handled completely separately from edit requests ---
     if (existing.pendingAction === "delete") {
       if (action === "approve") {
-        const updated = opportunities.filter((opp: any) => opp.id !== id);
-        await fs.writeFile(dataFilePath, JSON.stringify(updated, null, 2));
+        await prisma.opportunity.delete({ where: { id } });
         return NextResponse.json({ success: true, deleted: true });
       } else if (action === "reject") {
-        opportunities[index] = {
-          ...existing,
-          status: "approved",
-          pendingAction: undefined,
-        };
-        await fs.writeFile(dataFilePath, JSON.stringify(opportunities, null, 2));
-        return NextResponse.json(opportunities[index]);
+        const reverted = await prisma.opportunity.update({
+          where: { id },
+          data: { status: "approved", pendingAction: null },
+        });
+        return NextResponse.json(reverted);
       } else {
         return NextResponse.json({ error: "Invalid action." }, { status: 400 });
       }
     }
 
-    // --- Edit / new-submission requests ---
     if (action === "approve") {
-      opportunities[index] = {
-        ...existing,
-        status: "approved",
-        previousState: undefined,
-      };
+      const approved = await prisma.opportunity.update({
+        where: { id },
+        data: { status: "approved", previousState: Prisma.JsonNull, pendingAction: null },
+      });
+      return NextResponse.json(approved);
     } else if (action === "reject") {
       if (existing.previousState) {
-        opportunities[index] = {
-          ...existing.previousState,
-          previousState: undefined,
-        };
+        const prev = existing.previousState as any;
+        const reverted = await prisma.opportunity.update({
+          where: { id },
+          data: {
+            ...prev,
+            previousState: Prisma.JsonNull,
+            pendingAction: null,
+          },
+        });
+        return NextResponse.json(reverted);
       } else {
-        opportunities[index] = {
-          ...existing,
-          status: "rejected",
-        };
+        await prisma.opportunity.delete({ where: { id } });
+        return NextResponse.json({ success: true, deleted: true });
       }
     } else {
       return NextResponse.json({ error: "Invalid action." }, { status: 400 });
     }
-
-    await fs.writeFile(dataFilePath, JSON.stringify(opportunities, null, 2));
-    return NextResponse.json(opportunities[index]);
   } catch {
     return NextResponse.json({ error: "Failed to process decision." }, { status: 500 });
   }
