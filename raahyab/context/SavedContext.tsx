@@ -19,43 +19,37 @@ const SavedContext = createContext<SavedContextType | null>(null);
 export const SavedProvider = ({children}: Props ) => {
   const [ savedOpt, setSavedOpt ] = useState<string[]>([]);
 
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
-  const toggleSave =((id: string) => {
-   setSavedOpt((prev) => {
-    if(prev.includes(id)) {
-      return prev.filter((savedId) => savedId !== id)
-    }
-    return [...prev, id]
-   })
-  })
+  const storageKey = session?.user?.id ? `savedOpt:${session.user.id}` : null;
 
-    useEffect(() => {
-   const savedData = localStorage.getItem("savedOpt");
-   if(savedData){
-    setSavedOpt(JSON.parse(savedData))
-   }
-  },[])
+  useEffect(()=> {
+    if(status === "loading") return;
 
-  useEffect(() => {
-   localStorage.setItem("savedOpt", JSON.stringify(savedOpt));
-  },[savedOpt])
-
-  useEffect(() => {
-    if(!session) {
+    if(!storageKey) {
       setSavedOpt([]);
+      return;
     }
-  },[session])
 
-  //double check
+   const savedData = localStorage.getItem(storageKey)
+   setSavedOpt(savedData? JSON.parse(savedData) : []);
+  },[storageKey, status])
+
+  //Persist to the user's own key when the list changes
   useEffect(() => {
-  if (!session) {
-    setSavedOpt([]);
-    localStorage.removeItem("savedOpportunities");
+    if(!storageKey) return;
+    localStorage.setItem(storageKey, JSON.stringify(savedOpt));
+  },[savedOpt, storageKey])
+
+  const toggleSave =(id: string) => {
+    if(!storageKey) return;
+   setSavedOpt((prev) => 
+      prev.includes(id) ? prev.filter((savedId) => savedId !== id) : [...prev, id]
+    );
   }
-}, [session]);
 
   const clearSaved = () => {
+    if(storageKey) localStorage.removeItem(storageKey);
     setSavedOpt([]);
   }
 
