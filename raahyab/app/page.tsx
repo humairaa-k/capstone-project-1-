@@ -10,6 +10,7 @@ import CategoryGrid from "@/components/home/categories/CategoryGrid"
 
 export default async function Home() {
   const opportunities = await getOpportunities();
+
  return (
   <>
    <Hero opportunities={opportunities} />

@@ -22,7 +22,7 @@ export default function HeroButtons() {
              />
           </Link>
           <Link
-            href="/add-opportunity"
+            href="/opportunities"
             className="group flex items-center gap-2 bg-transparent text-foreground border border-accent/40 hover:bg-surface rounded-xl px-7 py-3 text-sm font-semibold transition-all duration-200 text-center">
              <Compass size={16} strokeWidth={2} className="text-primary" />
              {t("exploreOpportunities")}
