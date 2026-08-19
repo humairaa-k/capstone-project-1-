@@ -191,6 +191,11 @@
   "thisMonth": "این ماه"
 },
 
+"workTypeChart": {
+  "heading": "بر اساس نوع کار",
+  "thisMonth": "این ماه"
+},
+
 "recentSubmissions": {
   "heading": "ثبت‌نامهای اخیر",
   "titleCompany": "عنوان و شرکت",

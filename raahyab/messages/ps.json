@@ -189,6 +189,11 @@
   "thisMonth": "دا میاشت"
 },
 
+"workTypeChart": {
+  "heading": "بر اساس نوع کار",
+  "thisMonth": "این ماه"
+},
+
 "recentSubmissions": {
   "heading": "وروستي ثبتونه",
   "titleCompany": "سرلیک او شرکت",

@@ -45,7 +45,7 @@ export interface DashboardStats {
   newThisMonth: number;
   recentSubmissions: Opportunity[];
   pendingApprovals: Opportunity[];
-
+  workTypeBreakdown: { type:string; count:number }[];
 }
 
 export async function getDashboardStats(): Promise<DashboardStats> {
@@ -67,6 +67,11 @@ export async function getDashboardStats(): Promise<DashboardStats> {
   const remote = approved.filter((o) => o.type === "Remote").length;
   const remotePercent = total > 0 ? Math.round((remote / total) * 100) : 0;
 
+  const workTypeBreakdown = [
+   { type: "Remote", count: approved.filter((o) => o.type === "Remote").length },
+   { type: "On-site", count: approved.filter((o) => o.type === "On-site").length },
+   { type: "Hybrid", count: approved.filter((o) => o.type === "Hybrid").length }
+  ]
   
   const recentSubmissions = [...approved] 
     .sort((a, b) =>new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()) 
@@ -91,6 +96,7 @@ export async function getDashboardStats(): Promise<DashboardStats> {
     newThisMonth,
     recentSubmissions,
     pendingApprovals, 
+    workTypeBreakdown
   };
 }
 

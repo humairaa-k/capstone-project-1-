@@ -10,6 +10,7 @@ import PendingApprovals from "@/components/dashboard/admin/PendingApprovals";
 import RecentSubmissions from "@/components/dashboard/RecentSubmissions";
 import { useTranslations } from "next-intl";
 import { useLanguage } from "@/context/LanguageContext";
+import WorkTypeChart from "@/components/dashboard/WorkTypeChart";
 
 
   interface DashboardContentProps {
@@ -66,7 +67,8 @@ export default function DashbaordContent({ username, role, stats, trend }: Dashb
         <SubmissionTrendChart trendData={trend}/>
   
     </div>
-  
+
+   <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-4 mb-4 animate-fade-in-up-delay-2">
     <CategoryBarChart
         data={[
           { category: t("jobs"), count: stats.jobs },
@@ -78,6 +80,10 @@ export default function DashbaordContent({ username, role, stats, trend }: Dashb
           { category: t("volunteer"), count: stats.volunteer },
         ]}
       />
+
+     <WorkTypeChart data={stats.workTypeBreakdown}/>
+
+      </div>
   
       <div className="space-y-4">
        {role === "admin" && <PendingApprovals data={stats.pendingApprovals} />}

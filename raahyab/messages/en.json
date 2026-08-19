@@ -186,9 +186,14 @@
   },
 
   "categoryChart": {
-  "heading": "By category",
+  "heading": "By Category",
   "thisMonth": "This month"
   },
+
+  "workTypeChart": {
+  "heading": "By Work Type",
+  "thisMonth": "This Month"
+},
 
   "pendingApprovals": {
   "heading": "Pending Approvals",

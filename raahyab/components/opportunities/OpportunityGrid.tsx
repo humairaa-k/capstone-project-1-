@@ -8,7 +8,7 @@ import SearchBar from "@/components/opportunities/SearchBar";
 import { useEffect, useState, useMemo } from "react";
 import { getDeadlineStatus } from "@/utils/getDeadlineStatus";
 import EmptyState from "../common/EmptyState";
-import { Search, FilePlus, SlidersHorizontal, X} from "lucide-react"
+import { Search, FilePlus, SlidersHorizontal, X, Tags} from "lucide-react"
 import { useTranslations } from "next-intl"
 
 type PropsType = {

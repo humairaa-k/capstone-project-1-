@@ -1,4 +1,3 @@
-// components/dashboard/CategoryBarChart.tsx
 "use client";
 
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
@@ -9,11 +8,12 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { useTranslations } from "next-intl";
+import { Tags } from "lucide-react";
 
 const chartConfig = {
   count: {
     label: "Opportunities",
-    color: "var(--color-accent)",
+    color: "var(--color-primary)",
   },
 } satisfies ChartConfig;
 
@@ -25,58 +25,66 @@ export default function CategoryBarChart({ data }: CategoryBarChartProps) {
   const t = useTranslations("dashboard");
 
   return (
-    <div className="relative rounded-3xl bg-black/90 backdrop-blur-2xl p-6 sm:p-8 overflow-hidden my-8 border border-white/10 shadow-2xl shadow-black/40">
-         <div className="flex items-center justify-between mb-6">
-        <h3 className="text-white/90 font-medium text-background">{t("categoryChart.heading")}</h3>
+    <div className="relative rounded-3xl bg-primary/5 backdrop-blur-2xl p-6 sm:p-8 overflow-hidden my-8 border border-primary/10 shadow-sm">
+      <div className="flex items-center justify-between mb-6">
+        <h3 className="flex items-center gap-2 text-foreground/90 font-medium">
+          <Tags size={16} className="text-primary" />
+          {t("categoryChart.heading")}
+        </h3>
         <span className="text-xs text-muted-foreground">{t("categoryChart.thisMonth")}</span>
       </div>
 
-      <ChartContainer config={chartConfig} className="h-[220px] w-full">
-        <BarChart data={data} margin={{ left: -20, right: 10, top: 20 }}>
+      <ChartContainer config={chartConfig} className="h-[260px] w-full">
+        <BarChart data={data} margin={{ left: -20, right: 10, top: 20, bottom: 40 }}>
           <defs>
-            <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="6" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-            <linearGradient id="goldBar" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#F5B84E" />
-              <stop offset="100%" stopColor="var(--color-accent)" />
+            <linearGradient id="primaryBar" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="var(--color-primary)" stopOpacity={1} />
+              <stop offset="100%" stopColor="var(--color-primary)" stopOpacity={0.6} />
             </linearGradient>
           </defs>
-          <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="rgba(255,255,255,0.08)" />
+
+          <CartesianGrid
+            vertical={false}
+            strokeDasharray="4 4"
+            stroke="var(--color-primary)"
+            strokeOpacity={0.15}
+          />
+
           <XAxis
             dataKey="category"
-            tickLine={false}
+            tickLine={true}
             axisLine={false}
-            tickMargin={10}
-            fontSize={12}
-            stroke="rgba(253,246,236,0.5)"
+            tickMargin={12}
+            fontSize={11}
+            stroke="var(--color-muted-foreground)"
+            angle={-45}
+            textAnchor="end"
+            height={60}
+            interval={0}
           />
           <YAxis
             tickLine={false}
             axisLine={false}
             tickMargin={8}
             fontSize={12}
-            stroke="rgba(253,246,236,0.5)"
+            stroke="var(--color-muted-foreground)"
           />
-         <ChartTooltip
-  cursor={{ fill: "rgba(255,255,255,0.06)" }}
-  content={
-    <ChartTooltipContent
-      indicator="dot"
-      className="bg-black text-white border-white/10"
-    />
-  }
-/>
+
+          <ChartTooltip
+            cursor={{ fill: "var(--color-primary)", fillOpacity: 0.06 }}
+            content={
+              <ChartTooltipContent
+                indicator="dot"
+                className="bg-background text-foreground border-border"
+              />
+            }
+          />
+
           <Bar
             dataKey="count"
-            fill="url(#goldBar)"
+            fill="url(#primaryBar)"
             radius={[8, 8, 0, 0]}
             maxBarSize={44}
-            activeBar={false}
           />
         </BarChart>
       </ChartContainer>
