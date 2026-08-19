@@ -18,6 +18,7 @@ interface FilterSidebarProps {
   availableLocations: string[];
   availableTypes: string[];
   onClearAll: () => void;
+  variant?:  "sidebar" | "drawer";
 }
 
 export default function FiltersSidebar({
@@ -33,6 +34,7 @@ export default function FiltersSidebar({
   availableLocations,
   availableTypes,
   onClearAll,
+  variant = "sidebar",
 }: FilterSidebarProps) {
   const t = useTranslations("opportunitiesPage.filters");
   const { dir } = useLanguage();
@@ -56,13 +58,18 @@ export default function FiltersSidebar({
   return (
     <div
       dir={dir}
-      className="bg-card w-full sticky top-24 rounded-2xl border border-foreground/8 shadow-sm max-h-[calc(100vh-6rem)] mt-10 overflow-y-auto custom-scrollbar"
+      className={
+        variant === "drawer" ?
+        " w-full rounded-2xl" :
+        "bg-card w-full sticky top-24 rounded-2xl border border-foreground/8 shadow-sm max-h-[calc(100vh-6rem)] mt-10 overflow-y-auto custom-scrollbar" 
+      }
     >
+  
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-5 border-b border-foreground/8">
         <div className="flex items-center gap-2">
           <SlidersHorizontal className="w-4 h-4 text-primary" />
-          <h2 className="text-sm font-semibold text-foreground">{t("title")}</h2>
+          <h2 className="lg:text-sm sm:text-[8px] font-semibold text-foreground ">{t("title")}</h2>
         </div>
         {activeCount > 0 && (
           <span className="flex items-center justify-center h-5 min-w-5 px-1.5 rounded-full bg-primary/10 text-primary text-[11px] font-semibold">

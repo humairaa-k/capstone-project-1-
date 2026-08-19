@@ -8,8 +8,8 @@ import SearchBar from "@/components/opportunities/SearchBar";
 import { useEffect, useState, useMemo } from "react";
 import { getDeadlineStatus } from "@/utils/getDeadlineStatus";
 import EmptyState from "../common/EmptyState";
-import { Search, FilePlus } from "lucide-react"
-import { useTranslations } from "next-intl";
+import { Search, FilePlus, SlidersHorizontal, X} from "lucide-react"
+import { useTranslations } from "next-intl"
 
 type PropsType = {
  initialOpportunities: Opportunity[];  
@@ -27,6 +27,7 @@ export default function OpportunityGrid({initialOpportunities} : PropsType) {
   const [type, setType] = useState("All");
   const [expiringSoon, setExpiringSoon] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const itemsPerPage = 9; 
 
 
@@ -84,6 +85,12 @@ export default function OpportunityGrid({initialOpportunities} : PropsType) {
   const uniqueType = useMemo(() => [...new Set(opportunities.map(opp => opp.type))],
   [opportunities] );
 
+  const activeFiltersCount = 
+  category.length + 
+  (location !== "All" ? 1 : 0) +
+  (type !== "All" ? 1 :0 ) +
+  (expiringSoon ? 1 : 0);
+
  
   const handleClearAll = () => {
    setCategory([]);
@@ -105,7 +112,7 @@ export default function OpportunityGrid({initialOpportunities} : PropsType) {
     <div className=" p-5 sm:px-6 lg:px-10">
 
         <div className="flex flex-col lg:flex-row gap-6">
-          {/* filter sidebar */}
+          {/* filter sidebar - desktop*/}
           <aside className="hidden lg:block w-64 shrink-0 animate-fade-in-up-delay-1">
             <FiltersSidebar
             category={category}
@@ -127,8 +134,21 @@ export default function OpportunityGrid({initialOpportunities} : PropsType) {
           <div className="flex-1 min-w-0 space-y-6 animate-fade-in-up-delay-2">
             <SearchBar search={search} onSearch={setSearch} />
 
-             <div className="flex justify-end">
-             <div className="flex items-center gap-3">
+             <div className="flex items-center justify-end gap-3">
+              {/* mobile filter btn */}
+               <button
+                onClick={()=> setMobileFiltersOpen(true)}
+                className="lg:hidden flex items-center gap-2 border border-foreground/15 rounded-lg px-3 py-2 text-sm bg-background hover:bg-foreground/5"
+                >
+                <SlidersHorizontal size={16} />
+                {t("filters.title")}
+                {activeFiltersCount > 0 && (   
+                 <span className="bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {activeFiltersCount}
+                 </span>
+                )}
+               </button>
+               
                <label htmlFor="sort" className="text-sm text-muted-foreground hidden sm:block">
                   {t("OpportunitySort.sortBy")}
                </label>
@@ -142,7 +162,6 @@ export default function OpportunityGrid({initialOpportunities} : PropsType) {
                 <option value="deadline">{t("OpportunitySort.deadline")}</option>
                </select>
              </div>
-           </div>
             
           { opportunities.length === 0 ? (
              <EmptyState
@@ -206,9 +225,53 @@ export default function OpportunityGrid({initialOpportunities} : PropsType) {
        >
       {t("pagination.next")}
     </button>
-  </div>
-
+     </div>
     </div>
+
+   {/* mobile filter drawer */}
+   {mobileFiltersOpen && ( 
+      <div className="fixed inset-0 z-50 lg:hidden">
+      <div 
+      className="absolute inset-0 bg-black/50"
+        onClick={()=> setMobileFiltersOpen(false)}
+       />
+     <div className="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-background p-4 overflow-y-auto shadow-xl">
+      <div className="flex justify-end mb-4">
+          <button
+           onClick={() => setMobileFiltersOpen(false)}
+           className="p-2 rounded-lg hover:bg-foreground/5"
+           aria-label="Close filters"
+          >
+            <X size={20} />
+          </button>
+        </div>
+          <FiltersSidebar
+            category={category}
+            onCategoryChange={setCategory}
+            location={location}
+            onLocationChange={setLocation}
+            type={type}
+            onTypeChange={setType}
+            expiringSoon={expiringSoon}
+            onExpiringChange={setExpiringSoon}
+            availableCat={uniqueCat}
+            availableLocations={uniqueLocation}
+            availableTypes={uniqueType}
+            onClearAll={handleClearAll}
+            variant="drawer"
+          />
+
+          <button
+          onClick={() => setMobileFiltersOpen(false)}
+          className="w-full mt-4 bg-primary text-white rounded-lg py-2.5 text-sm font-medium"
+          >
+           {t("filters.showResults", {count: filteredOpportunities.length}) }
+
+          </button>
+      </div>
+    </div>
+    )}
+  
    </>
   )
 }

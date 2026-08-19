@@ -69,7 +69,8 @@
   "all": "ټول",
   "deadline": "پای نیټه",
   "expiringSoon": "ژر ختمیږي",
-  "clearAll": "ټول فلټرونه پاک کړئ"
+  "clearAll": "ټول فلټرونه پاک کړئ",
+  "showResults": "نمایش {count} نتیجه"
 },
 
  "OpportunitySearch": {
