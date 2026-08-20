@@ -16,7 +16,7 @@ export default async function ProfilePage() {
     : null;
 
   return (
-    <main className="mx-auto max-w-2xl px-6 py-16">
+    <main className="mx-auto max-w-2xl px-4 py-8">
       <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
         {t("eyebrow")}
       </p>

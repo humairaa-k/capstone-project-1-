@@ -73,13 +73,16 @@ export default function SavedContent() {
    
   return (
      <div>
-   <Heading
-     title={t("title")}
-     highlight={t("highlight")}
-     subtitle={t("subtitle", { count: savedOpportunities.length })}
-     className="animate-fade-in-up"
-   />
+      <div className="fixed top-1 left-0 right-0 z-20 bg-background">
+       <Heading
+         title={t("title")}
+         highlight={t("highlight")}
+         subtitle={t("subtitle", { count: savedOpportunities.length })}
+         className="animate-fade-in-up"
+       />
+    </div>
 
+  <div className="pt-[90px]">
    <SearchFilter
    search={search}
    onSearch={setSearch}
@@ -89,7 +92,7 @@ export default function SavedContent() {
    onClear={clearPhilter}
    className="animate-fade-in-up-delay-1"
    />
-  
+  </div>
    {savedOpt.length === 0 ? (
     <EmptyState
       title={t("empty.noneYetTitle")}
@@ -126,7 +129,7 @@ export default function SavedContent() {
         <OpportunityCard key={opportunity.id} opportunity={opportunity} />
       ))}
     </div>
-
+   
      {/* Loadmore btn */}
      {visibleCount < sortedOpport.length && (
       <div className="flex justify-center py-6">

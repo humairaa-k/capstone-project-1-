@@ -13,7 +13,7 @@ export default function CVBuilderPage() {
   const previewRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <main className="min-h-screen bg-background px-6 py-10 mt-14">
+    <main className="min-h-screen bg-background px-6 py-4 mt-0">
       <div className="mx-auto mb-6 flex max-w-7xl items-center justify-between">
         <h1 className="text-2xl font-bold text-foreground italic">{t("title")}</h1>
         <ExportPdfButton

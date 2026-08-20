@@ -9,13 +9,17 @@ import { useTranslations } from "next-intl";
 
 const navItems = [
   { href: "/dashboard", key: "dashboard", icon: LayoutDashboard },
-  { href: "/add-opportunity", key: "addOpportunity", icon: PlusCircle },
-  { href: "/saved", key: "saved", icon: Bookmark },
-  { href: "/cv-builder", key: "cvBuilder", icon: FileText },
+  { href: "/dashboard/add-opportunity", key: "addOpportunity", icon: PlusCircle },
+  { href: "/dashboard/saved", key: "saved", icon: Bookmark },
+  { href: "/dashboard/cv-builder", key: "cvBuilder", icon: FileText },
   { href: "/dashboard/profile", key: "profile", icon: User },
 ];
 
-export default function Sidebar() {
+interface SidebarProps {
+  isOpen: boolean;
+}
+
+export default function Sidebar({ isOpen }: SidebarProps) {
   const pathname = usePathname();
   const { data: session } = useSession();
   const { dir } = useLanguage();
@@ -28,21 +32,27 @@ export default function Sidebar() {
   return (
     <nav aria-label="Dashboard navigation" className="flex flex-col gap-1 mt-0.5">
       {session?.user && (
-        <div className="flex items-center gap-3 mb-3 px-4 py-3.5 rounded-2xl bg-primary/5">
+        <div
+          className={`flex items-center mb-3 rounded-2xl bg-primary/5 transition-all duration-200
+            ${isOpen ? "gap-3 px-4 py-3.5" : "justify-center py-3"}`}
+          title={!isOpen ? (session.user.username ?? session.user.name ?? "") : undefined}
+        >
           <div className="flex items-center justify-center h-10 w-10 shrink-0 rounded-full bg-primary/15 text-primary text-sm font-semibold">
             {initials}
           </div>
-          <div className="min-w-0">
-            <p className="text-[10px] font-bold uppercase tracking-[2px] text-primary/70 mb-0.5">
-              {t("signedIn")}
-            </p>
-            <p className="truncate text-sm font-semibold text-foreground/90 leading-tight">
-              {session.user.username ?? session.user.name}
-            </p>
-            <p className="truncate text-xs text-muted-foreground">
-              {session.user.email}
-            </p>
-          </div>
+          {isOpen && (
+            <div className="min-w-0">
+              <p className="text-[10px] font-bold uppercase tracking-[2px] text-primary/70 mb-0.5">
+                {t("signedIn")}
+              </p>
+              <p className="truncate text-sm font-semibold text-foreground/90 leading-tight">
+                {session.user.username ?? session.user.name}
+              </p>
+              <p className="truncate text-xs text-muted-foreground">
+                {session.user.email}
+              </p>
+            </div>
+          )}
         </div>
       )}
 
@@ -56,7 +66,9 @@ export default function Sidebar() {
             key={href}
             href={href}
             aria-current={isActive ? "page" : undefined}
-            className={`group relative flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-150
+            title={!isOpen ? t(key) : undefined}
+            className={`group relative flex items-center rounded-xl text-sm font-medium transition-all duration-150
+              ${isOpen ? "gap-3 px-4 py-2.5" : "justify-center px-2 py-2.5"}
               ${isActive
                 ? "bg-primary/10 text-primary"
                 : "text-foreground/70 hover:bg-foreground/[0.05] hover:text-foreground"
@@ -74,7 +86,7 @@ export default function Sidebar() {
               }`}
               strokeWidth={1.75}
             />
-            <span>{t(key)}</span>
+            {isOpen && <span>{t(key)}</span>}
           </Link>
         );
       })}

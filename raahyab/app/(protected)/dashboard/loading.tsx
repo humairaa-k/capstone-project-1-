@@ -98,9 +98,6 @@ export default function DashboardLoading() {
 
         </div>
 
-
-
-
         {/* RECENT SUBMISSIONS */}
 
         <div className="space-y-4">

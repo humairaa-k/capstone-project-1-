@@ -32,7 +32,7 @@ export default function AddOpportunityContent() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-26 pb-16 animate-fade-in-up">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-16 animate-fade-in-up">
 
       <div className="mb-12">
         <h1

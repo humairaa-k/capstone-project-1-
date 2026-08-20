@@ -15,7 +15,7 @@ import { useTranslations } from 'next-intl';
 const links = [
   { href: "/", key: "home" },
   { href: "/opportunities", key: "opportunities" },
-  { href: "/saved", key: "saved" },
+  { href: "/dashboard/saved", key: "saved" },
   { href: "/dashboard", key: "dashboard" },
   { href: "/about", key: "about" },
   { href: "/contact", key: "contact" },
