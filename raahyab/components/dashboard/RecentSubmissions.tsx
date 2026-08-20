@@ -1,7 +1,7 @@
 "use client";
 
 import { Opportunity } from "@/types";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Inbox  } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -31,7 +31,9 @@ export default function RecentSubmissions({ data }: { data: Opportunity[] }) {
   return (
     <div className="rounded-3xl border border-foreground/10 my-6 bg-card overflow-hidden">
       <div className="px-8 sm:px-6 py-4 border-b mt-2.5 border-foreground/10">
-        <h3 className="text-base font-medium text-foreground">{t("recentSubmissions.heading")}</h3>
+        <h3 className="flex items-center gap-3 font-medium text-foreground">
+          < Inbox size={20} className="text-primary" />
+          {t("recentSubmissions.heading")} </h3>
       </div>
 
       <div className={`grid ${GRID_COLS} gap-3 px-5 sm:px-6 py-2.5 bg-foreground/1.5`}>

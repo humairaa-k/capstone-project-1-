@@ -20,9 +20,10 @@ export default function RemoteSpotlightSection({ opportunities }: { opportunitie
     <section
       ref={sectionRef}
       dir={dir}
-      className="py-16 sm:py-20 bg-background relative overflow-hidden"
+      className="py-16 sm:py-20 bg-[#0d3b3520]/12 relative overflow-hidden"
     >
-      
+    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
+
       <div className="absolute top-0 right-0 w-80 h-80 opacity-[0.04] pointer-events-none">
         <svg viewBox="0 0 300 300" className="w-full h-full">
           <defs>
@@ -50,10 +51,10 @@ export default function RemoteSpotlightSection({ opportunities }: { opportunitie
           </div>
           <Link
             href="/opportunities?type=Remote"
-            className="inline-flex w-fit items-center gap-2 rounded-lg border border-primary/20 bg-card px-4 py-2 text-sm font-medium text-primary transition-all duration-200 hover:border-primary/40 hover:bg-primary hover:text-card"
+          className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:gap-3 transition-all duration-200 group"
           >
             {t("viewAll")}
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true" />
           </Link>
         </div>
 

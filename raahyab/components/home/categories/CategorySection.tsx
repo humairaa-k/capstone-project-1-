@@ -25,13 +25,13 @@ export default function CategorySection({ children }: { children: React.ReactNod
             </h2>
           </div>
 
-          <Link
-            href="/opportunities"
-            className="hidden sm:inline-flex items-center gap-2 rounded-lg border border-primary/20 bg-card px-4 py-2 text-sm font-medium text-primary transition-all duration-200 hover:border-primary/40 hover:bg-primary hover:text-card"
-          >
-             {t("viewAll")}
-             <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
+       <Link
+       href="/opportunities"
+       className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:gap-3 transition-all duration-200 group"
+        >
+         {t("viewAll")}
+         <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+       </Link>
         </div>
 
         {children}
