@@ -22,11 +22,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex gap-9 p-4 pt-24 min-h-screen bg-background ml-4">
 
-      <div className="relative hidden sm:block shrink-0">
+      <div
+        className="relative hidden sm:block shrink-0 sticky"
+        style={{ top: `${sidebarTop}px`, height: "fit-content" }}
+      >
         <aside
           className={`sticky top-24 max-h-[calc(100vh-6rem)] overflow-y-auto h-fit rounded-3xl mb-8 bg-card border border-foreground/10 animate-fade-in-up transition-all duration-200
             ${isSidebarOpen ? "w-60 p-4" : "w-20 p-3"}`}
-            style={{ top: `${sidebarTop}px`, maxHeight: sidebarMaxHeight }}
+            // style={{ top: `${sidebarTop}px`, maxHeight: sidebarMaxHeight }}
         >
           <Sidebar isOpen={isSidebarOpen} />
         </aside>
