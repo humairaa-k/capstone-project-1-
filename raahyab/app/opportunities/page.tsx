@@ -2,6 +2,9 @@ import OpportunityGrid from "@/components/opportunities/OpportunityGrid"
 import { Metadata } from "next";
 import { getOpportunities } from "@/lib/opportunities";
 
+// Opportunities are approved after deployment, so this page must not use a build-time snapshot.
+export const dynamic = "force-dynamic";
+
 
 export const metadata: Metadata = {
   title: "Explore Opportunities",

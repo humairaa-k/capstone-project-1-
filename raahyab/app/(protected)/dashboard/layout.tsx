@@ -38,7 +38,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           onClick={() => setIsSidebarOpen((prev) => !prev)}
           aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
           aria-expanded={isSidebarOpen}
-          className="absolute top-10 -right-8 flex items-center justify-center h-8 w-8 rounded bg-card border border-foreground/10 text-foreground/60 hover:text-foreground shadow-sm transition-colors duration-150 z-10"
+          className="absolute top-10 -right-8 flex items-center justify-center h-8 w-8 rounded rounded-r-md bg-card border border-foreground/10 text-foreground/60 hover:text-foreground shadow-sm transition-colors duration-150 z-10"
         >
           {isSidebarOpen ? (
             <PanelLeftClose className="w-5 h-5" strokeWidth={1.75} />
