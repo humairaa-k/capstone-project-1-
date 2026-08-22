@@ -226,18 +226,37 @@ proxy.ts                # Route protection (runs before protected pages load)
 
 - **Company/organization pages with full CRUD** — a separate `Organization` model with its own profile page, instead of storing org names as plain text
 - **Profile page with real editing** — a form to update username, email, password, and profile photo
-- **Automated testing** — no unit or end-to-end tests yet; priority areas are the dashboard stats, approve/decline logic, and signup/login flow
 - **Contact form** — wire it up to save submissions to the database or send them via an email service (e.g. Resend)
 - **Google OAuth** — schema already supports it via the `Account` model; just needs adding to `lib/auth.ts`
 - **Email notifications** — notify users when their submission is approved/declined, and notify admins on new submissions
-- **Opportunities filters** — fix filter visibility on small screens (currently not visible on mobile)
 - **Dashboard** — expand admin controls, insights, and refinements beyond current stats/charts
 - **CV Builder** — add more templates, sections, and export options
 
+## Testing
+
+Run the test suite:
+
+```bash
+npm test
+```
+
+**Covered:**
+- **Schemas** (`lib/schemas/`) — signup, login, contact, and opportunity form validation
+- **Data layer** (`lib/opportunities.ts`) — opportunity queries and dashboard stats calculations
+- **API routes** — opportunities (list/create), single opportunity (get/update/delete), admin approve/decline decisions, signup, contact, and account deletion, using a mocked Prisma client
+- **Route protection** (`proxy.ts`) — auth redirects for protected routes
+- **Components** — `EmptyState`, `PendingApprovals` (admin approve/decline UI)
+
+**Not yet covered:**
+- End-to-end tests
+- Remaining components
+
 ## What I Learned
 
-- Working with Prisma and Supabase — this was my first time using Prisma as an ORM connected to a Supabase PostgreSQL database, and I ran into a fair number of setup and configuration challenges along the way, especially since I'd never used either tool before
+- Working with Prisma and Supabase — this was my first time using Prisma as an ORM connected to a Supabase PostgreSQL database, and I ran into a fair number of setup and configuration challenges along the way, 
+
 - Understanding how APIs are actually built — writing the API routes for opportunities, auth, and admin decisions gave me a much clearer picture of how backend APIs work in practice, not just in theory
+
 - Thinking about scalability and security, not just UI — this project pushed me to consider how the app would hold up with more users and data, and where security mattered (validation, auth checks), instead of only focusing on how things looked
 
 
